@@ -8,27 +8,61 @@ const SAMCART_URL = 'https://ship.samcart.com/products/claude-co-work-bootcamp'
 function Hero() {
   return (
     <section className="relative w-full bg-page overflow-hidden">
-      {/* Full Figma hero render as background — contains logo, text, photos, everything */}
-      <img
-        src="/images/hero-bg.png"
-        alt="Claude Cowork Bootcamp — Build .Skills. 2 weeks. 6 live sessions. A crash course on No-Code AI."
-        className="w-full h-auto block"
-      />
-      {/* Badge overlay — live HTML for the pulse animation */}
-      <div className="absolute top-[2.5%] left-1/2 -translate-x-1/2 flex items-center gap-2 bg-black/80 backdrop-blur px-4 py-2 rounded-full z-10 border border-white/20">
-        <span className="w-2 h-2 rounded-full bg-green animate-pulse" />
-        <span className="font-manrope text-[12.8px] font-semibold text-white">
-          Next Live Class: February 23, 2026
-        </span>
+      {/* Background: hero-bg.png for the photo composition */}
+      <div className="relative">
+        <img
+          src="/images/hero-bg.png"
+          alt=""
+          className="w-full h-auto block"
+        />
+        {/* Gradient overlay: solid dark on top (covers old baked-in text), fades to transparent at bottom (reveals photos) */}
+        <div className="absolute inset-0" style={{
+          background: 'linear-gradient(to bottom, #0d1116 0%, #0d1116 45%, rgba(13,17,22,0.85) 60%, rgba(13,17,22,0.3) 75%, transparent 90%)',
+        }} />
       </div>
-      {/* Invisible CTA link positioned over the "JOIN THE BOOTCAMP" button in the image */}
-      <a
-        href={SAMCART_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="absolute bottom-[8%] left-[5.5%] w-[18%] h-[6%] z-10 cursor-pointer"
-        aria-label="Join the Bootcamp"
-      />
+
+      {/* HTML text content positioned over the darkened top portion */}
+      <div className="absolute inset-0 flex flex-col items-center z-10">
+        {/* Badge */}
+        <div className="mt-6 flex items-center gap-2 bg-black/80 backdrop-blur px-4 py-2 rounded-full border border-white/20">
+          <span className="w-2 h-2 rounded-full bg-green animate-pulse" />
+          <span className="font-manrope text-[12.8px] font-semibold text-white">
+            Next Live Class: February 23, 2026
+          </span>
+        </div>
+
+        {/* Logo */}
+        <img src="/images/logo.png" alt="Claude Cowork Bootcamp" className="h-10 mt-8 mb-6" />
+
+        {/* Headline */}
+        <h1 className="font-anton text-[clamp(36px,5.5vw,80px)] leading-[0.95] uppercase text-center max-w-[900px] px-6">
+          <span className="text-cream">Turn Claude Into Your </span>
+          <span className="text-cream">Highest Performing Employee </span>
+          <span className="text-cream">By Building </span>
+          <span className="text-yellow">.skills</span>
+        </h1>
+
+        {/* Subtitle */}
+        <p className="font-manrope text-[clamp(14px,1.4vw,18px)] text-cream/70 text-center max-w-[600px] px-6 mt-6 leading-relaxed">
+          Any task you do more than once should be saved as a .skill.
+          <br />This is how you build leverage forever.
+        </p>
+
+        {/* Sub-subtitle */}
+        <p className="font-manrope text-[clamp(13px,1.2vw,16px)] text-cream/50 text-center max-w-[550px] px-6 mt-3 leading-relaxed">
+          Join us live for beginner-friendly training on No-Code AI and the future of work.
+        </p>
+
+        {/* CTA Button */}
+        <a
+          href={SAMCART_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-8 bg-yellow text-black font-manrope text-[16px] font-extrabold uppercase tracking-wide px-8 py-4 rounded-lg hover:brightness-110 transition"
+        >
+          Join the Bootcamp
+        </a>
+      </div>
     </section>
   )
 }
