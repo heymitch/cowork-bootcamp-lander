@@ -97,13 +97,13 @@ function Hero() {
             </a>
           </div>
 
-          {/* Right — clean headshot photos (no baked-in text) */}
-          <div className="flex-1 md:max-w-[55%] relative min-h-[550px] md:min-h-[650px] flex items-center justify-end">
+          {/* Right — clean headshot photos, bottom cropped to clean edge */}
+          <div className="flex-1 md:max-w-[55%] relative min-h-[550px] md:min-h-[650px] overflow-hidden flex items-start justify-end">
             <img
               src="/images/hero-photos-clean.png"
               alt="Cole, Dickie, and Mitch"
-              className="h-full max-h-[700px] object-contain object-right"
-              style={{ filter: 'brightness(1.1)' }}
+              className="w-full object-cover object-top"
+              style={{ filter: 'brightness(1.1)', maxHeight: '85%' }}
             />
           </div>
         </div>
