@@ -13,7 +13,7 @@ function Hero() {
         <div className="flex items-center gap-2 bg-black/80 backdrop-blur px-5 py-2.5 rounded-full border border-white/20">
           <span className="w-2 h-2 rounded-full bg-green animate-pulse" />
           <span className="font-manrope text-[11px] font-bold text-white uppercase tracking-[0.15em]">
-            2-Week Bootcamp Kicks Off Monday, February 23
+            2-Week Bootcamp Kicks Off Sunday, April 6
           </span>
         </div>
       </div>
@@ -23,14 +23,22 @@ function Hero() {
         <div className="flex flex-col md:flex-row">
           {/* Left — text */}
           <div className="flex-1 md:max-w-[50%] pb-12 md:pb-20 relative z-20">
-            {/* Claude logo + text */}
-            <div className="flex items-center gap-3 mb-2">
-              <img src="/images/logo.png" alt="" className="h-10" />
-              <span className="font-manrope text-[28px] font-semibold text-white">Claude</span>
+            {/* Claude logo + text — white logo, serif "Claude" */}
+            <div className="flex items-center gap-2 mb-2">
+              <img src="/images/logo.png" alt="" className="h-10 brightness-0 invert" />
+              <span style={{ fontFamily: 'Georgia, "Times New Roman", serif' }} className="text-[28px] text-white">Claude</span>
             </div>
 
-            {/* Big COWORK BOOTCAMP */}
-            <h2 className="font-anton text-[clamp(72px,9vw,130px)] leading-[0.85] uppercase text-red mb-6">
+            {/* Big COWORK BOOTCAMP — gradient red */}
+            <h2
+              className="font-anton text-[clamp(72px,9vw,130px)] leading-[0.85] uppercase mb-6"
+              style={{
+                background: 'linear-gradient(180deg, #dc2625 0%, #8b1a1a 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}
+            >
               Cowork<br />Bootcamp
             </h2>
 
@@ -75,12 +83,12 @@ function Hero() {
                 className="w-full h-full object-cover object-top grayscale brightness-90"
               />
             </div>
-            {/* Dickie - center */}
+            {/* Dickie - center (using headshot — hero export was broken) */}
             <div className="absolute bottom-0 left-[28%] w-[44%] h-full z-10" style={{
               clipPath: 'polygon(18% 0%, 100% 0%, 82% 100%, 0% 100%)',
             }}>
               <img
-                src="/images/hero-dickie.png"
+                src="/images/dickie-headshot.png"
                 alt="Dickie Bush"
                 className="w-full h-full object-cover object-top grayscale brightness-90"
               />
@@ -370,7 +378,7 @@ function Schedule() {
             <span className="font-bold">Claude Cowork</span> Bootcamp Kicks Off
           </h2>
           <h3 className="font-manrope text-[48px] font-bold">
-            <span className="text-cream">Monday, February 23rd!</span>{' '}
+            <span className="text-cream">Sunday, April 6th!</span>{' '}
             <span className="text-cream/50">Instructors</span>
           </h3>
           <p className="font-manrope text-[18px] font-medium text-white mt-4">Here's the schedule:</p>
@@ -480,7 +488,7 @@ function Pricing() {
         </div>
         <div className="px-8 pb-8 text-center space-y-3">
           <p className="font-manrope text-[16px] font-medium text-white">
-            Starts February 23, 2026 · Limited seats
+            Starts April 6, 2026 · Limited seats
           </p>
           <div className="inline-flex items-center gap-2 bg-red-bg px-4 py-2 rounded-full">
             <span>🛡️</span>
@@ -530,7 +538,7 @@ function GuaranteeCTA() {
             Join Claude Cowork Bootcamp — $800
           </a>
           <p className="font-manrope text-[20px] text-cream/50">
-            February 23 – March 6, 2026 · Limited seats
+            April 6 – April 18, 2026 · Limited seats
           </p>
         </div>
       </div>
