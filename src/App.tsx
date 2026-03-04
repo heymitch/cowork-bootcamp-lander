@@ -9,7 +9,7 @@ function Hero() {
   return (
     <section className="relative w-full bg-page overflow-hidden">
       {/* Badge — centered top */}
-      <div className="flex justify-center pt-6 pb-6 relative z-20">
+      <div className="flex justify-center pt-6 pb-8 relative z-20">
         <div className="flex items-center gap-2 bg-black/80 backdrop-blur px-5 py-2.5 rounded-full border border-white/20">
           <span className="w-2 h-2 rounded-full bg-green animate-pulse" />
           <span className="font-manrope text-[11px] font-bold text-white uppercase tracking-[0.15em]">
@@ -18,47 +18,66 @@ function Hero() {
         </div>
       </div>
 
-      {/* Figma hero component as background — contains branding + angled photos */}
-      <div className="relative max-w-page mx-auto">
-        <img
-          src="/images/hero-photos.png"
-          alt=""
-          className="w-full h-auto block"
-        />
-        {/* Overlay on left side for readable text */}
-        <div className="absolute inset-0" style={{
-          background: 'linear-gradient(to right, #0d1116 38%, rgba(13,17,22,0.6) 50%, transparent 65%)',
-        }} />
+      <div className="relative max-w-page mx-auto px-6 pb-0">
+        <div className="flex flex-col md:flex-row">
+          {/* Left — full HTML text + branding */}
+          <div className="flex-1 md:max-w-[50%] pb-12 md:pb-20 relative z-20">
+            {/* Claude logo */}
+            <div className="mb-2">
+              <img src="/images/logo.png" alt="Claude" className="h-10 brightness-0 invert" />
+            </div>
 
-        {/* Text content positioned over the left side */}
-        <div className="absolute inset-0 flex flex-col justify-center px-6 md:px-12 z-10 max-w-[50%]">
-          {/* Headline */}
-          <h1 className="font-manrope text-[clamp(18px,2.2vw,30px)] font-bold text-cream leading-[1.3] mb-5 max-w-[440px]">
-            Turn Claude Into Your Highest Performing Employee By Building{' '}
-            <span className="text-yellow">.skills</span>
-          </h1>
+            {/* Big COWORK BOOTCAMP — gradient red */}
+            <h2
+              className="font-anton text-[clamp(72px,9vw,130px)] leading-[0.85] uppercase mb-6"
+              style={{
+                background: 'linear-gradient(180deg, #dc2625 0%, #8b1a1a 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}
+            >
+              Cowork<br />Bootcamp
+            </h2>
 
-          {/* Subtitle */}
-          <p className="font-manrope text-[clamp(13px,1.2vw,16px)] text-cream/70 leading-relaxed mb-3 max-w-[420px]">
-            Any task you do more than once should be saved as a .skill.{' '}
-            <span className="text-yellow font-semibold italic">This is how you build leverage forever.</span>
-          </p>
+            {/* Headline */}
+            <h1 className="font-manrope text-[clamp(22px,2.4vw,32px)] font-bold text-cream leading-[1.3] mb-6 max-w-[480px]">
+              Turn Claude Into Your Highest Performing Employee By Building{' '}
+              <span className="text-yellow">.skills</span>
+            </h1>
 
-          {/* Sub-subtitle */}
-          <p className="font-manrope text-[clamp(12px,1.1vw,15px)] text-cream/60 leading-relaxed mb-6 max-w-[400px]">
-            Join us live for beginner-friendly training on{' '}
-            <span className="text-cream font-semibold">No-Code AI and the future of work.</span>
-          </p>
+            {/* Subtitle */}
+            <p className="font-manrope text-[clamp(15px,1.3vw,17px)] text-cream/70 leading-relaxed mb-4 max-w-[460px]">
+              Any task you do more than once should be saved as a .skill.{' '}
+              <span className="text-yellow font-semibold italic">This is how you build leverage forever.</span>
+            </p>
 
-          {/* CTA Button */}
-          <a
-            href={SAMCART_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block bg-yellow text-black font-manrope text-[clamp(13px,1.2vw,16px)] font-extrabold uppercase tracking-[0.08em] px-8 py-4 rounded-lg hover:brightness-110 transition w-fit"
-          >
-            How It Works
-          </a>
+            {/* Sub-subtitle */}
+            <p className="font-manrope text-[clamp(14px,1.2vw,16px)] text-cream/60 leading-relaxed mb-8 max-w-[440px]">
+              Join us live for beginner-friendly training on{' '}
+              <span className="text-cream font-semibold">No-Code AI and the future of work.</span>
+            </p>
+
+            {/* CTA Button */}
+            <a
+              href={SAMCART_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-yellow text-black font-manrope text-[16px] font-extrabold uppercase tracking-[0.08em] px-10 py-5 rounded-lg hover:brightness-110 transition"
+            >
+              How It Works
+            </a>
+          </div>
+
+          {/* Right — Figma photos clipped to just the headshots (right 60% of image) */}
+          <div className="flex-1 md:max-w-[50%] relative min-h-[500px] md:min-h-[600px] overflow-hidden">
+            <img
+              src="/images/hero-photos.png"
+              alt="Instructors"
+              className="absolute top-0 right-0 h-full object-cover object-right"
+              style={{ width: '200%', maxWidth: 'none' }}
+            />
+          </div>
         </div>
       </div>
     </section>
