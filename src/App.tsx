@@ -468,7 +468,7 @@ function Schedule() {
         <div className="max-w-[600px] mx-auto mb-12 border border-dashed border-cream/20 rounded-xl p-6">
           {/* Faded week above */}
           <div className="grid grid-cols-6 gap-2 mb-3 opacity-30">
-            <span className="font-manrope text-[13.6px] font-bold text-white">Mar 31</span>
+            <span className="font-manrope text-[13.6px] font-bold text-white">Mar 30</span>
             {['M', 'T', 'W', 'T', 'F'].map(d => (
               <span key={d + '1'} className="font-manrope text-[14.4px] font-medium text-white text-center">{d}</span>
             ))}
@@ -476,7 +476,7 @@ function Schedule() {
           {/* Week 1 */}
           <div className="grid grid-cols-6 gap-2 mb-3 bg-card rounded-xl p-4">
             <span className="font-manrope text-[13.6px] font-bold text-white self-center">Week 1</span>
-            {[{d:'7',active:true},{d:'8',active:false},{d:'9',active:true},{d:'10',active:false},{d:'11',active:true}].map(({d,active}) => (
+            {[{d:'6',active:true},{d:'7',active:false},{d:'8',active:true},{d:'9',active:false},{d:'10',active:true}].map(({d,active}) => (
               <div key={d} className={`w-12 h-12 rounded-lg flex flex-col items-center justify-center mx-auto ${active ? 'border-2 border-green bg-green/10' : ''}`}>
                 <span className={`font-manrope font-bold ${active ? 'text-[17.6px] text-white' : 'text-[14.4px] text-white/50'}`}>{d}</span>
                 {active && <span className="w-1.5 h-1.5 rounded-full bg-green mt-0.5" />}
@@ -486,7 +486,7 @@ function Schedule() {
           {/* Week 2 */}
           <div className="grid grid-cols-6 gap-2 mb-3 bg-card rounded-xl p-4">
             <span className="font-manrope text-[13.6px] font-bold text-white self-center">Week 2</span>
-            {[{d:'14',active:true},{d:'15',active:false},{d:'16',active:true},{d:'17',active:false},{d:'18',active:true}].map(({d,active}) => (
+            {[{d:'13',active:true},{d:'14',active:false},{d:'15',active:true},{d:'16',active:false},{d:'17',active:true}].map(({d,active}) => (
               <div key={d} className={`w-12 h-12 rounded-lg flex flex-col items-center justify-center mx-auto ${active ? 'border-2 border-green bg-green/10' : ''}`}>
                 <span className={`font-manrope font-bold ${active ? 'text-[17.6px] text-white' : 'text-[14.4px] text-white/50'}`}>{d}</span>
                 {active && <span className="w-1.5 h-1.5 rounded-full bg-green mt-0.5" />}
@@ -495,7 +495,7 @@ function Schedule() {
           </div>
           {/* Faded week below */}
           <div className="grid grid-cols-6 gap-2 opacity-30">
-            <span className="font-manrope text-[13.6px] font-bold text-white">Apr 21</span>
+            <span className="font-manrope text-[13.6px] font-bold text-white">Apr 20</span>
             {['M', 'T', 'W', 'T', 'F'].map(d => (
               <span key={d + '2'} className="font-manrope text-[14.4px] font-medium text-white text-center">{d}</span>
             ))}
@@ -507,9 +507,9 @@ function Schedule() {
           <div className="bg-card p-8">
             <h4 className="font-manrope text-[26px] font-bold text-orange mb-6">Week 1 — April</h4>
             {[
-              { day: 'Mon 7', session: 'Session 1: Setup & First .Skill' },
-              { day: 'Wed 9', session: 'Session 2: Voice Training' },
-              { day: 'Fri 11', session: 'Session 3: Content .Skills' },
+              { day: 'Mon 6', session: 'Session 1: Setup & First .Skill' },
+              { day: 'Wed 8', session: 'Session 2: Voice Training' },
+              { day: 'Fri 10', session: 'Session 3: Content .Skills' },
             ].map((s, i) => (
               <div key={i} className="flex gap-6 py-3 border-b border-cream/10 last:border-0">
                 <span className="font-manrope text-[16px] font-bold text-cream w-16">{s.day}</span>
@@ -520,9 +520,9 @@ function Schedule() {
           <div className="bg-card p-8">
             <h4 className="font-manrope text-[26px] font-bold text-orange mb-6">Week 2 — April</h4>
             {[
-              { day: 'Mon 14', session: 'Session 4: Research & Ideas' },
-              { day: 'Wed 16', session: 'Session 5: Work Docs & Proposals' },
-              { day: 'Fri 18', session: 'Session 6: Advanced .Skills' },
+              { day: 'Mon 13', session: 'Session 4: Research & Ideas' },
+              { day: 'Wed 15', session: 'Session 5: Work Docs & Proposals' },
+              { day: 'Fri 17', session: 'Session 6: Advanced .Skills' },
             ].map((s, i) => (
               <div key={i} className="flex gap-6 py-3 border-b border-cream/10 last:border-0">
                 <span className="font-manrope text-[16px] font-bold text-cream w-16">{s.day}</span>
