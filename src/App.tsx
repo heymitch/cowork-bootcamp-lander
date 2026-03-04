@@ -97,13 +97,13 @@ function Hero() {
             </a>
           </div>
 
-          {/* Right — Figma photos, dark bg to hide outline */}
-          <div className="flex-1 md:max-w-[55%] relative min-h-[550px] md:min-h-[650px] overflow-hidden -mr-6 bg-page">
+          {/* Right — Figma photos, flowing off right edge */}
+          <div className="flex-1 md:max-w-[55%] relative min-h-[550px] md:min-h-[650px] bg-page" style={{ overflow: 'visible' }}>
             <img
               src="/images/hero-photos.png"
               alt="Instructors"
-              className="absolute top-0 right-0 h-full object-cover object-right brightness-110"
-              style={{ width: '200%', maxWidth: 'none' }}
+              className="absolute top-0 right-[-15%] h-full object-cover object-right brightness-110"
+              style={{ width: '210%', maxWidth: 'none' }}
             />
           </div>
         </div>
