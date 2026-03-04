@@ -1,5 +1,5 @@
 import './index.css'
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import ScrollytellingCompact from './framer/scrolly'
 
 const SAMCART_URL = 'https://ship.samcart.com/products/claude-co-work-bootcamp'
@@ -213,21 +213,65 @@ function SkillsRightForYou() {
   )
 }
 
+/* ─── Slide-in hook ─── */
+function useSlideIn(direction: 'left' | 'right') {
+  const ref = useRef<HTMLDivElement>(null)
+  const [visible, setVisible] = useState(false)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setVisible(true) },
+      { threshold: 0.2 }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
+
+  const transform = visible
+    ? 'translateX(0)'
+    : direction === 'left' ? 'translateX(-100%)' : 'translateX(100%)'
+
+  return {
+    ref,
+    style: {
+      transform,
+      opacity: visible ? 1 : 0,
+      transition: 'transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease',
+    } as React.CSSProperties,
+  }
+}
+
 /* ─── Section 5: Bold Statement ─── */
 function BoldStatement() {
+  const block1 = useSlideIn('left')
+  const block2 = useSlideIn('right')
+
   return (
-    <section className="bg-red py-16 px-6 md:px-16">
+    <section className="bg-red py-16 px-6 md:px-16 overflow-hidden">
       <div className="max-w-page mx-auto">
-        <h2 className="font-anton text-[96px] leading-[0.95] uppercase text-cream mb-12">
-          Learning how to use &{' '}
-          <span className="text-cream/50">create .Skills is the future of no-code work.</span>
-        </h2>
-        <h2 className="font-anton text-[96px] leading-[0.95] uppercase text-center">
-          <span className="text-cream">If staying relevant in your </span>
-          <span className="text-cream/50">industry is a priority,</span>
-          <br />
-          <span className="text-cream">then .Skills are right for you.</span>
-        </h2>
+        {/* Block 1 — left aligned, slides from left */}
+        <div ref={block1.ref} style={block1.style} className="mb-12">
+          <h2 className="font-anton text-[clamp(48px,7vw,96px)] leading-[0.95] uppercase text-left">
+            <span className="text-cream">Learning how to use &</span>
+            <br />
+            <span className="text-cream/50">create .Skills is the future</span>
+            <br />
+            <span className="text-cream/50">of no-code work.</span>
+          </h2>
+        </div>
+
+        {/* Block 2 — right aligned, slides from right */}
+        <div ref={block2.ref} style={block2.style}>
+          <h2 className="font-anton text-[clamp(48px,7vw,96px)] leading-[0.95] uppercase text-right">
+            <span className="text-cream">If staying relevant in your</span>
+            <br />
+            <span className="text-cream/50">industry is a priority,</span>
+            <br />
+            <span className="text-cream">then .Skills are right for you.</span>
+          </h2>
+        </div>
       </div>
     </section>
   )
