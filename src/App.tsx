@@ -4,6 +4,37 @@ import ScrollytellingCompact from './framer/scrolly'
 
 const SAMCART_URL = 'https://ship.samcart.com/products/claude-co-work-bootcamp'
 
+/* ─── Fade-up on scroll wrapper ─── */
+function FadeIn({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
+  const ref = useRef<HTMLDivElement>(null)
+  const [visible, setVisible] = useState(false)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setVisible(true) },
+      { threshold: 0.15 }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
+
+  return (
+    <div
+      ref={ref}
+      className={className}
+      style={{
+        transform: visible ? 'translateY(0)' : 'translateY(40px)',
+        opacity: visible ? 1 : 0,
+        transition: `transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms, opacity 0.7s ease ${delay}ms`,
+      }}
+    >
+      {children}
+    </div>
+  )
+}
+
 /* ─── Section 1: Hero ─── */
 function Hero() {
   return (
@@ -682,18 +713,18 @@ export default function App() {
   return (
     <div className="bg-page min-h-screen">
       <Hero />
-      <Divider />
-      <Scrollytelling />
-      <SkillsRightForYou />
+      <FadeIn><Divider /></FadeIn>
+      <FadeIn><Scrollytelling /></FadeIn>
+      <FadeIn><SkillsRightForYou /></FadeIn>
       <BoldStatement />
-      <FiveSkills />
-      <FreeBonuses />
-      <Instructors />
-      <CredibilityLine />
-      <Schedule />
-      <Pricing />
-      <GuaranteeCTA />
-      <FAQ />
+      <FadeIn><FiveSkills /></FadeIn>
+      <FadeIn><FreeBonuses /></FadeIn>
+      <FadeIn><Instructors /></FadeIn>
+      <FadeIn><CredibilityLine /></FadeIn>
+      <FadeIn><Schedule /></FadeIn>
+      <FadeIn><Pricing /></FadeIn>
+      <FadeIn><GuaranteeCTA /></FadeIn>
+      <FadeIn><FAQ /></FadeIn>
     </div>
   )
 }
