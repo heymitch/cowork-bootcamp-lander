@@ -7,35 +7,58 @@ const SAMCART_URL = 'https://ship.samcart.com/products/claude-co-work-bootcamp'
 /* ─── Section 1: Hero ─── */
 function Hero() {
   return (
-    <section className="relative w-full bg-page overflow-hidden">
-      {/* Background: hero-bg.png for the photo composition */}
-      <div className="relative">
-        <img
-          src="/images/hero-bg.png"
-          alt=""
-          className="w-full h-auto block"
-        />
-        {/* Gradient overlay: solid dark on top (covers old baked-in text), fades to transparent at bottom (reveals photos) */}
+    <section className="relative w-full bg-page overflow-hidden min-h-[90vh]">
+      {/* Background photos — three headshots composited */}
+      <div className="absolute inset-0 flex items-end justify-center">
+        <div className="relative w-full max-w-[1000px] h-[70%]">
+          {/* Cole - left */}
+          <img
+            src="/images/hero-cole.png"
+            alt="Nicolas Cole"
+            className="absolute bottom-0 left-[5%] w-[35%] h-auto object-contain opacity-60 grayscale"
+          />
+          {/* Dickie - center */}
+          <img
+            src="/images/hero-dickie.png"
+            alt="Dickie Bush"
+            className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[38%] h-auto object-contain opacity-70 grayscale z-10"
+          />
+          {/* Mitch - right */}
+          <img
+            src="/images/hero-mitch.png"
+            alt="Mitch Harris"
+            className="absolute bottom-0 right-[5%] w-[35%] h-auto object-contain opacity-60 grayscale"
+          />
+        </div>
+        {/* Fade overlay so text remains readable */}
         <div className="absolute inset-0" style={{
-          background: 'linear-gradient(to bottom, #0d1116 0%, #0d1116 45%, rgba(13,17,22,0.85) 60%, rgba(13,17,22,0.3) 75%, transparent 90%)',
+          background: 'linear-gradient(to bottom, #0d1116 0%, rgba(13,17,22,0.7) 40%, rgba(13,17,22,0.4) 70%, #0d1116 100%)',
         }} />
       </div>
 
-      {/* HTML text content positioned over the darkened top portion */}
-      <div className="absolute inset-0 flex flex-col items-center z-10">
+      {/* Content */}
+      <div className="relative z-10 flex flex-col items-center pt-8 pb-16 px-6">
         {/* Badge */}
-        <div className="mt-6 flex items-center gap-2 bg-black/80 backdrop-blur px-4 py-2 rounded-full border border-white/20">
+        <div className="flex items-center gap-2 bg-black/80 backdrop-blur px-4 py-2 rounded-full border border-white/20">
           <span className="w-2 h-2 rounded-full bg-green animate-pulse" />
           <span className="font-manrope text-[12.8px] font-semibold text-white">
             Next Live Class: February 23, 2026
           </span>
         </div>
 
-        {/* Logo */}
-        <img src="/images/logo.png" alt="Claude Cowork Bootcamp" className="h-10 mt-8 mb-6" />
+        {/* Logo + Brand */}
+        <div className="flex items-center gap-3 mt-10 mb-8">
+          <img src="/images/logo.png" alt="" className="h-8" />
+          <div className="leading-none">
+            <span className="font-manrope text-[14px] font-semibold text-white tracking-wide">Claude</span>
+            <div className="font-anton text-[28px] uppercase text-red leading-none tracking-wide">
+              Cowork<br />Bootcamp
+            </div>
+          </div>
+        </div>
 
         {/* Headline */}
-        <h1 className="font-anton text-[clamp(36px,5.5vw,80px)] leading-[0.95] uppercase text-center max-w-[900px] px-6">
+        <h1 className="font-anton text-[clamp(40px,6vw,86px)] leading-[0.95] uppercase text-center max-w-[900px]">
           <span className="text-cream">Turn Claude Into Your </span>
           <span className="text-cream">Highest Performing Employee </span>
           <span className="text-cream">By Building </span>
@@ -43,13 +66,13 @@ function Hero() {
         </h1>
 
         {/* Subtitle */}
-        <p className="font-manrope text-[clamp(14px,1.4vw,18px)] text-cream/70 text-center max-w-[600px] px-6 mt-6 leading-relaxed">
+        <p className="font-manrope text-[clamp(15px,1.4vw,18px)] text-cream/70 text-center max-w-[600px] mt-8 leading-relaxed">
           Any task you do more than once should be saved as a .skill.
           <br />This is how you build leverage forever.
         </p>
 
         {/* Sub-subtitle */}
-        <p className="font-manrope text-[clamp(13px,1.2vw,16px)] text-cream/50 text-center max-w-[550px] px-6 mt-3 leading-relaxed">
+        <p className="font-manrope text-[clamp(14px,1.2vw,16px)] text-cream/50 text-center max-w-[550px] mt-4 leading-relaxed">
           Join us live for beginner-friendly training on No-Code AI and the future of work.
         </p>
 
@@ -58,7 +81,7 @@ function Hero() {
           href={SAMCART_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-8 bg-yellow text-black font-manrope text-[16px] font-extrabold uppercase tracking-wide px-8 py-4 rounded-lg hover:brightness-110 transition"
+          className="mt-10 bg-yellow text-black font-manrope text-[17px] font-extrabold uppercase tracking-wide px-10 py-4 rounded-lg hover:brightness-110 transition"
         >
           Join the Bootcamp
         </a>
