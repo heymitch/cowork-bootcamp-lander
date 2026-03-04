@@ -63,7 +63,12 @@ function Hero() {
           </div>
 
           {/* Big COWORK BOOTCAMP — solid red */}
-          <h2 className="font-anton text-[clamp(80px,10vw,150px)] leading-[0.85] uppercase mb-8 text-red">
+          <h2 className="font-anton text-[clamp(80px,10vw,150px)] leading-[0.85] uppercase mb-8"
+            style={{
+              background: 'linear-gradient(180deg, #dc2625 0%, #8b1a1a 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+            }}>
             Cowork<br />Bootcamp
           </h2>
 
