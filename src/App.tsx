@@ -23,10 +23,9 @@ function Hero() {
         <div className="flex flex-col md:flex-row">
           {/* Left — text */}
           <div className="flex-1 md:max-w-[50%] pb-12 md:pb-20 relative z-20">
-            {/* Claude logo + text — white logo, serif "Claude" */}
-            <div className="flex items-center gap-2 mb-2">
-              <img src="/images/logo.png" alt="" className="h-10 brightness-0 invert" />
-              <span style={{ fontFamily: 'Georgia, "Times New Roman", serif' }} className="text-[28px] text-white">Claude</span>
+            {/* Claude logo — already contains asterisk + "Claude" text */}
+            <div className="mb-2">
+              <img src="/images/logo.png" alt="Claude" className="h-10 brightness-0 invert" />
             </div>
 
             {/* Big COWORK BOOTCAMP — gradient red */}
