@@ -7,84 +7,80 @@ const SAMCART_URL = 'https://ship.samcart.com/products/claude-co-work-bootcamp'
 /* ─── Section 1: Hero ─── */
 function Hero() {
   return (
-    <section className="relative w-full bg-page overflow-hidden min-h-[90vh]">
-      {/* Background photos — three headshots composited */}
-      <div className="absolute inset-0 flex items-end justify-center">
-        <div className="relative w-full max-w-[1000px] h-[70%]">
-          {/* Cole - left */}
-          <img
-            src="/images/hero-cole.png"
-            alt="Nicolas Cole"
-            className="absolute bottom-0 left-[5%] w-[35%] h-auto object-contain opacity-60 grayscale"
-          />
-          {/* Dickie - center */}
-          <img
-            src="/images/hero-dickie.png"
-            alt="Dickie Bush"
-            className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[38%] h-auto object-contain opacity-70 grayscale z-10"
-          />
-          {/* Mitch - right */}
-          <img
-            src="/images/hero-mitch.png"
-            alt="Mitch Harris"
-            className="absolute bottom-0 right-[5%] w-[35%] h-auto object-contain opacity-60 grayscale"
-          />
-        </div>
-        {/* Fade overlay so text remains readable */}
-        <div className="absolute inset-0" style={{
-          background: 'linear-gradient(to bottom, #0d1116 0%, rgba(13,17,22,0.7) 40%, rgba(13,17,22,0.4) 70%, #0d1116 100%)',
-        }} />
-      </div>
-
-      {/* Content */}
-      <div className="relative z-10 flex flex-col items-center pt-8 pb-16 px-6">
-        {/* Badge */}
-        <div className="flex items-center gap-2 bg-black/80 backdrop-blur px-4 py-2 rounded-full border border-white/20">
-          <span className="w-2 h-2 rounded-full bg-green animate-pulse" />
-          <span className="font-manrope text-[12.8px] font-semibold text-white">
-            Next Live Class: February 23, 2026
-          </span>
-        </div>
-
-        {/* Logo + Brand */}
-        <div className="flex items-center gap-3 mt-10 mb-8">
-          <img src="/images/logo.png" alt="" className="h-8" />
-          <div className="leading-none">
-            <span className="font-manrope text-[14px] font-semibold text-white tracking-wide">Claude</span>
-            <div className="font-anton text-[28px] uppercase text-red leading-none tracking-wide">
-              Cowork<br />Bootcamp
-            </div>
+    <section className="relative w-full bg-page overflow-hidden">
+      <div className="max-w-page mx-auto px-6 py-12 md:py-20">
+        {/* Badge — centered */}
+        <div className="flex justify-center mb-10">
+          <div className="flex items-center gap-2 bg-black/80 backdrop-blur px-4 py-2 rounded-full border border-white/20">
+            <span className="w-2 h-2 rounded-full bg-green animate-pulse" />
+            <span className="font-manrope text-[12.8px] font-semibold text-white">
+              Next Live Class: February 23, 2026
+            </span>
           </div>
         </div>
 
-        {/* Headline */}
-        <h1 className="font-anton text-[clamp(40px,6vw,86px)] leading-[0.95] uppercase text-center max-w-[900px]">
-          <span className="text-cream">Turn Claude Into Your </span>
-          <span className="text-cream">Highest Performing Employee </span>
-          <span className="text-cream">By Building </span>
-          <span className="text-yellow">.skills</span>
-        </h1>
+        {/* Two-column: text left, photos right */}
+        <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+          {/* Left — text */}
+          <div className="flex-1 md:max-w-[55%]">
+            {/* Logo + Brand */}
+            <div className="flex items-center gap-3 mb-8">
+              <img src="/images/logo.png" alt="" className="h-8" />
+              <div className="leading-none">
+                <span className="font-manrope text-[14px] font-semibold text-white tracking-wide">Claude</span>
+                <div className="font-anton text-[28px] uppercase text-white leading-none tracking-wide">
+                  Cowork<br />Bootcamp
+                </div>
+              </div>
+            </div>
 
-        {/* Subtitle */}
-        <p className="font-manrope text-[clamp(15px,1.4vw,18px)] text-cream/70 text-center max-w-[600px] mt-8 leading-relaxed">
-          Any task you do more than once should be saved as a .skill.
-          <br />This is how you build leverage forever.
-        </p>
+            {/* Headline */}
+            <h1 className="font-anton text-[clamp(40px,5.5vw,76px)] leading-[0.95] uppercase mb-8">
+              <span className="text-cream">Turn Claude Into Your Highest Performing Employee By Building </span>
+              <span className="text-yellow">.skills</span>
+            </h1>
 
-        {/* Sub-subtitle */}
-        <p className="font-manrope text-[clamp(14px,1.2vw,16px)] text-cream/50 text-center max-w-[550px] mt-4 leading-relaxed">
-          Join us live for beginner-friendly training on No-Code AI and the future of work.
-        </p>
+            {/* Subtitle */}
+            <p className="font-manrope text-[clamp(15px,1.3vw,18px)] text-cream/70 leading-relaxed mb-4">
+              Any task you do more than once should be saved as a .skill.
+              <span className="text-yellow font-medium"> This is how you build leverage forever.</span>
+            </p>
 
-        {/* CTA Button */}
-        <a
-          href={SAMCART_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-10 bg-yellow text-black font-manrope text-[17px] font-extrabold uppercase tracking-wide px-10 py-4 rounded-lg hover:brightness-110 transition"
-        >
-          Join the Bootcamp
-        </a>
+            {/* Sub-subtitle */}
+            <p className="font-manrope text-[clamp(14px,1.2vw,16px)] text-cream/50 leading-relaxed mb-8">
+              Join us live for beginner-friendly training on No-Code AI and the future of work.
+            </p>
+
+            {/* CTA Button */}
+            <a
+              href={SAMCART_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-yellow text-black font-manrope text-[17px] font-extrabold uppercase tracking-wide px-10 py-4 rounded-lg hover:brightness-110 transition"
+            >
+              How It Works
+            </a>
+          </div>
+
+          {/* Right — headshots */}
+          <div className="flex-1 md:max-w-[45%] relative flex items-end justify-center min-h-[400px]">
+            <img
+              src="/images/hero-cole.png"
+              alt="Nicolas Cole"
+              className="absolute bottom-0 left-0 w-[42%] h-auto object-contain z-0"
+            />
+            <img
+              src="/images/hero-dickie.png"
+              alt="Dickie Bush"
+              className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[45%] h-auto object-contain object-bottom z-10"
+            />
+            <img
+              src="/images/hero-mitch.png"
+              alt="Mitch Harris"
+              className="absolute bottom-0 right-0 w-[42%] h-auto object-contain z-0"
+            />
+          </div>
+        </div>
       </div>
     </section>
   )
