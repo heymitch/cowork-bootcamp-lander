@@ -6,75 +6,28 @@ const SAMCART_URL = 'https://ship.samcart.com/products/claude-co-work-bootcamp'
 /* ─── Section 1: Hero ─── */
 function Hero() {
   return (
-    <section className="relative w-full min-h-[900px] bg-page overflow-hidden">
-      {/* Gradient overlay behind photos */}
-      <div className="absolute inset-0" style={{
-        background: 'radial-gradient(ellipse 70% 80% at 70% 50%, rgba(60,75,96,0.5) 0%, #0d1116 70%)',
-      }} />
-
-      {/* Three instructor photos - right side */}
-      <div className="absolute right-0 top-0 bottom-0 w-[60%] flex items-end justify-center overflow-hidden">
-        {/* Cole - left */}
-        <div className="absolute left-[5%] bottom-0 w-[35%] h-[85%] overflow-hidden" style={{ clipPath: 'polygon(15% 0, 100% 0, 85% 100%, 0% 100%)' }}>
-          <img src="/images/hero-cole.png" alt="Nicolas Cole" className="w-full h-full object-cover object-top grayscale brightness-75" />
-        </div>
-        {/* Dickie - center */}
-        <div className="absolute left-[30%] bottom-0 w-[35%] h-[90%] overflow-hidden z-10" style={{ clipPath: 'polygon(15% 0, 100% 0, 85% 100%, 0% 100%)' }}>
-          <img src="/images/hero-dickie.png" alt="Dickie Bush" className="w-full h-full object-cover object-top grayscale brightness-75" />
-        </div>
-        {/* Mitch - right */}
-        <div className="absolute right-[0%] bottom-0 w-[40%] h-[95%] overflow-hidden z-20" style={{ clipPath: 'polygon(10% 0, 100% 0, 100% 100%, 0% 100%)' }}>
-          <img src="/images/hero-mitch.png" alt="Mitch Harris" className="w-full h-full object-cover object-top grayscale brightness-90" />
-        </div>
-
-        {/* Dark gradient overlay from left to blend with content */}
-        <div className="absolute inset-0 z-30" style={{
-          background: 'linear-gradient(to right, #0d1116 0%, rgba(13,17,22,0.6) 40%, transparent 70%)',
-        }} />
-        {/* Bottom fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 z-30" style={{
-          background: 'linear-gradient(to top, #0d1116, transparent)',
-        }} />
-      </div>
-
-      {/* Badge */}
-      <div className="absolute top-6 left-1/2 -translate-x-1/2 flex items-center gap-2 bg-black/80 backdrop-blur px-4 py-2 rounded-full z-40">
+    <section className="relative w-full bg-page overflow-hidden">
+      {/* Full Figma hero render as background — contains logo, text, photos, everything */}
+      <img
+        src="/images/hero-bg.png"
+        alt="Claude Cowork Bootcamp — Build .Skills. 2 weeks. 6 live sessions. A crash course on No-Code AI."
+        className="w-full h-auto block"
+      />
+      {/* Badge overlay — live HTML for the pulse animation */}
+      <div className="absolute top-[2.5%] left-1/2 -translate-x-1/2 flex items-center gap-2 bg-black/80 backdrop-blur px-4 py-2 rounded-full z-10">
         <span className="w-2 h-2 rounded-full bg-green animate-pulse" />
         <span className="font-manrope text-[12.8px] font-semibold text-white">
           Next Live Class: February 23, 2026
         </span>
       </div>
-
-      {/* Content - left side */}
-      <div className="relative z-40 flex flex-col justify-center h-full min-h-[900px] px-8 md:px-24">
-        <div className="max-w-[540px]">
-          <img src="/images/logo.png" alt="Claude" className="h-8 mb-8" />
-          <h1 className="font-anton text-[80px] md:text-[110px] leading-[0.85] text-red uppercase mb-8 tracking-tight">
-            Cowork<br />Bootcamp
-          </h1>
-          <h2 className="font-manrope text-[32px] font-bold text-cream mb-4">
-            Build .Skills
-          </h2>
-          <p className="font-barlow text-[20px] text-cream/70 mb-2 leading-relaxed">
-            Any task you do more than once should be saved
-            as a <span className="text-cream font-semibold">.Skill</span>. <span className="text-yellow italic">This is how you build leverage forever.</span>
-          </p>
-          <p className="font-manrope text-[20px] text-cream/70 mb-8">
-            2 weeks. 6 live sessions. A crash course on No-Code AI.
-          </p>
-          <a
-            href={SAMCART_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block bg-yellow text-black font-manrope text-[20px] font-extrabold uppercase tracking-wide px-8 py-4 rounded-lg hover:brightness-110 transition"
-          >
-            Join the Bootcamp
-          </a>
-          <p className="font-manrope text-[12.8px] text-cream/50 mt-3">
-            No code. No terminal. Just results.
-          </p>
-        </div>
-      </div>
+      {/* Invisible CTA link positioned over the "JOIN THE BOOTCAMP" button in the image */}
+      <a
+        href={SAMCART_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="absolute bottom-[8%] left-[5.5%] w-[18%] h-[6%] z-10 cursor-pointer"
+        aria-label="Join the Bootcamp"
+      />
     </section>
   )
 }
