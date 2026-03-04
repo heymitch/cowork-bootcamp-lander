@@ -308,20 +308,20 @@ function BoldStatement() {
   )
 }
 
-/* ─── Section 6: 5 Skills ─── */
+/* ─── Section 6: 6 Skills ─── */
 function FiveSkills() {
   const skills = [
-    { num: 'Skill #1', name: 'Computer Organizer Skill', desc: 'generate posts in your voice', img: '/images/floppy-organizer.png' },
-    { num: 'Skill #2', name: 'Newsletter Skill', desc: 'draft editions with your frameworks', img: '/images/floppy-newsletter.png' },
-    { num: 'Skill #5', name: 'Meeting Prep Skill', desc: 'dictate on walks, publish when home', img: '/images/floppy-meeting.png' },
-    { num: 'Bonus', name: 'Project Kit Skill', desc: 'emails, proposals, briefs, memos', img: '/images/floppy-project.png' },
-    { num: 'Skill #3', name: 'Digital Product Skill', desc: 'sales pages, email sequences', img: '/images/floppy-digital.png' },
-    { num: 'Skill #4', name: 'Skill Maker', desc: 'trend-jacking, idea generation', img: '/images/floppy-skillmaker.png' },
+    { num: 'Skill #1', name: 'Computer Organizer Skill', desc: 'clean up your downloads, organize your documents, and get back to "desktop zero"', img: '/images/floppy-organizer.png' },
+    { num: 'Skill #2', name: 'Newsletter Skill', desc: 'Use our category newsletter creation process and write in-depth thought leadership or curation newsletters in minutes', img: '/images/floppy-newsletter.png' },
+    { num: 'Skill #3', name: 'Meeting Prep Skill', desc: 'Sales calls, presentations, board meetings, webinars—prepare your mind and materials for any meeting on your calendar', img: '/images/floppy-meeting.png' },
+    { num: 'Skill #4', name: 'Project Kit Skill', desc: 'Move from creating single assets to full proposals, slide decks, or brand materials in an automatic process', img: '/images/floppy-project.png' },
+    { num: 'Skill #5', name: 'Digital Product Skill', desc: 'Leverage our product creation process directly in Cowork, and go from idea to selling your digital product in no time flat', img: '/images/floppy-digital.png' },
+    { num: 'Skill #6', name: 'Skill Maker', desc: "The secret sauce process even the creators of Cowork don't know about to make your custom skills bombproof", img: '/images/floppy-skillmaker.png' },
   ]
 
   return (
     <section className="relative py-20 px-6 overflow-hidden" style={{
-      background: 'linear-gradient(180deg, #f3eccb 0%, #dc2625 15%, #0d1116 50%)',
+      background: 'linear-gradient(180deg, #dc2625 0%, #b91c1c 50%, #7f1d1d 100%)',
     }}>
       <div className="max-w-page mx-auto">
         <div className="text-center mb-4">
@@ -329,20 +329,17 @@ function FiveSkills() {
             <span className="font-bold">5 .skills</span> to get you started:
           </h2>
         </div>
-        <p className="font-geist text-[16px] text-cream/60 text-center max-w-[700px] mx-auto mb-12">
+        <p className="font-manrope text-[16px] text-cream/60 text-center max-w-[700px] mx-auto mb-12">
           In addition to training you on how to build & save .Skills of your own, part of
           Claude Cowork Bootcamp is sharing our .Skills with you.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {skills.map((skill, i) => (
-            <div key={i} className="bg-page rounded-2xl p-6 flex flex-col items-center text-center">
-              <div className="w-[120px] h-[120px] mb-4 relative">
-                <div className="absolute inset-0 bg-cream/10 rounded-full" />
-                <img src={skill.img} alt={skill.name} className="w-full h-full object-contain relative z-10" />
-              </div>
-              <span className="font-manrope text-[16px] font-bold text-cream/70 mb-1">{skill.num}</span>
-              <h3 className="font-manrope text-[26px] font-bold text-cream mb-2">{skill.name}</h3>
-              <p className="font-manrope text-[16px] text-cream/50">{skill.desc}</p>
+            <div key={i} className="bg-black/30 border border-white/10 rounded-2xl p-6 flex flex-col items-center text-center">
+              <img src={skill.img} alt={skill.name} className="w-[160px] h-[160px] object-contain mb-4" />
+              <span className="font-manrope text-[14px] font-medium text-cream/50 mb-1">{skill.num}</span>
+              <h3 className="font-manrope text-[24px] font-bold text-cream mb-2">{skill.name}</h3>
+              <p className="font-manrope text-[15px] text-cream/50 leading-relaxed">{skill.desc}</p>
             </div>
           ))}
         </div>
