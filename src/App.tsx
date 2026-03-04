@@ -54,58 +54,56 @@ function Hero() {
         </div>
       </div>
 
-      <div className="relative max-w-page mx-auto px-6 pb-0">
-        <div className="flex flex-col md:flex-row">
-          {/* Left — full HTML text + branding */}
-          <div className="flex-1 md:max-w-[50%] pb-12 md:pb-20 relative z-20">
-            {/* Claude logo */}
-            <div className="mb-2">
-              <img src="/images/logo.png" alt="Claude" className="h-10 brightness-0 invert" />
-            </div>
-
-            {/* Big COWORK BOOTCAMP — solid red */}
-            <h2 className="font-anton text-[clamp(72px,9vw,130px)] leading-[0.85] uppercase mb-6 text-red">
-              Cowork<br />Bootcamp
-            </h2>
-
-            {/* Headline */}
-            <h1 className="font-manrope text-[clamp(24px,2.6vw,34px)] font-bold text-cream leading-[1.3] mb-6 max-w-[480px]">
-              Turn Claude Into Your Highest Performing Employee By Building{' '}
-              <span className="text-yellow">.skills</span>
-            </h1>
-
-            {/* Subtitle */}
-            <p className="font-manrope text-[clamp(15px,1.3vw,17px)] text-cream/70 leading-relaxed mb-4 max-w-[460px]">
-              Any task you do more than once should be saved as a .skill.{' '}
-              <span className="text-yellow font-semibold italic">This is how you build leverage forever.</span>
-            </p>
-
-            {/* Sub-subtitle */}
-            <p className="font-manrope text-[clamp(14px,1.2vw,16px)] text-cream/60 leading-relaxed mb-8 max-w-[440px]">
-              Join us live for beginner-friendly training on{' '}
-              <span className="text-cream font-semibold">No-Code AI and the future of work.</span>
-            </p>
-
-            {/* CTA Button */}
-            <a
-              href={SAMCART_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-yellow text-black font-manrope text-[16px] font-extrabold uppercase tracking-[0.08em] px-10 py-5 rounded-lg hover:brightness-110 transition"
-            >
-              How It Works
-            </a>
+      <div className="relative flex flex-col md:flex-row">
+        {/* Left — text content, constrained */}
+        <div className="flex-1 md:w-[50%] relative z-20 px-6 md:pl-[max(24px,calc((100vw-1200px)/2+24px))] pb-12 md:pb-20">
+          {/* Claude logo */}
+          <div className="mb-2">
+            <img src="/images/logo.png" alt="Claude" className="h-10 brightness-0 invert" />
           </div>
 
-          {/* Right — clean headshot photos, bottom cropped to clean edge */}
-          <div className="flex-1 md:max-w-[55%] relative min-h-[550px] md:min-h-[650px] overflow-hidden">
-            <img
-              src="/images/hero-photos-clean.png"
-              alt="Cole, Dickie, and Mitch"
-              className="absolute inset-0 w-full h-[133%] object-cover object-top"
-              style={{ filter: 'brightness(1.1)' }}
-            />
-          </div>
+          {/* Big COWORK BOOTCAMP — solid red */}
+          <h2 className="font-anton text-[clamp(72px,9vw,130px)] leading-[0.85] uppercase mb-6 text-red">
+            Cowork<br />Bootcamp
+          </h2>
+
+          {/* Headline */}
+          <h1 className="font-manrope text-[clamp(24px,2.6vw,34px)] font-bold text-cream leading-[1.3] mb-6 max-w-[480px]">
+            Turn Claude Into Your Highest Performing Employee By Building{' '}
+            <span className="text-yellow">.skills</span>
+          </h1>
+
+          {/* Subtitle */}
+          <p className="font-manrope text-[clamp(15px,1.3vw,17px)] text-cream/70 leading-relaxed mb-4 max-w-[460px]">
+            Any task you do more than once should be saved as a .skill.{' '}
+            <span className="text-yellow font-semibold italic">This is how you build leverage forever.</span>
+          </p>
+
+          {/* Sub-subtitle */}
+          <p className="font-manrope text-[clamp(14px,1.2vw,16px)] text-cream/60 leading-relaxed mb-8 max-w-[440px]">
+            Join us live for beginner-friendly training on{' '}
+            <span className="text-cream font-semibold">No-Code AI and the future of work.</span>
+          </p>
+
+          {/* CTA Button */}
+          <a
+            href={SAMCART_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-yellow text-black font-manrope text-[16px] font-extrabold uppercase tracking-[0.08em] px-10 py-5 rounded-lg hover:brightness-110 transition"
+          >
+            How It Works
+          </a>
+        </div>
+
+        {/* Right — photos bleed to right edge, bottom cropped */}
+        <div className="md:w-[50%] relative min-h-[550px] md:min-h-[650px] overflow-hidden">
+          <img
+            src="/images/hero-photos-clean.png"
+            alt="Cole, Dickie, and Mitch"
+            className="absolute inset-0 w-full h-[133%] object-cover object-top"
+            style={{ filter: 'brightness(1.1)' }}
+          />
         </div>
       </div>
     </section>
