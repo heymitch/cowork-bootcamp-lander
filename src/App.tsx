@@ -39,9 +39,14 @@ function FadeIn({ children, className = '', delay = 0 }: { children: React.React
 function Hero() {
   return (
     <section className="relative w-full bg-page overflow-hidden">
+      {/* Ambient background gradient — subtle blue/steel wash on right */}
+      <div className="absolute inset-0 z-0" style={{
+        background: 'radial-gradient(ellipse 80% 100% at 75% 50%, rgba(56, 74, 100, 0.35) 0%, transparent 70%)',
+      }} />
+
       {/* Badge — centered top */}
       <div className="flex justify-center pt-6 pb-8 relative z-20">
-        <div className="flex items-center gap-2 bg-black/80 backdrop-blur px-5 py-2.5 rounded-full border border-white/20">
+        <div className="flex items-center gap-2 bg-black/80 backdrop-blur px-5 py-2.5 rounded-full border border-red/40">
           <span className="w-2 h-2 rounded-full bg-green animate-pulse" />
           <span className="font-manrope text-[11px] font-bold text-white uppercase tracking-[0.15em]">
             2-Week Bootcamp Kicks Off Sunday, April 6
@@ -52,62 +57,52 @@ function Hero() {
       <div className="relative max-w-page mx-auto px-6 pb-0">
         <div className="flex flex-col md:flex-row">
           {/* Left — full HTML text + branding */}
-          <div className="flex-1 md:max-w-[50%] pb-12 md:pb-20 relative z-20 text-center md:text-left">
+          <div className="flex-1 md:max-w-[50%] pb-12 md:pb-20 relative z-20">
             {/* Claude logo */}
-            <div className="mb-2 flex justify-center md:justify-start">
-              <img src="/images/logo.png" alt="Claude" className="h-8 md:h-10 brightness-0 invert" />
+            <div className="mb-2">
+              <img src="/images/logo.png" alt="Claude" className="h-10 brightness-0 invert" />
             </div>
 
-            {/* Big COWORK BOOTCAMP — gradient red */}
-            <h2
-              className="font-anton text-[64px] md:text-[clamp(72px,9vw,130px)] leading-[0.85] uppercase mb-6"
-              style={{
-                background: 'linear-gradient(180deg, #dc2625 0%, #8b1a1a 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-              }}
-            >
+            {/* Big COWORK BOOTCAMP — solid red */}
+            <h2 className="font-anton text-[clamp(72px,9vw,130px)] leading-[0.85] uppercase mb-6 text-red">
               Cowork<br />Bootcamp
             </h2>
 
             {/* Headline */}
-            <h1 className="font-manrope text-[22px] md:text-[clamp(22px,2.4vw,32px)] font-bold text-cream leading-[1.3] mb-6 max-w-[480px] mx-auto md:mx-0">
+            <h1 className="font-manrope text-[clamp(24px,2.6vw,34px)] font-bold text-cream leading-[1.3] mb-6 max-w-[480px]">
               Turn Claude Into Your Highest Performing Employee By Building{' '}
               <span className="text-yellow">.skills</span>
             </h1>
 
             {/* Subtitle */}
-            <p className="font-manrope text-[15px] md:text-[clamp(15px,1.3vw,17px)] text-cream/70 leading-relaxed mb-4 max-w-[460px] mx-auto md:mx-0">
+            <p className="font-manrope text-[clamp(15px,1.3vw,17px)] text-cream/70 leading-relaxed mb-4 max-w-[460px]">
               Any task you do more than once should be saved as a .skill.{' '}
               <span className="text-yellow font-semibold italic">This is how you build leverage forever.</span>
             </p>
 
             {/* Sub-subtitle */}
-            <p className="font-manrope text-[14px] md:text-[clamp(14px,1.2vw,16px)] text-cream/60 leading-relaxed mb-8 max-w-[440px] mx-auto md:mx-0">
+            <p className="font-manrope text-[clamp(14px,1.2vw,16px)] text-cream/60 leading-relaxed mb-8 max-w-[440px]">
               Join us live for beginner-friendly training on{' '}
               <span className="text-cream font-semibold">No-Code AI and the future of work.</span>
             </p>
 
             {/* CTA Button */}
-            <div className="flex justify-center md:justify-start">
-              <a
-                href={SAMCART_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block bg-yellow text-black font-manrope text-[16px] font-extrabold uppercase tracking-[0.08em] px-10 py-5 rounded-lg hover:brightness-110 transition"
-              >
-                How It Works
-              </a>
-            </div>
+            <a
+              href={SAMCART_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-yellow text-black font-manrope text-[16px] font-extrabold uppercase tracking-[0.08em] px-10 py-5 rounded-lg hover:brightness-110 transition"
+            >
+              How It Works
+            </a>
           </div>
 
-          {/* Right — Figma photos clipped to just the headshots (hidden on mobile) */}
-          <div className="hidden md:block flex-1 md:max-w-[50%] relative min-h-[600px] overflow-hidden">
+          {/* Right — Figma photos, brighter, taller, bleeding to edge */}
+          <div className="flex-1 md:max-w-[55%] relative min-h-[550px] md:min-h-[650px] overflow-hidden -mr-6">
             <img
               src="/images/hero-photos.png"
               alt="Instructors"
-              className="absolute top-0 right-0 h-full object-cover object-right"
+              className="absolute top-0 right-0 h-full object-cover object-right brightness-110"
               style={{ width: '200%', maxWidth: 'none' }}
             />
           </div>
@@ -222,10 +217,10 @@ function SkillsRightForYou() {
       background: 'linear-gradient(180deg, #0d1116 0%, #3a0a0a 40%, #7a1a1a 100%)',
     }}>
       <div className="max-w-page mx-auto text-center mb-12">
-        <h2 className="font-manrope text-[32px] md:text-[50px] font-semibold text-cream mb-3">
+        <h2 className="font-manrope text-[50px] font-semibold text-cream mb-3">
           Are <span className="font-bold">.skills</span> Right For You?
         </h2>
-        <p className="font-manrope text-[16px] md:text-[20px] font-semibold text-cream/70 italic">
+        <p className="font-manrope text-[20px] font-semibold text-cream/70 italic">
           Hmmm… let's see…
         </p>
       </div>
@@ -282,11 +277,11 @@ function BoldStatement() {
   const block2 = useSlideIn('right')
 
   return (
-    <section className="bg-red py-10 md:py-16 px-4 md:px-16">
+    <section className="bg-red py-16 px-6 md:px-16">
       <div className="max-w-page mx-auto">
         {/* Block 1 — left aligned, slides from left */}
-        <div ref={block1.ref} style={block1.style} className="mb-8 md:mb-12">
-          <h2 className="font-anton text-[36px] md:text-[clamp(48px,7vw,96px)] leading-[0.95] uppercase text-left">
+        <div ref={block1.ref} style={block1.style} className="mb-12">
+          <h2 className="font-anton text-[clamp(48px,7vw,96px)] leading-[0.95] uppercase text-left">
             <span className="text-cream">Learning how to use &</span>
             <br />
             <span className="text-cream/50">create .Skills is the future</span>
@@ -297,7 +292,7 @@ function BoldStatement() {
 
         {/* Block 2 — right aligned, slides from right */}
         <div ref={block2.ref} style={block2.style}>
-          <h2 className="font-anton text-[36px] md:text-[clamp(48px,7vw,96px)] leading-[0.95] uppercase text-right">
+          <h2 className="font-anton text-[clamp(48px,7vw,96px)] leading-[0.95] uppercase text-right">
             <span className="text-cream">If staying relevant in your</span>
             <br />
             <span className="text-cream/50">industry is a priority,</span>
@@ -327,7 +322,7 @@ function FiveSkills() {
     }}>
       <div className="max-w-page mx-auto">
         <div className="text-center mb-4">
-          <h2 className="font-manrope text-[32px] md:text-[50px] font-semibold text-cream">
+          <h2 className="font-manrope text-[50px] font-semibold text-cream">
             <span className="font-bold">5 .skills</span> to get you started:
           </h2>
         </div>
@@ -335,13 +330,13 @@ function FiveSkills() {
           In addition to training you on how to build & save .Skills of your own, part of
           Claude Cowork Bootcamp is sharing our .Skills with you.
         </p>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {skills.map((skill, i) => (
-            <div key={i} className="bg-black/30 border border-white/10 rounded-2xl p-4 md:p-6 flex flex-col items-center text-center">
-              <img src={skill.img} alt={skill.name} className="w-[100px] h-[100px] md:w-[160px] md:h-[160px] object-contain mb-3 md:mb-4" />
-              <span className="font-manrope text-[12px] md:text-[14px] font-medium text-cream/50 mb-1">{skill.num}</span>
-              <h3 className="font-manrope text-[16px] md:text-[24px] font-bold text-cream mb-2">{skill.name}</h3>
-              <p className="font-manrope text-[13px] md:text-[15px] text-cream/50 leading-relaxed hidden md:block">{skill.desc}</p>
+            <div key={i} className="bg-black/30 border border-white/10 rounded-2xl p-6 flex flex-col items-center text-center">
+              <img src={skill.img} alt={skill.name} className="w-[160px] h-[160px] object-contain mb-4" />
+              <span className="font-manrope text-[14px] font-medium text-cream/50 mb-1">{skill.num}</span>
+              <h3 className="font-manrope text-[24px] font-bold text-cream mb-2">{skill.name}</h3>
+              <p className="font-manrope text-[15px] text-cream/50 leading-relaxed">{skill.desc}</p>
             </div>
           ))}
         </div>
@@ -365,13 +360,13 @@ function FreeBonuses() {
     <section className="bg-page py-20 px-6">
       <Divider />
       <div className="max-w-page mx-auto pt-16">
-        <h2 className="font-manrope text-[32px] md:text-[50px] font-semibold text-center mb-8 md:mb-12">
+        <h2 className="font-manrope text-[50px] font-semibold text-center mb-12">
           <span className="font-bold text-cream">Free Bonuses</span>{' '}
           <span className="text-cream/70">Included</span>
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-cream/10 border border-cream/10 rounded-lg overflow-hidden">
           {bonuses.map((b, i) => (
-            <div key={i} className="bg-card p-5 md:p-8 flex flex-col gap-2 md:gap-3">
+            <div key={i} className="bg-card p-8 flex flex-col gap-3">
               <span className="font-manrope text-[16px] font-medium text-yellow">Bonus #{b.num}</span>
               <h3 className="font-manrope text-[24px] font-bold text-cream">{b.title}</h3>
               <p className="font-manrope text-[16px] font-medium text-cream/70 leading-relaxed flex-1">{b.desc}</p>
@@ -419,7 +414,7 @@ function Instructors() {
     <section className="bg-page py-20 px-6">
       <Divider />
       <div className="max-w-page mx-auto pt-16">
-        <h2 className="font-manrope text-[32px] md:text-[50px] font-extrabold text-cream text-center mb-2">
+        <h2 className="font-manrope text-[50px] font-extrabold text-cream text-center mb-2">
           Meet Your Instructors
         </h2>
         <p className="font-manrope text-[18px] font-medium text-white text-center mb-12">
@@ -456,10 +451,10 @@ function Schedule() {
       <Divider />
       <div className="max-w-page mx-auto pt-16">
         <div className="text-center mb-12">
-          <h2 className="font-manrope text-[28px] md:text-[48px] font-bold text-cream mb-2">
+          <h2 className="font-manrope text-[48px] font-bold text-cream mb-2">
             <span className="font-bold">Claude Cowork</span> Bootcamp Kicks Off
           </h2>
-          <h3 className="font-manrope text-[28px] md:text-[48px] font-bold">
+          <h3 className="font-manrope text-[48px] font-bold">
             <span className="text-cream">Sunday, April 6th!</span>{' '}
             <span className="text-cream/50">Instructors</span>
           </h3>
@@ -467,7 +462,7 @@ function Schedule() {
         </div>
 
         {/* Calendar Visualization */}
-        <div className="max-w-[600px] mx-auto mb-12 border border-dashed border-cream/20 rounded-xl p-3 md:p-6 overflow-x-auto">
+        <div className="max-w-[600px] mx-auto mb-12 border border-dashed border-cream/20 rounded-xl p-6">
           {/* Faded week above */}
           <div className="grid grid-cols-6 gap-2 mb-3 opacity-30">
             <span className="font-manrope text-[13.6px] font-bold text-white">Feb 16</span>
@@ -534,7 +529,7 @@ function Schedule() {
           </div>
         </div>
 
-        <div className="text-center font-manrope text-[16px] md:text-[20px] text-cream/70 space-y-1">
+        <div className="text-center font-manrope text-[20px] text-cream/70 space-y-1">
           <p><span className="text-red font-medium">6 live</span> sessions over <span className="text-red font-medium">2 weeks.</span></p>
           <p>This <span className="font-bold text-cream">isn't self-paced content</span> you buy and forget.</p>
           <p>We <span className="font-bold text-cream">build together.</span> You show up, you do the work, you leave with a system—</p>
@@ -558,7 +553,7 @@ function Pricing() {
         </div>
         <div className="p-8 text-center">
           <p className="font-manrope text-[26px] font-semibold text-white mb-2">Your Price</p>
-          <p className="font-manrope text-[64px] md:text-[96px] font-extrabold text-cream leading-none mb-6">$800</p>
+          <p className="font-manrope text-[96px] font-extrabold text-cream leading-none mb-6">$800</p>
           <a
             href={SAMCART_URL}
             target="_blank"
@@ -588,8 +583,8 @@ function GuaranteeCTA() {
     <section className="bg-page py-20 px-6">
       <Divider />
       <div className="max-w-page mx-auto pt-16 grid grid-cols-1 md:grid-cols-2 gap-px bg-cream/10 border border-cream/10 rounded-lg overflow-hidden">
-        <div className="bg-card p-6 md:p-12">
-          <h3 className="font-manrope text-[24px] md:text-[32px] font-semibold text-cream mb-6">
+        <div className="bg-card p-12">
+          <h3 className="font-manrope text-[32px] font-semibold text-cream mb-6">
             7-Day, No-Questions-Asked<br />Guarantee
           </h3>
           <div className="space-y-4 font-manrope text-[18px] text-cream/70 leading-relaxed">
@@ -607,8 +602,8 @@ function GuaranteeCTA() {
             </p>
           </div>
         </div>
-        <div className="bg-page p-6 md:p-12 flex flex-col justify-center">
-          <h3 className="font-manrope text-[32px] md:text-[50px] font-medium text-cream leading-tight mb-8">
+        <div className="bg-page p-12 flex flex-col justify-center">
+          <h3 className="font-manrope text-[50px] font-medium text-cream leading-tight mb-8">
             Ready to Build Your First <span className="font-bold">.Skill</span>?
           </h3>
           <a
@@ -645,7 +640,7 @@ function FAQ() {
     <section className="bg-page py-20 px-6">
       <Divider />
       <div className="max-w-[700px] mx-auto pt-16">
-        <h2 className="font-manrope text-[32px] md:text-[48px] font-bold text-center mb-8 md:mb-12">
+        <h2 className="font-manrope text-[48px] font-bold text-center mb-12">
           <span className="text-cream font-bold">Frequently</span>{' '}
           <span className="text-cream/70">Asked Questions</span>
         </h2>
@@ -699,7 +694,7 @@ function CredibilityLine() {
   return (
     <section className="bg-page py-8 px-6">
       <Divider />
-      <p className="font-manrope text-[18px] md:text-[26px] font-bold text-cream/70 text-center pt-8 max-w-page mx-auto">
+      <p className="font-manrope text-[26px] font-bold text-cream/70 text-center pt-8 max-w-page mx-auto">
         <span className="text-cream italic">Everything we teach, we use ourselves to run our</span>{' '}
         <span className="text-cream italic">$8,000,000/yr business.</span>
       </p>
