@@ -338,9 +338,6 @@ function Instructors() {
             </div>
           ))}
         </div>
-        <p className="font-manrope text-[26px] font-bold text-cream text-center mt-12">
-          Three <span className="text-cream">practitioners</span>. Zero theorists. <span className="font-bold">Everything we teach.</span>
-        </p>
       </div>
     </section>
   )
