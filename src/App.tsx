@@ -97,21 +97,17 @@ function Hero() {
             </a>
           </div>
 
-          {/* Right — ONLY the headshot photos, text cropped away */}
-          <div className="flex-1 md:max-w-[55%] relative min-h-[550px] md:min-h-[650px] bg-page overflow-hidden">
-            <img
-              src="/images/hero-photos.png"
-              alt="Instructors"
-              className="absolute top-0 h-full object-cover brightness-110"
-              style={{
-                width: '250%',
-                maxWidth: 'none',
-                right: '0',
-                objectPosition: 'right center',
-                clipPath: 'inset(0 0 0 55%)',
-              }}
-            />
-          </div>
+          {/* Right — ONLY the headshot photos via background-image crop */}
+          <div
+            className="flex-1 md:max-w-[55%] relative min-h-[550px] md:min-h-[650px]"
+            style={{
+              backgroundImage: 'url(/images/hero-photos.png)',
+              backgroundSize: '250% auto',
+              backgroundPosition: 'right center',
+              backgroundRepeat: 'no-repeat',
+              filter: 'brightness(1.1)',
+            }}
+          />
         </div>
       </div>
     </section>
