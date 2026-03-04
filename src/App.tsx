@@ -83,14 +83,14 @@ function Hero() {
                 className="w-full h-full object-cover object-top grayscale brightness-90"
               />
             </div>
-            {/* Dickie - center (using headshot — hero export was broken) */}
-            <div className="absolute bottom-0 left-[28%] w-[44%] h-full z-10" style={{
+            {/* Dickie - center (square headshot — constrain to bottom half) */}
+            <div className="absolute bottom-0 left-[28%] w-[44%] h-[75%] z-10" style={{
               clipPath: 'polygon(18% 0%, 100% 0%, 82% 100%, 0% 100%)',
             }}>
               <img
                 src="/images/dickie-headshot.png"
                 alt="Dickie Bush"
-                className="w-full h-full object-cover object-top grayscale brightness-90"
+                className="w-full h-full object-cover object-center grayscale brightness-90"
               />
             </div>
             {/* Mitch - right */}
@@ -631,7 +631,6 @@ export default function App() {
     <div className="bg-page min-h-screen">
       <Hero />
       <Divider />
-      <WhatIsCowork />
       <Scrollytelling />
       <SkillsRightForYou />
       <BoldStatement />
