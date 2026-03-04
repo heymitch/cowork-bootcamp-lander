@@ -103,7 +103,7 @@ function Hero() {
               src="/images/hero-photos-clean.png"
               alt="Cole, Dickie, and Mitch"
               className="w-full object-cover object-top"
-              style={{ filter: 'brightness(1.1)', maxHeight: '95%' }}
+              style={{ filter: 'brightness(1.1)', maxHeight: '75%' }}
             />
           </div>
         </div>
