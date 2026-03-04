@@ -55,32 +55,32 @@ function Hero() {
       </div>
 
       <div className="relative flex flex-col md:flex-row">
-        {/* Left — text content, constrained */}
-        <div className="flex-1 md:w-[50%] relative z-20 px-6 md:pl-[max(24px,calc((100vw-1200px)/2+24px))] pb-12 md:pb-20">
+        {/* Left — text content */}
+        <div className="flex-1 md:w-[55%] relative z-20 px-6 md:px-12 lg:px-20 pb-12 md:pb-20">
           {/* Claude logo */}
           <div className="mb-2">
             <img src="/images/logo.png" alt="Claude" className="h-10 brightness-0 invert" />
           </div>
 
           {/* Big COWORK BOOTCAMP — solid red */}
-          <h2 className="font-anton text-[clamp(72px,9vw,130px)] leading-[0.85] uppercase mb-6 text-red">
+          <h2 className="font-anton text-[clamp(80px,10vw,150px)] leading-[0.85] uppercase mb-8 text-red">
             Cowork<br />Bootcamp
           </h2>
 
           {/* Headline */}
-          <h1 className="font-manrope text-[clamp(24px,2.6vw,34px)] font-bold text-cream leading-[1.3] mb-6 max-w-[480px]">
+          <h1 className="font-manrope text-[clamp(26px,2.8vw,38px)] font-bold text-cream leading-[1.3] mb-6 max-w-[560px]">
             Turn Claude Into Your Highest Performing Employee By Building{' '}
             <span className="text-yellow">.skills</span>
           </h1>
 
           {/* Subtitle */}
-          <p className="font-manrope text-[clamp(15px,1.3vw,17px)] text-cream/70 leading-relaxed mb-4 max-w-[460px]">
+          <p className="font-manrope text-[clamp(16px,1.4vw,19px)] text-cream/70 leading-relaxed mb-4 max-w-[520px]">
             Any task you do more than once should be saved as a .skill.{' '}
             <span className="text-yellow font-semibold italic">This is how you build leverage forever.</span>
           </p>
 
           {/* Sub-subtitle */}
-          <p className="font-manrope text-[clamp(14px,1.2vw,16px)] text-cream/60 leading-relaxed mb-8 max-w-[440px]">
+          <p className="font-manrope text-[clamp(15px,1.3vw,18px)] text-cream/60 leading-relaxed mb-8 max-w-[500px]">
             Join us live for beginner-friendly training on{' '}
             <span className="text-cream font-semibold">No-Code AI and the future of work.</span>
           </p>
@@ -97,7 +97,7 @@ function Hero() {
         </div>
 
         {/* Right — photos bleed to right edge, bottom cropped */}
-        <div className="md:w-[50%] relative min-h-[550px] md:min-h-[650px] overflow-hidden">
+        <div className="md:w-[45%] relative min-h-[550px] md:min-h-[700px] overflow-hidden">
           <img
             src="/images/hero-photos-clean.png"
             alt="Cole, Dickie, and Mitch"
