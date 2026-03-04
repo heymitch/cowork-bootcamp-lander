@@ -262,7 +262,7 @@ function useSlideIn(direction: 'left' | 'right') {
 
   const transform = visible
     ? 'translateX(0)'
-    : direction === 'left' ? 'translateX(-100%)' : 'translateX(100%)'
+    : direction === 'left' ? 'translateX(-60px)' : 'translateX(60px)'
 
   return {
     ref,
@@ -280,7 +280,7 @@ function BoldStatement() {
   const block2 = useSlideIn('right')
 
   return (
-    <section className="bg-red py-16 px-6 md:px-16 overflow-hidden">
+    <section className="bg-red py-16 px-6 md:px-16">
       <div className="max-w-page mx-auto">
         {/* Block 1 — left aligned, slides from left */}
         <div ref={block1.ref} style={block1.style} className="mb-12">
