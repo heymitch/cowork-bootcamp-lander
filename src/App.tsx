@@ -62,23 +62,38 @@ function Hero() {
             </a>
           </div>
 
-          {/* Right — headshots */}
-          <div className="flex-1 md:max-w-[45%] relative flex items-end justify-center min-h-[400px]">
-            <img
-              src="/images/hero-cole.png"
-              alt="Nicolas Cole"
-              className="absolute bottom-0 left-0 w-[42%] h-auto object-contain z-0"
-            />
-            <img
-              src="/images/hero-dickie.png"
-              alt="Dickie Bush"
-              className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[45%] h-auto object-contain object-bottom z-10"
-            />
-            <img
-              src="/images/hero-mitch.png"
-              alt="Mitch Harris"
-              className="absolute bottom-0 right-0 w-[42%] h-auto object-contain z-0"
-            />
+          {/* Right — headshots with angled clip-paths */}
+          <div className="flex-1 md:max-w-[45%] relative flex items-end justify-center h-[450px]">
+            {/* Cole - left */}
+            <div className="absolute bottom-0 left-0 w-[42%] h-[95%] z-0" style={{
+              clipPath: 'polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%)',
+            }}>
+              <img
+                src="/images/hero-cole.png"
+                alt="Nicolas Cole"
+                className="w-full h-full object-cover object-top"
+              />
+            </div>
+            {/* Dickie - center */}
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[44%] h-full z-10" style={{
+              clipPath: 'polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%)',
+            }}>
+              <img
+                src="/images/hero-dickie.png"
+                alt="Dickie Bush"
+                className="w-full h-full object-cover object-top"
+              />
+            </div>
+            {/* Mitch - right */}
+            <div className="absolute bottom-0 right-0 w-[42%] h-[95%] z-0" style={{
+              clipPath: 'polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%)',
+            }}>
+              <img
+                src="/images/hero-mitch.png"
+                alt="Mitch Harris"
+                className="w-full h-full object-cover object-top"
+              />
+            </div>
           </div>
         </div>
       </div>
