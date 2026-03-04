@@ -8,47 +8,48 @@ const SAMCART_URL = 'https://ship.samcart.com/products/claude-co-work-bootcamp'
 function Hero() {
   return (
     <section className="relative w-full bg-page overflow-hidden">
-      <div className="max-w-page mx-auto px-6 py-12 md:py-20">
-        {/* Badge — centered */}
-        <div className="flex justify-center mb-10">
-          <div className="flex items-center gap-2 bg-black/80 backdrop-blur px-4 py-2 rounded-full border border-white/20">
-            <span className="w-2 h-2 rounded-full bg-green animate-pulse" />
-            <span className="font-manrope text-[12.8px] font-semibold text-white">
-              Next Live Class: February 23, 2026
-            </span>
-          </div>
+      {/* Badge — centered top */}
+      <div className="flex justify-center pt-6 pb-8 relative z-20">
+        <div className="flex items-center gap-2 bg-black/80 backdrop-blur px-5 py-2.5 rounded-full border border-white/20">
+          <span className="w-2 h-2 rounded-full bg-green animate-pulse" />
+          <span className="font-manrope text-[11px] font-bold text-white uppercase tracking-[0.15em]">
+            2-Week Bootcamp Kicks Off Monday, February 23
+          </span>
         </div>
+      </div>
 
-        {/* Two-column: text left, photos right */}
-        <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+      <div className="relative max-w-page mx-auto px-6 pb-0">
+        {/* Two-column layout */}
+        <div className="flex flex-col md:flex-row">
           {/* Left — text */}
-          <div className="flex-1 md:max-w-[55%]">
-            {/* Logo + Brand */}
-            <div className="flex items-center gap-3 mb-8">
-              <img src="/images/logo.png" alt="" className="h-8" />
-              <div className="leading-none">
-                <span className="font-manrope text-[14px] font-semibold text-white tracking-wide">Claude</span>
-                <div className="font-anton text-[28px] uppercase text-white leading-none tracking-wide">
-                  Cowork<br />Bootcamp
-                </div>
-              </div>
+          <div className="flex-1 md:max-w-[50%] pb-12 md:pb-20 relative z-20">
+            {/* Claude logo + text */}
+            <div className="flex items-center gap-3 mb-2">
+              <img src="/images/logo.png" alt="" className="h-10" />
+              <span className="font-manrope text-[28px] font-semibold text-white">Claude</span>
             </div>
 
+            {/* Big COWORK BOOTCAMP */}
+            <h2 className="font-anton text-[clamp(72px,9vw,130px)] leading-[0.85] uppercase text-red mb-6">
+              Cowork<br />Bootcamp
+            </h2>
+
             {/* Headline */}
-            <h1 className="font-anton text-[clamp(40px,5.5vw,76px)] leading-[0.95] uppercase mb-8">
-              <span className="text-cream">Turn Claude Into Your Highest Performing Employee By Building </span>
+            <h1 className="font-manrope text-[clamp(22px,2.4vw,32px)] font-bold text-cream leading-[1.3] mb-6 max-w-[480px]">
+              Turn Claude Into Your Highest Performing Employee By Building{' '}
               <span className="text-yellow">.skills</span>
             </h1>
 
             {/* Subtitle */}
-            <p className="font-manrope text-[clamp(15px,1.3vw,18px)] text-cream/70 leading-relaxed mb-4">
-              Any task you do more than once should be saved as a .skill.
-              <span className="text-yellow font-medium"> This is how you build leverage forever.</span>
+            <p className="font-manrope text-[clamp(15px,1.3vw,17px)] text-cream/70 leading-relaxed mb-4 max-w-[460px]">
+              Any task you do more than once should be saved as a .skill.{' '}
+              <span className="text-yellow font-semibold italic">This is how you build leverage forever.</span>
             </p>
 
             {/* Sub-subtitle */}
-            <p className="font-manrope text-[clamp(14px,1.2vw,16px)] text-cream/50 leading-relaxed mb-8">
-              Join us live for beginner-friendly training on No-Code AI and the future of work.
+            <p className="font-manrope text-[clamp(14px,1.2vw,16px)] text-cream/60 leading-relaxed mb-8 max-w-[440px]">
+              Join us live for beginner-friendly training on{' '}
+              <span className="text-cream font-semibold">No-Code AI and the future of work.</span>
             </p>
 
             {/* CTA Button */}
@@ -56,42 +57,42 @@ function Hero() {
               href={SAMCART_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-yellow text-black font-manrope text-[17px] font-extrabold uppercase tracking-wide px-10 py-4 rounded-lg hover:brightness-110 transition"
+              className="inline-block bg-yellow text-black font-manrope text-[16px] font-extrabold uppercase tracking-[0.08em] px-10 py-5 rounded-lg hover:brightness-110 transition"
             >
               How It Works
             </a>
           </div>
 
-          {/* Right — headshots with angled clip-paths */}
-          <div className="flex-1 md:max-w-[45%] relative flex items-end justify-center h-[450px]">
+          {/* Right — headshots, B&W, angled, overlapping */}
+          <div className="flex-1 md:max-w-[50%] relative min-h-[500px] md:min-h-[600px]">
             {/* Cole - left */}
-            <div className="absolute bottom-0 left-0 w-[42%] h-[95%] z-0" style={{
-              clipPath: 'polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%)',
+            <div className="absolute bottom-0 left-[2%] w-[40%] h-[90%]" style={{
+              clipPath: 'polygon(18% 0%, 100% 0%, 82% 100%, 0% 100%)',
             }}>
               <img
                 src="/images/hero-cole.png"
                 alt="Nicolas Cole"
-                className="w-full h-full object-cover object-top"
+                className="w-full h-full object-cover object-top grayscale brightness-90"
               />
             </div>
             {/* Dickie - center */}
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[44%] h-full z-10" style={{
-              clipPath: 'polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%)',
+            <div className="absolute bottom-0 left-[28%] w-[44%] h-full z-10" style={{
+              clipPath: 'polygon(18% 0%, 100% 0%, 82% 100%, 0% 100%)',
             }}>
               <img
                 src="/images/hero-dickie.png"
                 alt="Dickie Bush"
-                className="w-full h-full object-cover object-top"
+                className="w-full h-full object-cover object-top grayscale brightness-90"
               />
             </div>
             {/* Mitch - right */}
-            <div className="absolute bottom-0 right-0 w-[42%] h-[95%] z-0" style={{
-              clipPath: 'polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%)',
+            <div className="absolute bottom-0 right-[-2%] w-[40%] h-[90%] z-20" style={{
+              clipPath: 'polygon(18% 0%, 100% 0%, 82% 100%, 0% 100%)',
             }}>
               <img
                 src="/images/hero-mitch.png"
                 alt="Mitch Harris"
-                className="w-full h-full object-cover object-top"
+                className="w-full h-full object-cover object-top grayscale brightness-90"
               />
             </div>
           </div>
