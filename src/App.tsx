@@ -15,7 +15,7 @@ function Hero() {
         className="w-full h-auto block"
       />
       {/* Badge overlay — live HTML for the pulse animation */}
-      <div className="absolute top-[2.5%] left-1/2 -translate-x-1/2 flex items-center gap-2 bg-black/80 backdrop-blur px-4 py-2 rounded-full z-10">
+      <div className="absolute top-[2.5%] left-1/2 -translate-x-1/2 flex items-center gap-2 bg-black/80 backdrop-blur px-4 py-2 rounded-full z-10 border border-white/20">
         <span className="w-2 h-2 rounded-full bg-green animate-pulse" />
         <span className="font-manrope text-[12.8px] font-semibold text-white">
           Next Live Class: February 23, 2026
