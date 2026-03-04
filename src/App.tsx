@@ -132,44 +132,78 @@ function WhatIsCowork() {
   )
 }
 
+/* ─── Line-art icons for cards ─── */
+function IconBriefcase() {
+  return (
+    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="6" y="16" width="36" height="24" rx="3" />
+      <path d="M16 16V12a4 4 0 014-4h8a4 4 0 014 4v4" />
+      <path d="M6 26h36" />
+      <rect x="20" y="23" width="8" height="6" rx="1" />
+    </svg>
+  )
+}
+function IconChat() {
+  return (
+    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M8 10h32a2 2 0 012 2v18a2 2 0 01-2 2H26l-8 6v-6H8a2 2 0 01-2-2V12a2 2 0 012-2z" />
+      <circle cx="24" cy="21" r="3" fill="currentColor" stroke="none" />
+      <circle cx="16" cy="21" r="2" fill="currentColor" stroke="none" />
+      <circle cx="32" cy="21" r="2" fill="currentColor" stroke="none" />
+    </svg>
+  )
+}
+function IconShop() {
+  return (
+    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M6 18h36v22a2 2 0 01-2 2H8a2 2 0 01-2-2V18z" />
+      <path d="M6 18l4-12h28l4 12" />
+      <path d="M6 18h8m0 0c0 3-2 5-4 5s-4-2-4-5m8 0c0 3 2 5 4 5s4-2 4-5m0 0h0c0 3 2 5 4 5s4-2 4-5m0 0h0c0 3 2 5 4 5s4-2 4-5m0 0h8" />
+      <rect x="18" y="30" width="12" height="12" rx="1" />
+    </svg>
+  )
+}
+
 /* ─── Section 4: Are .Skills Right For You? ─── */
 function SkillsRightForYou() {
   const cards = [
     {
-      icon: '💼',
+      icon: <IconBriefcase />,
       question: 'Do you have a job?',
-      text: 'If so, there are probably hundreds of tasks you do manually, repeatedly, that consume hundreds of hours of your life. These are perfect candidates for .Skills to do—because they\'re boring, tedious, mindless, etc. If you spend any time doing this kind of monotonous knowledge work, then you need to build some .Skills.',
+      text: 'If so, there are probably hundreds of tasks you do manually, repeatedly, that consume hundreds of hours of your life. There are probably also tasks you hate to do—because they\'re boring, tedious, mindless, etc. If you spend any time doing this kind of monotonous knowledge-work, then you need to build some .Skills.',
     },
     {
-      icon: '🤖',
+      icon: <IconChat />,
       question: 'Do you use AI but struggle to generate high-quality outputs?',
-      text: 'That\'s because you\'re limited to the chat window. You\'re still copy-pasting context every time. The breakthrough comes when your tools meet actually faster & quality work with AI just do things myself. All you need to build some .Skills.',
+      text: 'That\'s because you\'re limited to the chat window. You\'re still copy-pasting context every time. The results never quite meet your standards—and you think, "It\'s actually faster if I just do this myself." Well, you won\'t anymore... if you build some .Skills!',
     },
     {
-      icon: '🏢',
+      icon: <IconShop />,
       question: 'Do you own your own business?',
-      text: 'If so, think of Claude .Skills as your first no-code employee. No more prompting & chatting. Just show it what you want help with, save a .Skill, it to a repeatable process in a .Skill, to save money & get back to the things that matter most to you. Build some profitable .Skills.',
+      text: <span>If so, think of <strong>Claude .Skills</strong> as your first no-code employee. No more prompting &amp; chatting. Just show Claude something you want help with, save the conversation as a .Skill, re-claim hours of your life, and move on to the next task. This is the future of running a highly profitable business.</span>,
     },
   ]
 
   return (
-    <section className="bg-page py-16 px-6">
+    <section className="py-20 px-6" style={{
+      background: 'linear-gradient(180deg, #0d1116 0%, #3a0a0a 40%, #7a1a1a 100%)',
+    }}>
       <div className="max-w-page mx-auto text-center mb-12">
         <h2 className="font-manrope text-[50px] font-semibold text-cream mb-3">
-          Are <span className="font-bold">.Skills</span> Right For You?
+          Are <span className="font-bold">.skills</span> Right For You?
         </h2>
         <p className="font-manrope text-[20px] font-semibold text-cream/70 italic">
           Hmmm… let's see…
         </p>
       </div>
-      <div className="max-w-page mx-auto grid grid-cols-1 md:grid-cols-3 gap-0">
+      <div className="max-w-page mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
         {cards.map((card, i) => (
-          <div key={i} className="bg-cream rounded-lg p-8 flex flex-col gap-4">
-            <div className="text-4xl">{card.icon}</div>
-            <h3 className="font-manrope text-[20px] font-bold text-black">
+          <div key={i} className="bg-cream rounded-2xl p-8 flex flex-col gap-4">
+            <div className="text-black/70">{card.icon}</div>
+            <h3 className="font-manrope text-[22px] font-bold text-black leading-tight">
               {card.question}
             </h3>
-            <p className="font-manrope text-[16px] font-medium text-black/80 leading-relaxed">
+            <p className="font-manrope text-[15px] text-black/70 leading-relaxed">
               {card.text}
             </p>
           </div>
