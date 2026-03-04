@@ -1,5 +1,6 @@
 import './index.css'
 import { useState } from 'react'
+import ScrollytellingCompact from './framer/scrolly'
 
 const SAMCART_URL = 'https://ship.samcart.com/products/claude-co-work-bootcamp'
 
@@ -133,7 +134,8 @@ function BoldStatement() {
     <section className="bg-red py-16 px-6 md:px-16">
       <div className="max-w-page mx-auto">
         <h2 className="font-anton text-[96px] leading-[0.95] uppercase text-cream mb-12">
-          Learning how to build & save <span className="text-cream/50">.Skills is the future of no-code work.</span>
+          Learning how to use &{' '}
+          <span className="text-cream/50">create .Skills is the future of no-code work.</span>
         </h2>
         <h2 className="font-anton text-[96px] leading-[0.95] uppercase text-center">
           <span className="text-cream">If staying relevant in your </span>
@@ -164,7 +166,7 @@ function FiveSkills() {
       <div className="max-w-page mx-auto">
         <div className="text-center mb-4">
           <h2 className="font-manrope text-[50px] font-semibold text-cream">
-            <span className="font-bold">5 Skills</span> To Get You Started
+            <span className="font-bold">5 .skills</span> to get you started:
           </h2>
         </div>
         <p className="font-geist text-[16px] text-cream/60 text-center max-w-[700px] mx-auto mb-12">
@@ -522,6 +524,33 @@ function FAQ() {
   )
 }
 
+/* ─── Scrollytelling Section ─── */
+function Scrollytelling() {
+  return (
+    <section className="bg-page">
+      <ScrollytellingCompact
+        cTAURL={SAMCART_URL}
+        cTAButtonText="JOIN THE BOOTCAMP"
+        cTASubtext="No code. No terminal. Just results."
+        style={{ width: '100%' }}
+      />
+    </section>
+  )
+}
+
+/* ─── Credibility Line ─── */
+function CredibilityLine() {
+  return (
+    <section className="bg-page py-8 px-6">
+      <Divider />
+      <p className="font-manrope text-[26px] font-bold text-cream/70 text-center pt-8 max-w-page mx-auto">
+        <span className="text-cream italic">Everything we teach, we use ourselves to run our</span>{' '}
+        <span className="text-cream italic">$8,000,000/yr business.</span>
+      </p>
+    </section>
+  )
+}
+
 /* ─── Main App ─── */
 export default function App() {
   return (
@@ -529,11 +558,13 @@ export default function App() {
       <Hero />
       <Divider />
       <WhatIsCowork />
+      <Scrollytelling />
       <SkillsRightForYou />
       <BoldStatement />
       <FiveSkills />
       <FreeBonuses />
       <Instructors />
+      <CredibilityLine />
       <Schedule />
       <Pricing />
       <GuaranteeCTA />
