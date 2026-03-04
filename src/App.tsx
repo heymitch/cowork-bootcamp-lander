@@ -97,17 +97,15 @@ function Hero() {
             </a>
           </div>
 
-          {/* Right — ONLY the headshot photos via background-image crop */}
-          <div
-            className="flex-1 md:max-w-[55%] relative min-h-[550px] md:min-h-[650px]"
-            style={{
-              backgroundImage: 'url(/images/hero-photos.png)',
-              backgroundSize: '250% auto',
-              backgroundPosition: 'right center',
-              backgroundRepeat: 'no-repeat',
-              filter: 'brightness(1.1)',
-            }}
-          />
+          {/* Right — clean headshot photos (no baked-in text) */}
+          <div className="flex-1 md:max-w-[55%] relative min-h-[550px] md:min-h-[650px] flex items-center justify-end">
+            <img
+              src="/images/hero-photos-clean.png"
+              alt="Cole, Dickie, and Mitch"
+              className="h-full max-h-[700px] object-contain object-right"
+              style={{ filter: 'brightness(1.1)' }}
+            />
+          </div>
         </div>
       </div>
     </section>
