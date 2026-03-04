@@ -39,9 +39,9 @@ function FadeIn({ children, className = '', delay = 0 }: { children: React.React
 function Hero() {
   return (
     <section className="relative w-full bg-page overflow-hidden">
-      {/* Ambient background gradient — subtle blue/steel wash on right */}
+      {/* Ambient background gradient — subtle light wash bottom-left */}
       <div className="absolute inset-0 z-0" style={{
-        background: 'radial-gradient(ellipse 80% 100% at 75% 50%, rgba(56, 74, 100, 0.35) 0%, transparent 70%)',
+        background: 'radial-gradient(ellipse 60% 50% at 20% 85%, rgba(56, 74, 100, 0.3) 0%, transparent 70%)',
       }} />
 
       {/* Badge — centered top */}
@@ -97,8 +97,8 @@ function Hero() {
             </a>
           </div>
 
-          {/* Right — Figma photos, brighter, taller, bleeding to edge */}
-          <div className="flex-1 md:max-w-[55%] relative min-h-[550px] md:min-h-[650px] overflow-hidden -mr-6">
+          {/* Right — Figma photos, dark bg to hide outline */}
+          <div className="flex-1 md:max-w-[55%] relative min-h-[550px] md:min-h-[650px] overflow-hidden -mr-6 bg-page">
             <img
               src="/images/hero-photos.png"
               alt="Instructors"
