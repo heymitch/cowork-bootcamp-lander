@@ -86,11 +86,6 @@ function ConnectorSVG({ name }: { name: string }) {
   return null;
 }
 
-// ─── Skill Disk Image ──────────────────────────────────────────────────────────
-
-const SKILL_DISK_SRC =
-  "data:image/png;base64,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";
-
 // ─── Responsive Hook ────────────────────────────────────────────────────────────
 
 function useBreakpoint() {
@@ -448,29 +443,6 @@ function CoworkDemo({ compact, mobile }: { compact: boolean; mobile: boolean }) 
   );
 }
 
-// ═══════════════════════════════════════════════════════════════════════════════
-// SKILL DISKS GRID
-// ═══════════════════════════════════════════════════════════════════════════════
-
-const SKILL_DISKS = [
-  { name: "Social Content", hueRotate: 0 },
-  { name: "Newsletter", hueRotate: 240 },
-  { name: "Digital Product", hueRotate: 120 },
-  { name: "Research", hueRotate: 300 },
-];
-
-function SkillDisksGrid({ compact, mobile }: { compact: boolean; mobile: boolean }) {
-  return (
-    <div style={{ display: "flex", justifyContent: "center", gap: mobile ? 24 : 36, flexWrap: "wrap", maxWidth: mobile ? "100%" : 1200, margin: "48px auto 0", padding: mobile ? "0 16px" : "0 16px" }}>
-      {SKILL_DISKS.map(({ name, hueRotate }, i) => (
-        <motion.div key={name} initial={{ opacity: 0, scale: 0.7, y: 24 }} whileInView={{ opacity: 1, scale: 1, y: 0 }} viewport={{ once: true, margin: "0px 0px -5% 0px" }} transition={{ delay: i * 0.1, duration: 0.5, ease: [0.175, 0.885, 0.32, 1.275] }} whileHover={{ y: -4, rotate: -2 }} style={{ display: "flex", flexDirection: "column", alignItems: "center", cursor: "default" }}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={SKILL_DISK_SRC} alt={`${name} Skill`} draggable={false} style={{ width: "100%", maxWidth: mobile ? 224 : 288, height: "auto", filter: `hue-rotate(${hueRotate}deg) drop-shadow(0 8px 24px rgba(0,0,0,0.4))` }} />
-        </motion.div>
-      ))}
-    </div>
-  );
-}
 
 // ═══════════════════════════════════════════════════════════════════════════════
 // MAIN EXPORT
@@ -557,22 +529,6 @@ export default function ScrollytellingCompact({
             ))}
           </motion.div>
         </div>
-
-        {/* Section 3: Install skills */}
-        <div style={{ textAlign: "center", marginBottom: 24 }}>
-          <div style={{ display: "inline-block", fontSize: 11, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.15em", color: C.yellowSoft, marginBottom: 12 }}>Get Started</div>
-          <h3 style={{ fontWeight: 700, fontSize: compact ? 24 : 34, color: C.cream, lineHeight: 1.2, margin: 0, marginBottom: 12 }}>
-            .skills let you install expertise in <span style={{ color: C.yellow }}>two&nbsp;clicks</span>
-          </h3>
-          <p style={{ fontSize: compact ? 16 : 18, color: C.creamDim, lineHeight: 1.6, margin: 0, maxWidth: 540, marginLeft: "auto", marginRight: "auto", marginBottom: 8 }}>
-            Best practices, proven processes, and smart decision-making, all packaged into .skills you install once and use forever (even as your business evolves)
-          </p>
-          <p style={{ fontSize: compact ? 15 : 16, color: C.creamFaint, lineHeight: 1.5, margin: 0, maxWidth: 480, marginLeft: "auto", marginRight: "auto" }}>
-            Or build your own based on your expertise so the AI writes like you, acts like you, and thinks like you.
-          </p>
-        </div>
-
-        <SkillDisksGrid compact={compact} mobile={mobileLayout} />
 
         {/* CTA */}
         <div style={{ textAlign: "center", marginTop: compact ? 48 : 64 }}>
