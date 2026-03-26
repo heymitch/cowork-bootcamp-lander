@@ -694,19 +694,160 @@ function Instructors() {
           ))}
         </div>
 
-        {/* Cole quote */}
-        <blockquote className="animate-on-scroll max-w-3xl mx-auto mt-14 border-l-4 border-[#D4714E] pl-6 py-2">
-          <p className="text-white/80 text-lg italic leading-relaxed font-manrope">
-            &ldquo;After playing with Claude Cowork non-stop for the past week, I&rsquo;ve officially internalized how existential AI is. If you aren&rsquo;t learning these new AI skills, you&rsquo;re completely toast.&rdquo;
-          </p>
-          <footer className="text-white/70 text-sm mt-2 font-inter">&mdash; Nicolas Cole</footer>
-        </blockquote>
-
-        <p className="animate-on-scroll text-center text-white/80 text-lg sm:text-xl mt-12 font-manrope max-w-3xl mx-auto leading-relaxed">
+        <p className="animate-on-scroll text-center text-white/80 text-lg sm:text-xl mt-14 font-manrope max-w-3xl mx-auto leading-relaxed">
           Three practitioners. Zero theorists.{" "}
           <strong className="text-white">Everything</strong> we teach, we use ourselves to run our{" "}
           <strong className="text-white">$8,000,000/yr business.</strong>
         </p>
+      </div>
+    </section>
+  );
+}
+
+/* ──────────────────── TESTIMONIALS ─────────────────────── */
+const TESTIMONIALS = [
+  {
+    name: "Tad",
+    role: "Ghostwriter",
+    quote: "This got me so much further down the road of using Claude Cowork than I could have done on my own. I\u2019ve already used it to get more organized on each of my ghostwriting clients and sped up the process of delivering their content each week.",
+  },
+  {
+    name: "Morgan Johnson",
+    role: "",
+    quote: "Without doubt, the highlight was creating and deploying a landing page and e-book lead magnet in less than an hour. Definitely finished the bootcamp wanting more.",
+  },
+  {
+    name: "Jane",
+    role: "",
+    quote: "Before the bootcamp, I used Claude conversationally but had no idea how to use it as a builder. It\u2019s already made my workflow noticeably smoother with fewer bottlenecks, more momentum.",
+  },
+  {
+    name: "Jessica Li",
+    role: "",
+    quote: "This bootcamp helped me understand how Claude Cowork can create compound effects in my every day work to multiply productivity. The hands-on format made it easy to learn a lot in a short time.",
+  },
+  {
+    name: "Roshan Gupta",
+    role: "Business Owner",
+    quote: "I\u2019ve been using AI extensively to manage my business\u2014but this bootcamp on Claude Cowork opened up my eyes to a whole new way of working with AI. The tools we were using were literally changing day-by-day.",
+  },
+  {
+    name: "Oscar A. Orta",
+    role: "GrowthWrite Founder",
+    quote: "I\u2019ve used ChatGPT since it first came out on a daily basis. However, I had no idea about Cowork and how much it could do, without coding.",
+  },
+  {
+    name: "Eva M.",
+    role: "",
+    quote: "I hesitated before signing up for the bootcamp but am extremely glad I did. The skills I built here changed how I approach AI entirely.",
+  },
+  {
+    name: "Gannon Nordberg",
+    role: "",
+    quote: "With the tools and frameworks in this bootcamp, I can comfortably say I\u2019ve reached a whole new level!",
+  },
+];
+
+function Testimonials() {
+  return (
+    <section className="bg-[#0f1319] py-20 px-6">
+      <div className="max-w-6xl mx-auto">
+        <h2 className="animate-on-scroll text-center font-manrope font-bold text-2xl sm:text-4xl text-white mb-3">
+          What Bootcamp Students Say
+        </h2>
+        <p className="text-center text-white/70 text-base mb-14">
+          Real reviews from Cohort 1
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 stagger-children">
+          {TESTIMONIALS.map((t, i) => (
+            <div
+              key={i}
+              className="animate-on-scroll bg-[#1a2030] border border-white/15 rounded-2xl p-6 flex flex-col justify-between"
+            >
+              <p className="text-white/80 text-sm leading-relaxed italic mb-4">
+                &ldquo;{t.quote}&rdquo;
+              </p>
+              <div>
+                <p className="text-white font-semibold text-sm font-manrope">
+                  {t.name}
+                </p>
+                {t.role && (
+                  <p className="text-white/55 text-xs font-inter">{t.role}</p>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ──────────────────── WHAT'S NEW IN 2.0 ───────────────── */
+function WhatsNew() {
+  return (
+    <section className="bg-[#0f1319] py-20 px-6 border-t border-white/10">
+      <div className="max-w-5xl mx-auto">
+        <div className="text-center mb-14">
+          <span className="text-xs tracking-[0.2em] text-[#D4714E]/80 font-inter uppercase">
+            Version 2.0
+          </span>
+          <h2 className="animate-on-scroll font-manrope font-bold text-2xl sm:text-4xl text-white mt-3">
+            What&rsquo;s New in 2.0?
+          </h2>
+          <p className="text-white/70 text-base mt-4 max-w-2xl mx-auto">
+            Everything that made v1 great, plus everything we learned from 100+ students.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children">
+          {[
+            {
+              title: "Updated Skills",
+              desc: "All 6 skills rebuilt from scratch with lessons learned from Cohort 1. Faster, more reliable, better outputs.",
+              icon: "\u2699\uFE0F",
+            },
+            {
+              title: "New Curriculum",
+              desc: "Refined session flow based on student feedback. Less setup, more building. You\u2019ll ship your first skill in Session 1.",
+              icon: "\uD83D\uDCDA",
+            },
+            {
+              title: "Fresh Skill Library",
+              desc: "Brand new skills you won\u2019t find anywhere else\u2014built for the latest Claude Cowork features.",
+              icon: "\uD83D\uDCBE",
+            },
+            {
+              title: "Improved Bonuses",
+              desc: "Updated AI Tools Guide, new prompt frameworks, and a revamped Voice Training masterclass.",
+              icon: "\uD83C\uDF81",
+            },
+            {
+              title: "Office Hours",
+              desc: "Dedicated Q&A time every session. Bring your workflow, we\u2019ll build it together live.",
+              icon: "\uD83C\uDF99\uFE0F",
+            },
+            {
+              title: "Alumni Community",
+              desc: "Join a private group of 100+ Cowork practitioners sharing skills, templates, and wins.",
+              icon: "\uD83E\uDD1D",
+            },
+          ].map((item, i) => (
+            <div
+              key={i}
+              className="animate-on-scroll bg-[#1a2030] border border-white/15 rounded-2xl p-6"
+            >
+              <span className="text-2xl mb-3 block">{item.icon}</span>
+              <h3 className="font-manrope font-bold text-white text-lg mb-2">
+                {item.title}
+              </h3>
+              <p className="text-white/70 text-sm leading-relaxed">
+                {item.desc}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -1008,12 +1149,14 @@ export default function Home() {
   return (
     <main>
       <Hero />
+      <WhatsNew />
       <ScrollytellingCompact />
       <AreSkillsRight />
       <BigTypeStatement />
       <SkillsGrid />
       <FreeBonuses />
       <Instructors />
+      <Testimonials />
       <Schedule />
       <Pricing />
       <GuaranteeCta />
