@@ -13,7 +13,7 @@ function Hero() {
         <div className="inline-flex items-center gap-2 border border-[#D4714E]/30 rounded-full px-5 py-2 text-sm font-inter">
           <Image src="/images/img-26.png" alt="" width={10} height={10} />
           <span className="text-white/90 tracking-wide text-xs sm:text-sm">
-            2-WEEK BOOTCAMP KICKS OFF MONDAY, FEBRUARY 23
+            2-WEEK BOOTCAMP KICKS OFF MONDAY, APRIL 6
           </span>
         </div>
       </div>
@@ -714,10 +714,10 @@ function Instructors() {
 
 /* ──────────────────── SCHEDULE ─────────────────────────── */
 function Schedule() {
-  const febDays = [23, 24, 25, 26, 27, 28, 1];
-  const marDays = [2, 3, 4, 5, 6, 7, 8];
-  const sessionDaysFeb = [23, 25, 27];
-  const sessionDaysMar = [2, 4, 6];
+  const week1Days = [6, 7, 8, 9, 10, 11, 12];
+  const week2Days = [13, 14, 15, 16, 17, 18, 19];
+  const sessionDaysW1 = [6, 8, 10];
+  const sessionDaysW2 = [13, 15, 17];
 
   return (
     <section className="bg-gradient-to-b from-[#161616] to-[#1a0a0a] py-20 px-6">
@@ -725,7 +725,7 @@ function Schedule() {
         <h2 className="text-center font-manrope font-bold text-2xl sm:text-3xl text-white mb-3">
           Claude Cowork Bootcamp Kicks Off
           <br />
-          Monday, February 23rd!
+          Monday, April 6th!
         </h2>
         <p className="text-center text-white/70 text-base mb-10">
           Here&rsquo;s the schedule:
@@ -741,15 +741,15 @@ function Schedule() {
           ))}
         </div>
 
-        {/* February row */}
+        {/* Week 1 row */}
         <div className="mb-1">
-          <p className="text-xs text-white/55 font-inter mb-1">FEBRUARY</p>
+          <p className="text-xs text-white/55 font-inter mb-1">APRIL</p>
           <div className="grid grid-cols-7 gap-2">
-            {febDays.map((d) => (
+            {week1Days.map((d) => (
               <div
                 key={d}
                 className={`aspect-square flex items-center justify-center rounded-lg text-sm font-inter ${
-                  sessionDaysFeb.includes(d)
+                  sessionDaysW1.includes(d)
                     ? "bg-[#D4714E]/20 text-[#D4714E] font-bold border border-[#D4714E]/30"
                     : "bg-white/5 text-white/55"
                 }`}
@@ -760,15 +760,14 @@ function Schedule() {
           </div>
         </div>
 
-        {/* March row */}
+        {/* Week 2 row */}
         <div className="mb-10">
-          <p className="text-xs text-white/55 font-inter mb-1 mt-3">MARCH</p>
-          <div className="grid grid-cols-7 gap-2">
-            {marDays.map((d) => (
+          <div className="grid grid-cols-7 gap-2 mt-2">
+            {week2Days.map((d) => (
               <div
                 key={d}
                 className={`aspect-square flex items-center justify-center rounded-lg text-sm font-inter ${
-                  sessionDaysMar.includes(d)
+                  sessionDaysW2.includes(d)
                     ? "bg-[#D4714E]/20 text-[#D4714E] font-bold border border-[#D4714E]/30"
                     : "bg-white/5 text-white/55"
                 }`}
@@ -783,16 +782,16 @@ function Schedule() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
           <div>
             <h3 className="font-manrope font-bold text-white text-lg mb-4">
-              WEEK 1 — FEBRUARY
+              WEEK 1 — APRIL
             </h3>
             <div className="space-y-3">
               {[
                 [
-                  "Mon 23",
+                  "Mon 6",
                   "Session 1: Setup & First .skill, organizing your files",
                 ],
-                ["Wed 25", "Session 2: Newsletter .skill"],
-                ["Fri 27", "Session 3: Meeting Prep .skill"],
+                ["Wed 8", "Session 2: Newsletter .skill"],
+                ["Fri 10", "Session 3: Meeting Prep .skill"],
               ].map(([day, session]) => (
                 <div key={day} className="flex gap-4">
                   <span className="text-[#D4714E] text-sm font-bold font-inter w-16 shrink-0">
@@ -805,13 +804,13 @@ function Schedule() {
           </div>
           <div>
             <h3 className="font-manrope font-bold text-white text-lg mb-4">
-              WEEK 2 — MARCH
+              WEEK 2 — APRIL
             </h3>
             <div className="space-y-3">
               {[
-                ["Mon 2", "Session 4: Chaining Workflows .skills"],
-                ["Wed 4", "Session 5: Templates and Browser Automation"],
-                ["Fri 6", "Session 6: Customizing Your .skills"],
+                ["Mon 13", "Session 4: Chaining Workflows .skills"],
+                ["Wed 15", "Session 5: Templates and Browser Automation"],
+                ["Fri 17", "Session 6: Customizing Your .skills"],
               ].map(([day, session]) => (
                 <div key={day} className="flex gap-4">
                   <span className="text-[#D4714E] text-sm font-bold font-inter w-16 shrink-0">
@@ -857,7 +856,7 @@ function Pricing() {
             JOIN CLAUDE COWORK BOOTCAMP
           </a>
           <p className="text-white/45 text-sm mt-4 font-inter">
-            Starts February 23, 2026 &middot; Limited seats
+            Starts April 6, 2026 &middot; Limited seats
           </p>
           <div className="flex justify-center mt-6">
             <Image
@@ -907,7 +906,7 @@ function GuaranteeCta() {
             JOIN THE BOOTCAMP — $800
           </a>
           <p className="text-white/45 text-sm font-inter">
-            February 23 – March 6, 2026 &middot; Limited seats
+            April 6 – April 17, 2026 &middot; Limited seats
           </p>
         </div>
       </div>
