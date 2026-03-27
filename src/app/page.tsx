@@ -507,7 +507,7 @@ function BigTypeStatement() {
         <p className="font-anton text-5xl sm:text-7xl lg:text-[85px] uppercase leading-[0.95] tracking-tight italic text-left">
           <span className="text-white">Learning How To Use &</span>
           <br />
-          <span className="text-stroke-red">Create .skills Is The Future</span>
+          <span className="text-cream">Create .skills Is The Future</span>
           <br />
           <span className="text-white/90 ml-4 sm:ml-8">Of No-Code Work.</span>
         </p>
