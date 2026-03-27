@@ -664,7 +664,7 @@ const BONUSES = [
     name: "Voice Lab Skill",
     desc: "Go deeper than the standard voice training from Session 2. Voice Lab analyzes your writing patterns, identifies your signature phrases, and refines your voice profile over time. The more you use it, the more Cowork sounds like you.",
     value: "$99",
-    img: null,
+    img: "/images/img-19.png",
   },
   {
     num: 5,
