@@ -458,7 +458,7 @@ function InstallSkills() {
 /* ──────────────────── ARE SKILLS RIGHT ─────────────────── */
 function AreSkillsRight() {
   return (
-    <section className="relative py-28 sm:py-36 px-6 bg-gradient-to-b from-[#0f2847] via-[#3a0a0a] to-[#BD3131]">
+    <section className="relative py-28 sm:py-36 px-6 bg-gradient-to-b from-[#0f2847] via-[#3a1a0a] to-[#D4714E]">
       <div className="max-w-7xl mx-auto text-center mb-16">
         <h2 className="animate-on-scroll font-manrope font-bold text-4xl sm:text-5xl text-white">
           Are <span className="font-bold">.skills</span> Right For You?
@@ -503,7 +503,7 @@ function AreSkillsRight() {
 /* ──────────────────── BIG TYPE STATEMENT ───────────────── */
 function BigTypeStatement() {
   return (
-    <section className="bg-[#BD3131] py-24 sm:py-36 px-6">
+    <section className="bg-[#D4714E] py-24 sm:py-36 px-6">
       <div className="max-w-6xl mx-auto px-6 sm:px-12">
         {/* Block 1 — slides in from left */}
         <p className="slide-from-left font-anton text-5xl sm:text-7xl lg:text-[85px] uppercase leading-[0.95] tracking-tight italic text-left">
@@ -577,7 +577,7 @@ const SESSIONS = [
 
 function SessionOutline() {
   return (
-    <section className="bg-gradient-to-b from-[#BD3131] via-[#1a2847] to-[#0d2847] py-24 sm:py-32 px-6">
+    <section className="bg-gradient-to-b from-[#D4714E] via-[#1a2847] to-[#0d2847] py-24 sm:py-32 px-6">
       <div className="max-w-4xl mx-auto">
         <span className="block text-xs font-bold text-[#D4714E] uppercase tracking-[0.15em] mb-3 font-inter">
           The 6 Sessions
@@ -700,7 +700,7 @@ const BONUSES = [
 
 function FreeBonuses() {
   return (
-    <section className="bg-gradient-to-b from-[#BD3131] via-[#2a0a0a] to-[#0f2847] py-24 sm:py-32 px-6">
+    <section className="bg-gradient-to-b from-[#D4714E] via-[#2a1508] to-[#0f2847] py-24 sm:py-32 px-6">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-center font-manrope font-bold text-3xl sm:text-5xl text-white mb-4">
           Free Bonuses Included
@@ -1036,7 +1036,7 @@ function Schedule() {
   const sessionDaysW2 = [13, 15, 17];
 
   return (
-    <section className="bg-gradient-to-b from-[#161616] to-[#1a0a0a] py-24 sm:py-32 px-6">
+    <section className="bg-gradient-to-b from-[#161616] to-[#1a1208] py-24 sm:py-32 px-6">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-center font-manrope font-bold text-3xl sm:text-4xl text-white mb-3">
           Claude Cowork Bootcamp Kicks Off
@@ -1262,7 +1262,7 @@ function FAQ() {
   const [openIdx, setOpenIdx] = useState<number | null>(0);
 
   return (
-    <section className="bg-gradient-to-b from-[#161616] to-[#1a0a0a] py-24 sm:py-32 px-6">
+    <section className="bg-gradient-to-b from-[#161616] to-[#1a1208] py-24 sm:py-32 px-6">
       <div className="max-w-3xl mx-auto">
         <h2 className="text-center font-manrope font-bold text-3xl sm:text-4xl text-white mb-14">
           Frequently Asked Questions
@@ -1339,7 +1339,7 @@ export default function Home() {
       <AreSkillsRight />
 
       {/* After "Are Skills Right" — skeptic-turned-believer */}
-      <section className="bg-gradient-to-b from-[#BD3131] to-[#0f2847] py-2">
+      <section className="bg-gradient-to-b from-[#D4714E] to-[#0f2847] py-2">
         <InlineTestimonial
           size="large"
           quote="I hesitated before signing up for the bootcamp but am extremely glad I did. The skills I learned took my understanding and practical use of AI to a completely different level."
