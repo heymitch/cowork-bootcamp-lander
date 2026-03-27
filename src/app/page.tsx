@@ -640,45 +640,59 @@ function SessionOutline() {
 const BONUSES = [
   {
     num: 1,
-    name: "State of AI Tools Guide",
-    desc: "What tools actually matter right now. Updated every cohort.",
+    name: "Coworker: Your Pre-Built AI Workspace",
+    desc: "Most people spend their first week just figuring out how to set up. You won\u2019t. Coworker is a ready-to-run workspace with your folder structure and memory already initialized. Drop it in, open Cowork, and you\u2019re already running before Session 1 starts.",
+    value: "$497",
+    img: null,
+  },
+  {
+    num: 2,
+    name: "CLAUDE.md Template + Setup Guide",
+    desc: "The exact CLAUDE.md template we use for our own businesses. This is the file that tells Claude who you are, how you work, and what rules to follow. Once it\u2019s set up, Claude stops forgetting or requiring constant hand-holding. Set it up in under an hour.",
+    value: "$197",
+    img: null,
+  },
+  {
+    num: 3,
+    name: "Skill Library Starter Pack",
+    desc: "Pre-built skills, ready to install. Workflows for content, operations, research, and communication. Drop them in Cowork and they run immediately. The shortcut to a full skill library without building every one from scratch.",
+    value: "$197",
+    img: null,
+  },
+  {
+    num: 4,
+    name: "Voice Lab Skill",
+    desc: "Go deeper than the standard voice training from Session 2. Voice Lab analyzes your writing patterns, identifies your signature phrases, and refines your voice profile over time. The more you use it, the more Cowork sounds like you.",
+    value: "$99",
+    img: null,
+  },
+  {
+    num: 5,
+    name: "State of AI Quick-Start Guide",
+    desc: "Updated for April 2026. The 20 best AI tools right now. Our picks for the 5 you should actually use. Where Cowork fits in the landscape. Built fresh right before launch so it\u2019s not stale by the time you read it.",
     value: "$99",
     img: "/images/img-17.png",
   },
   {
-    num: 2,
-    name: "Prompt Building Blocks Framework .skill",
-    desc: 'The "lego brick" assembly method. One-shot any content type.',
-    value: "$199",
-    img: "/images/img-18.png",
+    num: 6,
+    name: "Low Ticket Launchpad (AI Version)",
+    desc: "Our complete step-by-step process for building a digital product, packaged as an AI-powered course that builds your assets as you learn. Turn your expertise into products using the same skills and voice training you develop in this bootcamp.",
+    value: "$350",
+    img: "/images/img-22.png",
   },
   {
-    num: 3,
-    name: "Personal Voice Training Masterclass .skill",
-    desc: "Make AI sound indistinguishable from your writing.",
-    value: "$199",
-    img: "/images/img-19.png",
-  },
-  {
-    num: 4,
-    name: "Ship 30 for 30 Course (AI Version)",
-    desc: "The original atomic essay system built directly into the Agent\u2019s brain. Learn the frameworks that made short-form writing viral.",
+    num: 7,
+    name: "Ship 30 for 30 (AI Version)",
+    desc: "The original atomic essay system that\u2019s taught 10,000+ students the fundamentals of digital writing, now with AI-powered skills baked in. Learn to write online, accelerated by the same Cowork tools you\u2019re building in this bootcamp.",
     value: "$350",
     img: "/images/img-20.png",
   },
   {
-    num: 5,
-    name: "Category Newsletter Creator Course (AI Version)",
-    desc: "Build a newsletter that positions you as the go-to expert in your niche. Topic selection to monetization.",
-    value: "$350",
-    img: "/images/img-21.png",
-  },
-  {
-    num: 6,
-    name: "Low-Ticket Launchpad Course (AI Version)",
-    desc: "A starter kit to package, position, and sell low-ticket offers without overthinking the tech or strategy.",
-    value: "$350",
-    img: "/images/img-22.png",
+    num: 8,
+    name: "Design Secrets for Cowork",
+    desc: "Create your personal design aesthetic (colors, fonts, layout preferences) that Cowork references every time you use a design skill. Your brand, baked into the agent. Build once, every visual output matches your look.",
+    value: "$149",
+    img: null,
   },
 ];
 
@@ -690,33 +704,41 @@ function FreeBonuses() {
           Free Bonuses Included
         </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7 mt-16 stagger-children">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-16 stagger-children">
           {BONUSES.map((bonus) => (
             <div
               key={bonus.num}
-              className="animate-on-scroll bg-[#1a2030] border border-white/15 rounded-2xl p-8 flex flex-col"
+              className="animate-on-scroll bg-[#1a2030] border border-white/15 rounded-2xl p-6 flex flex-col"
             >
-              <span className="text-xs text-[#D4714E]/80 tracking-widest uppercase font-inter mb-4">
+              <span className="text-xs text-[#D4714E]/80 tracking-widest uppercase font-inter mb-3">
                 Bonus #{bonus.num}
               </span>
-              <div className="flex justify-center mb-5">
-                <Image
-                  src={bonus.img}
-                  alt={bonus.name}
-                  width={300}
-                  height={400}
-                  className="w-60 h-auto rounded-lg object-contain"
-                />
-              </div>
-              <h3 className="font-manrope font-bold text-white text-lg mb-2">
+              {bonus.img ? (
+                <div className="flex justify-center mb-4">
+                  <Image
+                    src={bonus.img}
+                    alt={bonus.name}
+                    width={200}
+                    height={133}
+                    className="w-44 h-auto rounded-lg object-contain"
+                  />
+                </div>
+              ) : (
+                <div className="flex justify-center mb-4">
+                  <div className="w-44 h-28 rounded-lg bg-[#0f1319] border border-white/10 flex items-center justify-center">
+                    <span className="text-white/20 text-xs font-inter uppercase tracking-wider">Coming Soon</span>
+                  </div>
+                </div>
+              )}
+              <h3 className="font-manrope font-bold text-white text-base mb-2">
                 {bonus.name}
               </h3>
               <p className="text-white/70 text-sm leading-relaxed flex-1">
                 {bonus.desc}
               </p>
-              <p className="mt-5 font-inter font-bold text-base">
+              <p className="mt-4 font-inter font-bold text-sm">
                 <span className="text-[#D4714E]">{bonus.value}</span>{" "}
-                <span className="text-white/70">value</span>
+                <span className="text-white/55">value</span>
               </p>
             </div>
           ))}
