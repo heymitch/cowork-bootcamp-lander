@@ -62,7 +62,7 @@ function Hero() {
   return (
     <section className="relative min-h-screen bg-[#0a1628] overflow-hidden">
       {/* Teal-to-navy gradient from bottom-left corner */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_#0c3d3d_0%,_#0a1628_50%,_#0f1319_100%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_#0c3d3d_0%,_#0a1628_50%,_#0f2847_100%)]" />
       {/* Top banner pill */}
       <div className="flex justify-center pt-6 relative z-10">
         <div className="inline-flex items-center gap-2 border border-red-500/50 rounded-full px-5 py-2 text-sm font-inter">
@@ -141,7 +141,7 @@ function Hero() {
 /* ───────────────────── WHAT IS COWORK ─────────────────── */
 function WhatIsCowork() {
   return (
-    <section id="how-it-works" className="bg-[#0f1319] py-24 sm:py-32 px-6">
+    <section id="how-it-works" className="bg-[#0f2847] py-24 sm:py-32 px-6">
       <div className="max-w-7xl mx-auto">
         {/* Section heading */}
         <div className="text-center mb-16 space-y-2">
@@ -184,7 +184,7 @@ function WhatIsCowork() {
           </div>
 
           {/* Right — Mock Cowork UI in laptop frame */}
-          <div className="animate-on-scroll rounded-2xl border-[3px] border-white/20 overflow-hidden shadow-2xl shadow-black/60 bg-[#1a2030]">
+          <div className="animate-on-scroll rounded-2xl border-[3px] border-white/20 overflow-hidden shadow-2xl shadow-black/60 bg-[#132640]">
             {/* Top bar — Connected apps */}
             <div className="px-5 pt-5 pb-3">
               <div className="flex items-center gap-2 mb-3">
@@ -339,7 +339,7 @@ const SKILL_CATEGORIES = [
 
 function SkillsTicker() {
   return (
-    <section className="bg-[#0f1319] py-24 sm:py-32 px-6">
+    <section className="bg-[#0f2847] py-24 sm:py-32 px-6">
       <div className="max-w-7xl mx-auto text-center mb-14">
         <span className="text-xs tracking-[0.2em] text-[#D4714E]/80 font-inter uppercase">
           The Unlock
@@ -360,7 +360,7 @@ function SkillsTicker() {
           {[...SKILL_CATEGORIES, ...SKILL_CATEGORIES].map((cat, i) => (
             <div
               key={i}
-              className="flex-shrink-0 w-72 mx-3 bg-[#1a2030] border border-white/15 rounded-xl p-7 hover:border-[#D4714E]/40 hover:shadow-[0_0_20px_rgba(212,113,78,0.1)] transition-all"
+              className="flex-shrink-0 w-72 mx-3 bg-[#132640] border border-white/15 rounded-xl p-7 hover:border-[#D4714E]/40 hover:shadow-[0_0_20px_rgba(212,113,78,0.1)] transition-all"
             >
               <h4 className="text-white font-manrope font-semibold text-base mb-1.5">
                 {cat.name}
@@ -379,7 +379,7 @@ function SkillsTicker() {
 /* ──────────────────── INSTALL SKILLS ──────────────────── */
 function InstallSkills() {
   return (
-    <section className="bg-[#0f1319] py-24 sm:py-32 px-6">
+    <section className="bg-[#0f2847] py-24 sm:py-32 px-6">
       <div className="max-w-7xl mx-auto text-center">
         <span className="text-xs tracking-[0.2em] text-[#D4714E]/80 font-inter uppercase">
           Get Started
@@ -458,7 +458,7 @@ function InstallSkills() {
 /* ──────────────────── ARE SKILLS RIGHT ─────────────────── */
 function AreSkillsRight() {
   return (
-    <section className="relative py-28 sm:py-36 px-6 bg-gradient-to-b from-[#0f1319] via-[#3a0a0a] to-[#BD3131]">
+    <section className="relative py-28 sm:py-36 px-6 bg-gradient-to-b from-[#0f2847] via-[#3a0a0a] to-[#BD3131]">
       <div className="max-w-7xl mx-auto text-center mb-16">
         <h2 className="animate-on-scroll font-manrope font-bold text-4xl sm:text-5xl text-white">
           Are <span className="font-bold">.skills</span> Right For You?
@@ -700,7 +700,7 @@ const BONUSES = [
 
 function FreeBonuses() {
   return (
-    <section className="bg-gradient-to-b from-[#BD3131] via-[#2a0a0a] to-[#0f1319] py-24 sm:py-32 px-6">
+    <section className="bg-gradient-to-b from-[#BD3131] via-[#2a0a0a] to-[#0f2847] py-24 sm:py-32 px-6">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-center font-manrope font-bold text-3xl sm:text-5xl text-white mb-4">
           Free Bonuses Included
@@ -710,7 +710,7 @@ function FreeBonuses() {
           {BONUSES.map((bonus) => (
             <div
               key={bonus.num}
-              className="animate-on-scroll bg-[#1a2030] border border-white/15 rounded-2xl p-6 flex flex-col"
+              className="animate-on-scroll bg-[#132640] border border-white/15 rounded-2xl p-6 flex flex-col"
             >
               <span className="text-xs text-[#D4714E]/80 tracking-widest uppercase font-inter mb-3">
                 Bonus #{bonus.num}
@@ -727,7 +727,7 @@ function FreeBonuses() {
                 </div>
               ) : (
                 <div className="flex justify-center mb-4">
-                  <div className="w-44 h-28 rounded-lg bg-[#0f1319] border border-white/10 flex items-center justify-center">
+                  <div className="w-44 h-28 rounded-lg bg-[#0f2847] border border-white/10 flex items-center justify-center">
                     <span className="text-white/20 text-xs font-inter uppercase tracking-wider">Coming Soon</span>
                   </div>
                 </div>
@@ -784,7 +784,7 @@ const INSTRUCTORS = [
 
 function Instructors() {
   return (
-    <section className="bg-[#0f1319] py-24 sm:py-32 px-6">
+    <section className="bg-[#0f2847] py-24 sm:py-32 px-6">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-center font-manrope font-bold text-3xl sm:text-5xl text-white mb-3">
           Meet Your Instructors
@@ -900,7 +900,7 @@ const TESTIMONIALS = [
 
 function Testimonials() {
   return (
-    <section className="bg-[#0f1319] py-24 sm:py-32 px-6">
+    <section className="bg-[#0f2847] py-24 sm:py-32 px-6">
       <div className="max-w-7xl mx-auto">
         <h2 className="animate-on-scroll text-center font-manrope font-bold text-3xl sm:text-5xl text-white mb-3">
           250+ Students Built Skills in Cohort 1
@@ -913,7 +913,7 @@ function Testimonials() {
           {TESTIMONIALS.map((t, i) => (
             <div
               key={i}
-              className="animate-on-scroll bg-[#1a2030] border border-white/15 rounded-2xl p-8 flex flex-col justify-between"
+              className="animate-on-scroll bg-[#132640] border border-white/15 rounded-2xl p-8 flex flex-col justify-between"
             >
               <p className="text-white/80 text-sm leading-relaxed italic mb-4">
                 &ldquo;{t.quote}&rdquo;
@@ -937,7 +937,7 @@ function Testimonials() {
 /* ──────────────────── WHAT'S NEW IN 2.0 ───────────────── */
 function WhatsNew() {
   return (
-    <section className="bg-[#0f1319] py-24 sm:py-32 px-6 border-t border-white/10">
+    <section className="bg-[#0f2847] py-24 sm:py-32 px-6 border-t border-white/10">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-14">
           <span className="text-xs tracking-[0.2em] text-[#D4714E]/80 font-inter uppercase">
@@ -1011,7 +1011,7 @@ function WhatsNew() {
           ].map((item, i) => (
             <div
               key={i}
-              className="animate-on-scroll bg-[#1a2030] border border-white/15 rounded-2xl p-8"
+              className="animate-on-scroll bg-[#132640] border border-white/15 rounded-2xl p-8"
             >
               <div className="text-[#D4714E] mb-4">{item.icon}</div>
               <h3 className="font-manrope font-bold text-white text-xl mb-3">
@@ -1152,9 +1152,9 @@ function Schedule() {
 /* ──────────────────── PRICING ──────────────────────────── */
 function Pricing() {
   return (
-    <section id="pricing" className="bg-[#0f1319] py-24 sm:py-32 px-6">
+    <section id="pricing" className="bg-[#0f2847] py-24 sm:py-32 px-6">
       <div className="max-w-xl mx-auto">
-        <div className="animate-on-scroll bg-[#1a2030] border border-[#D4714E]/20 rounded-2xl p-12 sm:p-14 text-center">
+        <div className="animate-on-scroll bg-[#132640] border border-[#D4714E]/20 rounded-2xl p-12 sm:p-14 text-center">
           <p className="text-white/55 text-xs tracking-[0.2em] uppercase font-inter mb-2">
             Total Value
           </p>
@@ -1192,7 +1192,7 @@ function Pricing() {
 /* ──────────────────── GUARANTEE + FINAL CTA ───────────── */
 function GuaranteeCta() {
   return (
-    <section className="bg-[#0f1319] py-24 sm:py-32 px-6">
+    <section className="bg-[#0f2847] py-24 sm:py-32 px-6">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
         {/* Guarantee */}
         <div className="space-y-5">
@@ -1326,7 +1326,7 @@ export default function Home() {
       <Hero />
 
       {/* Featured quote — social proof right after hero */}
-      <section className="bg-[#0f1319]">
+      <section className="bg-[#0f2847]">
         <InlineTestimonial
           size="featured"
           quote="Truly took my AI usage to the next level. This was the biggest shift in how I use AI to get things done since the beginning of the AI hype a few years ago."
@@ -1339,7 +1339,7 @@ export default function Home() {
       <AreSkillsRight />
 
       {/* After "Are Skills Right" — skeptic-turned-believer */}
-      <section className="bg-gradient-to-b from-[#BD3131] to-[#0f1319] py-2">
+      <section className="bg-gradient-to-b from-[#BD3131] to-[#0f2847] py-2">
         <InlineTestimonial
           size="large"
           quote="I hesitated before signing up for the bootcamp but am extremely glad I did. The skills I learned took my understanding and practical use of AI to a completely different level."
@@ -1351,7 +1351,7 @@ export default function Home() {
       <SessionOutline />
 
       {/* After skills grid — someone who built real things */}
-      <section className="bg-[#0f1319]">
+      <section className="bg-[#0f2847]">
         <InlineTestimonial
           size="large"
           quote="Now I have pipelines that generate brand-compliant presentation decks and meeting prep kits from structured content. One skill replaced an entire workflow."
@@ -1364,7 +1364,7 @@ export default function Home() {
       <Instructors />
 
       {/* After instructors — teaching quality */}
-      <section className="bg-[#0f1319]">
+      <section className="bg-[#0f2847]">
         <InlineTestimonial
           size="large"
           quote="My overriding takeaway was how effective Mitch was as a teacher. Without doubt, the highlight was creating and deploying a landing page and e-book lead magnet in less than an hour."
@@ -1375,7 +1375,7 @@ export default function Home() {
       <Schedule />
 
       {/* Before pricing — ROI / transformation */}
-      <section className="bg-[#0f1319]">
+      <section className="bg-[#0f2847]">
         <InlineTestimonial
           size="featured"
           quote="What Mitch built doesn't just save you time, it multiplies your output. Seeing how many ways these skills could be applied overwhelmed me (in the best way) and unleashed a flood of ideas."
