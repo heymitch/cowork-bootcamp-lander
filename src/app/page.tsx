@@ -60,9 +60,9 @@ function InlineTestimonial({
 /* ───────────────────────── HERO ───────────────────────── */
 function Hero() {
   return (
-    <section className="relative min-h-[90vh] bg-gradient-to-b from-[#0d2847] via-[#0a1628] to-[#0f1319] overflow-hidden">
+    <section className="relative min-h-screen bg-gradient-to-b from-[#0d2847] via-[#0a1628] to-[#0f1319] overflow-hidden">
       {/* Top banner pill */}
-      <div className="flex justify-center pt-6">
+      <div className="flex justify-center pt-6 relative z-10">
         <div className="inline-flex items-center gap-2 border border-[#D4714E]/30 rounded-full px-5 py-2 text-sm font-inter">
           <Image src="/images/img-26.png" alt="" width={10} height={10} />
           <span className="text-white/90 tracking-wide text-xs sm:text-sm">
@@ -71,32 +71,43 @@ function Hero() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 pt-16 pb-24 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      {/* Instructor photo — spans full right side top to bottom */}
+      <div className="hidden lg:block absolute right-0 top-0 h-full w-[55%]">
+        {/* Teal glow behind photo */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div className="w-[600px] h-[600px] rounded-full bg-[#D4714E]/10 blur-3xl" />
+        </div>
+        <Image
+          src="/images/img-01.png"
+          alt="Bootcamp instructors"
+          width={720}
+          height={908}
+          className="absolute right-0 top-0 h-full w-full object-cover object-top"
+          priority
+        />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 pt-24 pb-32 relative z-10">
         {/* Left column */}
-        <div className="space-y-6">
-          {/* Claude sparkle + text above logo */}
-          <div className="flex items-center gap-2">
-            <Image src="/images/img-26.png" alt="" width={16} height={16} />
-            <span className="text-white/80 text-sm font-inter tracking-wide">Claude</span>
-          </div>
+        <div className="max-w-[540px] space-y-7">
           <Image
             src="/images/img-00.png"
             alt="Claude Cowork Bootcamp"
-            width={568}
-            height={306}
-            className="w-full max-w-[520px]"
+            width={600}
+            height={324}
+            className="w-full max-w-[600px]"
             priority
           />
-          <h2 className="text-white font-manrope font-bold text-xl sm:text-2xl leading-snug">
+          <h2 className="text-white font-manrope font-bold text-2xl sm:text-3xl leading-snug">
             Turn Claude Into Your Highest Performing Employee By Building .skills
           </h2>
-          <p className="text-white/70 text-base leading-relaxed max-w-lg">
+          <p className="text-white/70 text-lg leading-relaxed max-w-lg">
             Any task you do more than once should be saved as a .skill.{" "}
             <em className="text-white font-semibold">
               This is how you build leverage forever.
             </em>
           </p>
-          <p className="text-white/70 text-base leading-relaxed max-w-lg">
+          <p className="text-white/70 text-lg leading-relaxed max-w-lg">
             Join us live for beginner-friendly training on{" "}
             <strong className="text-white">No-Code AI</strong> and the future of
             work.
@@ -109,18 +120,14 @@ function Hero() {
           </a>
         </div>
 
-        {/* Right column — instructor photo, bleeds right */}
-        <div className="relative flex justify-center lg:justify-end lg:-mr-24 xl:-mr-32">
-          {/* Teal glow behind photo */}
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <div className="w-[500px] h-[500px] rounded-full bg-[#D4714E]/10 blur-3xl" />
-          </div>
+        {/* Mobile-only instructor photo */}
+        <div className="lg:hidden relative flex justify-center mt-12">
           <Image
             src="/images/img-01.png"
             alt="Bootcamp instructors"
             width={720}
             height={908}
-            className="relative w-full max-w-[700px] h-auto"
+            className="w-full max-w-[500px] h-auto"
             priority
           />
         </div>
@@ -132,8 +139,8 @@ function Hero() {
 /* ───────────────────── WHAT IS COWORK ─────────────────── */
 function WhatIsCowork() {
   return (
-    <section id="how-it-works" className="bg-[#0f1319] py-20 px-6">
-      <div className="max-w-6xl mx-auto">
+    <section id="how-it-works" className="bg-[#0f1319] py-24 sm:py-32 px-6">
+      <div className="max-w-7xl mx-auto">
         {/* Section heading */}
         <div className="text-center mb-16 space-y-2">
           <h2 className="font-manrope font-bold text-3xl sm:text-5xl text-white leading-tight">
@@ -153,8 +160,13 @@ function WhatIsCowork() {
             <span className="text-xs tracking-[0.2em] text-[#D4714E]/80 font-inter uppercase">
               Beyond the Chat
             </span>
-            <h3 className="font-anton text-3xl sm:text-4xl text-white leading-tight">
-              What if AI could do your job{" "}
+            <h3 className="font-anton text-4xl sm:text-5xl lg:text-6xl text-white leading-[1.1]">
+              What if
+              <br />
+              AI could do
+              <br />
+              your job
+              <br />
               <em className="not-italic text-[#D4714E]">with</em> you?
             </h3>
             <p className="text-white/80 text-base leading-relaxed">
@@ -169,8 +181,8 @@ function WhatIsCowork() {
             </p>
           </div>
 
-          {/* Right — Mock Cowork UI */}
-          <div className="animate-on-scroll bg-[#1a2030] rounded-2xl border border-white/15 overflow-hidden shadow-2xl shadow-black/40">
+          {/* Right — Mock Cowork UI in laptop frame */}
+          <div className="animate-on-scroll rounded-2xl border-[3px] border-white/20 overflow-hidden shadow-2xl shadow-black/60 bg-[#1a2030]">
             {/* Top bar — Connected apps */}
             <div className="px-5 pt-5 pb-3">
               <div className="flex items-center gap-2 mb-3">
@@ -180,16 +192,16 @@ function WhatIsCowork() {
               </div>
               <div className="flex gap-3">
                 {[
-                  { app: "Gmail", letter: "M", bg: "bg-red-600/80", text: "text-white" },
-                  { app: "Drive", letter: "D", bg: "bg-green-600/80", text: "text-white" },
-                  { app: "Calendar", letter: "C", bg: "bg-blue-600/80", text: "text-white" },
-                  { app: "Notion", letter: "N", bg: "bg-white/90", text: "text-black" },
+                  { app: "Gmail", letter: "M", bg: "bg-red-500", text: "text-white" },
+                  { app: "Drive", letter: "▲", bg: "bg-gradient-to-br from-green-500 via-yellow-400 to-blue-500", text: "text-white" },
+                  { app: "Calendar", letter: "C", bg: "bg-blue-500", text: "text-white" },
+                  { app: "Notion", letter: "N", bg: "bg-white", text: "text-black" },
                 ].map(({ app, letter, bg, text }) => (
                   <div
                     key={app}
-                    className={`w-10 h-10 rounded-lg ${bg} flex items-center justify-center`}
+                    className={`w-12 h-12 rounded-xl ${bg} flex items-center justify-center shadow-md`}
                   >
-                    <span className={`text-[10px] ${text} font-bold font-inter`}>
+                    <span className={`text-sm ${text} font-bold font-inter`}>
                       {letter}
                     </span>
                   </div>
@@ -325,16 +337,16 @@ const SKILL_CATEGORIES = [
 
 function SkillsTicker() {
   return (
-    <section className="bg-[#0f1319] py-20 px-6">
-      <div className="max-w-6xl mx-auto text-center mb-12">
+    <section className="bg-[#0f1319] py-24 sm:py-32 px-6">
+      <div className="max-w-7xl mx-auto text-center mb-14">
         <span className="text-xs tracking-[0.2em] text-[#D4714E]/80 font-inter uppercase">
           The Unlock
         </span>
-        <h2 className="font-manrope font-bold text-2xl sm:text-4xl text-white mt-3">
+        <h2 className="font-manrope font-bold text-3xl sm:text-5xl text-white mt-3">
           .skills take AI to the{" "}
           <span className="text-[#D4714E]">next level</span>
         </h2>
-        <p className="text-white/70 text-base mt-4 max-w-2xl mx-auto">
+        <p className="text-white/70 text-lg mt-4 max-w-2xl mx-auto">
           Think of .skills like hiring an expert at any task...instantly. They
           connect to the tools you already use and get stuff done.
         </p>
@@ -346,12 +358,12 @@ function SkillsTicker() {
           {[...SKILL_CATEGORIES, ...SKILL_CATEGORIES].map((cat, i) => (
             <div
               key={i}
-              className="flex-shrink-0 w-64 mx-3 bg-[#1a2030] border border-white/15 rounded-xl p-5 hover:border-[#D4714E]/30 transition-colors"
+              className="flex-shrink-0 w-72 mx-3 bg-[#1a2030] border border-white/15 rounded-xl p-7 hover:border-[#D4714E]/40 hover:shadow-[0_0_20px_rgba(212,113,78,0.1)] transition-all"
             >
-              <h4 className="text-white font-manrope font-semibold text-sm mb-1">
+              <h4 className="text-white font-manrope font-semibold text-base mb-1.5">
                 {cat.name}
               </h4>
-              <p className="text-white/55 text-xs leading-relaxed">
+              <p className="text-white/55 text-sm leading-relaxed">
                 {cat.desc}
               </p>
             </div>
@@ -365,52 +377,66 @@ function SkillsTicker() {
 /* ──────────────────── INSTALL SKILLS ──────────────────── */
 function InstallSkills() {
   return (
-    <section className="bg-[#0f1319] py-20 px-6">
-      <div className="max-w-6xl mx-auto text-center">
+    <section className="bg-[#0f1319] py-24 sm:py-32 px-6">
+      <div className="max-w-7xl mx-auto text-center">
         <span className="text-xs tracking-[0.2em] text-[#D4714E]/80 font-inter uppercase">
           Get Started
         </span>
-        <h2 className="font-manrope font-bold text-2xl sm:text-4xl text-white mt-3">
+        <h2 className="font-manrope font-bold text-3xl sm:text-5xl text-white mt-3">
           .skills let you install expertise in{" "}
           <span className="text-[#D4714E]">two clicks</span>
         </h2>
-        <p className="text-white/70 text-base mt-4 max-w-2xl mx-auto">
+        <p className="text-white/70 text-lg mt-4 max-w-2xl mx-auto">
           Best practices, proven processes, and smart decision-making, all
           packaged into .skills you install once and use forever (even as your
           business evolves)
         </p>
-        <p className="text-white/70 text-base mt-3 max-w-2xl mx-auto">
+        <p className="text-white/70 text-lg mt-3 max-w-2xl mx-auto">
           Or build your own based on your expertise so the AI writes like you,
           acts like you, and thinks like you.
         </p>
 
-        {/* Floppy disks */}
-        <div className="flex flex-wrap justify-center gap-8 my-16 relative stagger-children">
-          {/* Warm glow behind */}
+        {/* Floppy disks — diamond/staggered arrangement */}
+        <div className="relative my-20 stagger-children max-w-3xl mx-auto">
+          {/* Warm glow behind — larger and warmer */}
           <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
             <Image
               src="/images/img-05.png"
               alt=""
-              width={800}
-              height={400}
-              className="opacity-40"
+              width={1000}
+              height={500}
+              className="opacity-60 scale-125"
             />
           </div>
-          {[
-            { src: "/images/img-06.png", w: 262, h: 273 },
-            { src: "/images/img-08.png", w: 393, h: 409 },
-            { src: "/images/img-10.png", w: 262, h: 273 },
-          ].map((disk, i) => (
-            <div key={i} className="animate-on-scroll relative z-10">
+          <div className="flex justify-center items-end gap-6 sm:gap-10">
+            <div className="animate-on-scroll relative z-10 translate-y-6">
               <Image
-                src={disk.src}
+                src="/images/img-06.png"
                 alt="Skill floppy disk"
-                width={disk.w}
-                height={disk.h}
-                className="w-52 sm:w-64 h-auto"
+                width={280}
+                height={291}
+                className="w-56 sm:w-[270px] h-auto"
               />
             </div>
-          ))}
+            <div className="animate-on-scroll relative z-10 -translate-y-6">
+              <Image
+                src="/images/img-08.png"
+                alt="Skill floppy disk"
+                width={280}
+                height={291}
+                className="w-56 sm:w-[270px] h-auto"
+              />
+            </div>
+            <div className="animate-on-scroll relative z-10 translate-y-6">
+              <Image
+                src="/images/img-10.png"
+                alt="Skill floppy disk"
+                width={280}
+                height={291}
+                className="w-56 sm:w-[270px] h-auto"
+              />
+            </div>
+          </div>
         </div>
 
         <a
@@ -430,17 +456,17 @@ function InstallSkills() {
 /* ──────────────────── ARE SKILLS RIGHT ─────────────────── */
 function AreSkillsRight() {
   return (
-    <section className="relative py-24 px-6 bg-gradient-to-b from-[#161616] via-[#3a0a0a] to-[#BD3131]">
-      <div className="max-w-6xl mx-auto text-center mb-14">
-        <h2 className="animate-on-scroll font-manrope font-bold text-3xl sm:text-5xl text-white">
+    <section className="relative py-28 sm:py-36 px-6 bg-gradient-to-b from-[#0f1319] via-[#3a0a0a] to-[#BD3131]">
+      <div className="max-w-7xl mx-auto text-center mb-16">
+        <h2 className="animate-on-scroll font-manrope font-bold text-4xl sm:text-5xl text-white">
           Are <span className="font-bold">.skills</span> Right For You?
         </h2>
-        <p className="text-white/70 text-base mt-3 italic">
+        <p className="text-white/70 text-lg mt-3 italic">
           Hmmm... let&rsquo;s see...
         </p>
       </div>
 
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 stagger-children">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-7 stagger-children">
         {[
           {
             q: "Do you have a job?",
@@ -457,12 +483,12 @@ function AreSkillsRight() {
         ].map((card, i) => (
           <div
             key={i}
-            className="animate-on-scroll bg-cream rounded-2xl p-8 text-left"
+            className="animate-on-scroll bg-cream rounded-2xl p-10 text-left"
           >
-            <h3 className="font-manrope font-bold text-lg text-[#1a1a1a] mb-4">
+            <h3 className="font-manrope font-bold text-xl text-[#1a1a1a] mb-5">
               {card.q}
             </h3>
-            <p className="text-[#3a3a3a] text-sm leading-relaxed">
+            <p className="text-[#3a3a3a] text-base leading-relaxed">
               {card.a}
             </p>
           </div>
@@ -475,27 +501,27 @@ function AreSkillsRight() {
 /* ──────────────────── BIG TYPE STATEMENT ───────────────── */
 function BigTypeStatement() {
   return (
-    <section className="bg-[#BD3131] py-20 sm:py-28 px-6">
-      <div className="max-w-5xl mx-auto text-center space-y-2">
-        <h2 className="font-anton text-4xl sm:text-6xl lg:text-7xl text-white uppercase leading-none tracking-tight">
+    <section className="bg-[#BD3131] py-24 sm:py-36 px-6">
+      <div className="max-w-6xl mx-auto text-center space-y-2">
+        <h2 className="font-anton text-5xl sm:text-7xl lg:text-[90px] text-white uppercase leading-[0.95] tracking-tight">
           Learning How To Use &
         </h2>
-        <h2 className="font-anton text-4xl sm:text-6xl lg:text-7xl text-cream uppercase leading-none tracking-tight">
+        <h2 className="font-anton text-5xl sm:text-7xl lg:text-[90px] text-cream uppercase leading-[0.95] tracking-tight">
           Create .skills Is The Future
         </h2>
-        <h2 className="font-anton text-4xl sm:text-6xl lg:text-7xl text-white uppercase leading-none tracking-tight">
+        <h2 className="font-anton text-5xl sm:text-7xl lg:text-[90px] text-white uppercase leading-[0.95] tracking-tight">
           Of No-Code Work.
         </h2>
 
-        <div className="pt-8" />
+        <div className="pt-10" />
 
-        <h2 className="font-anton text-4xl sm:text-6xl lg:text-7xl text-white uppercase leading-none tracking-tight">
+        <h2 className="font-anton text-5xl sm:text-7xl lg:text-[90px] text-white uppercase leading-[0.95] tracking-tight">
           If Staying Relevant In Your
         </h2>
-        <h2 className="font-anton text-4xl sm:text-6xl lg:text-7xl uppercase leading-none tracking-tight text-stroke-red">
+        <h2 className="font-anton text-5xl sm:text-7xl lg:text-[90px] uppercase leading-[0.95] tracking-tight text-stroke-red">
           Industry Is A Priority,
         </h2>
-        <h2 className="font-anton text-4xl sm:text-6xl lg:text-7xl text-white uppercase leading-none tracking-tight">
+        <h2 className="font-anton text-5xl sm:text-7xl lg:text-[90px] text-white uppercase leading-[0.95] tracking-tight">
           Then .skills Are Right For You.
         </h2>
       </div>
@@ -545,31 +571,31 @@ const SKILLS = [
 
 function SkillsGrid() {
   return (
-    <section className="bg-[#BD3131] py-20 px-6">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-center font-manrope font-bold text-2xl sm:text-4xl text-white mb-14">
+    <section className="bg-[#BD3131] py-24 sm:py-32 px-6">
+      <div className="max-w-7xl mx-auto">
+        <h2 className="text-center font-manrope font-bold text-3xl sm:text-5xl text-white mb-16">
           5 .skills to get you started:
         </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7 stagger-children">
           {SKILLS.map((skill) => (
             <div
               key={skill.num}
-              className="animate-on-scroll bg-[#1a0a0a]/80 border border-red-brand/30 rounded-2xl p-6 text-center backdrop-blur-sm"
+              className="animate-on-scroll bg-[#1a0a0a]/80 border border-red-brand/30 rounded-2xl p-8 text-center backdrop-blur-sm shadow-[inset_0_0_40px_rgba(0,0,0,0.3)]"
             >
               <span className="text-xs text-white/55 tracking-widest uppercase font-inter">
                 Skill #{skill.num}
               </span>
-              <div className="flex justify-center my-4">
+              <div className="flex justify-center my-5">
                 <Image
                   src={skill.img}
                   alt={skill.name}
-                  width={200}
-                  height={200}
-                  className="w-40 sm:w-44 h-auto"
+                  width={260}
+                  height={260}
+                  className="w-52 sm:w-60 h-auto"
                 />
               </div>
-              <h3 className="font-manrope font-bold text-white text-base mb-2">
+              <h3 className="font-manrope font-bold text-white text-lg mb-2">
                 {skill.name}
               </h3>
               <p className="text-white/70 text-sm leading-relaxed">
@@ -631,37 +657,37 @@ const BONUSES = [
 
 function FreeBonuses() {
   return (
-    <section className="bg-gradient-to-b from-[#BD3131] via-[#2a0a0a] to-[#0f1319] py-20 px-6">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-center font-manrope font-bold text-2xl sm:text-4xl text-white mb-4">
+    <section className="bg-gradient-to-b from-[#BD3131] via-[#2a0a0a] to-[#0f1319] py-24 sm:py-32 px-6">
+      <div className="max-w-7xl mx-auto">
+        <h2 className="text-center font-manrope font-bold text-3xl sm:text-5xl text-white mb-4">
           Free Bonuses Included
         </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-14 stagger-children">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7 mt-16 stagger-children">
           {BONUSES.map((bonus) => (
             <div
               key={bonus.num}
-              className="animate-on-scroll bg-[#1a2030] border border-white/15 rounded-2xl p-6 flex flex-col"
+              className="animate-on-scroll bg-[#1a2030] border border-white/15 rounded-2xl p-8 flex flex-col"
             >
-              <span className="text-xs text-[#D4714E]/80 tracking-widest uppercase font-inter mb-3">
+              <span className="text-xs text-[#D4714E]/80 tracking-widest uppercase font-inter mb-4">
                 Bonus #{bonus.num}
               </span>
-              <div className="flex justify-center mb-4">
+              <div className="flex justify-center mb-5">
                 <Image
                   src={bonus.img}
                   alt={bonus.name}
-                  width={240}
-                  height={320}
-                  className="w-48 h-auto rounded-lg object-contain"
+                  width={300}
+                  height={400}
+                  className="w-60 h-auto rounded-lg object-contain"
                 />
               </div>
-              <h3 className="font-manrope font-bold text-white text-base mb-2">
+              <h3 className="font-manrope font-bold text-white text-lg mb-2">
                 {bonus.name}
               </h3>
               <p className="text-white/70 text-sm leading-relaxed flex-1">
                 {bonus.desc}
               </p>
-              <p className="mt-4 font-inter font-bold text-sm">
+              <p className="mt-5 font-inter font-bold text-base">
                 <span className="text-[#D4714E]">{bonus.value}</span>{" "}
                 <span className="text-white/70">value</span>
               </p>
@@ -707,16 +733,16 @@ const INSTRUCTORS = [
 
 function Instructors() {
   return (
-    <section className="bg-[#0f1319] py-20 px-6">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-center font-manrope font-bold text-2xl sm:text-4xl text-white mb-3">
+    <section className="bg-[#0f1319] py-24 sm:py-32 px-6">
+      <div className="max-w-7xl mx-auto">
+        <h2 className="text-center font-manrope font-bold text-3xl sm:text-5xl text-white mb-3">
           Meet Your Instructors
         </h2>
-        <p className="text-center text-white/70 text-base mb-16">
+        <p className="text-center text-white/70 text-lg mb-18">
           Built by people who actually use this stuff every day
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 stagger-children">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 stagger-children mt-16">
           {INSTRUCTORS.map((inst) => (
             <div key={inst.name} className="animate-on-scroll text-center">
               <Image
@@ -724,21 +750,21 @@ function Instructors() {
                 alt={inst.name}
                 width={360}
                 height={360}
-                className="w-40 h-40 rounded-full mx-auto mb-5 object-cover"
+                className="w-40 h-40 sm:w-48 sm:h-48 rounded-full mx-auto mb-6 object-cover"
               />
-              <h3 className="font-manrope font-bold text-white text-xl mb-4">
+              <h3 className="font-manrope font-bold text-white text-2xl mb-5">
                 {inst.name}
               </h3>
-              <div className="space-y-3 text-left">
+              <div className="space-y-4 text-left">
                 {inst.bio.map((p, i) => (
-                  <p key={i} className="text-white/70 text-sm leading-relaxed">
+                  <p key={i} className="text-white/70 text-base leading-relaxed">
                     {p}
                   </p>
                 ))}
               </div>
               {inst.quote && (
-                <blockquote className="mt-5 text-left border-l-2 border-[#D4714E] pl-4">
-                  <p className="text-white/70 text-sm italic leading-relaxed">
+                <blockquote className="mt-6 text-left border-l-2 border-[#D4714E] pl-4">
+                  <p className="text-white/70 text-base italic leading-relaxed">
                     {inst.quote}
                   </p>
                 </blockquote>
@@ -747,7 +773,7 @@ function Instructors() {
           ))}
         </div>
 
-        <p className="animate-on-scroll text-center text-white/80 text-lg sm:text-xl mt-14 font-manrope max-w-3xl mx-auto leading-relaxed">
+        <p className="animate-on-scroll text-center text-white/80 text-xl sm:text-2xl mt-16 font-manrope max-w-3xl mx-auto leading-relaxed">
           Three practitioners. Zero theorists.{" "}
           <strong className="text-white">Everything</strong> we teach, we use ourselves to run our{" "}
           <strong className="text-white">$8,000,000/yr business.</strong>
@@ -823,10 +849,10 @@ const TESTIMONIALS = [
 
 function Testimonials() {
   return (
-    <section className="bg-[#0f1319] py-20 px-6">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="animate-on-scroll text-center font-manrope font-bold text-2xl sm:text-4xl text-white mb-3">
-          100+ Students Built Skills in Cohort 1
+    <section className="bg-[#0f1319] py-24 sm:py-32 px-6">
+      <div className="max-w-7xl mx-auto">
+        <h2 className="animate-on-scroll text-center font-manrope font-bold text-3xl sm:text-5xl text-white mb-3">
+          250+ Students Built Skills in Cohort 1
         </h2>
         <p className="text-center text-white/70 text-base mb-14 max-w-xl mx-auto">
           Here&rsquo;s what they had to say.
@@ -836,7 +862,7 @@ function Testimonials() {
           {TESTIMONIALS.map((t, i) => (
             <div
               key={i}
-              className="animate-on-scroll bg-[#1a2030] border border-white/15 rounded-2xl p-6 flex flex-col justify-between"
+              className="animate-on-scroll bg-[#1a2030] border border-white/15 rounded-2xl p-8 flex flex-col justify-between"
             >
               <p className="text-white/80 text-sm leading-relaxed italic mb-4">
                 &ldquo;{t.quote}&rdquo;
@@ -860,17 +886,17 @@ function Testimonials() {
 /* ──────────────────── WHAT'S NEW IN 2.0 ───────────────── */
 function WhatsNew() {
   return (
-    <section className="bg-[#0f1319] py-20 px-6 border-t border-white/10">
-      <div className="max-w-5xl mx-auto">
+    <section className="bg-[#0f1319] py-24 sm:py-32 px-6 border-t border-white/10">
+      <div className="max-w-6xl mx-auto">
         <div className="text-center mb-14">
           <span className="text-xs tracking-[0.2em] text-[#D4714E]/80 font-inter uppercase">
             Version 2.0
           </span>
-          <h2 className="animate-on-scroll font-manrope font-bold text-2xl sm:text-4xl text-white mt-3">
+          <h2 className="animate-on-scroll font-manrope font-bold text-3xl sm:text-5xl text-white mt-3">
             What&rsquo;s New in 2.0?
           </h2>
-          <p className="text-white/70 text-base mt-4 max-w-2xl mx-auto">
-            Everything that made v1 great, plus everything we learned from 100+ students.
+          <p className="text-white/70 text-lg mt-4 max-w-2xl mx-auto">
+            Everything that made v1 great, plus everything we learned from 250+ students.
           </p>
         </div>
 
@@ -903,19 +929,19 @@ function WhatsNew() {
             },
             {
               title: "Alumni Community",
-              desc: "Join a private group of 100+ Cowork practitioners sharing skills, templates, and wins.",
+              desc: "Join a private group of 250+ Cowork practitioners sharing skills, templates, and wins.",
               icon: "\uD83E\uDD1D",
             },
           ].map((item, i) => (
             <div
               key={i}
-              className="animate-on-scroll bg-[#1a2030] border border-white/15 rounded-2xl p-6"
+              className="animate-on-scroll bg-[#1a2030] border border-white/15 rounded-2xl p-8"
             >
-              <span className="text-2xl mb-3 block">{item.icon}</span>
-              <h3 className="font-manrope font-bold text-white text-lg mb-2">
+              <span className="text-3xl mb-4 block">{item.icon}</span>
+              <h3 className="font-manrope font-bold text-white text-xl mb-3">
                 {item.title}
               </h3>
-              <p className="text-white/70 text-sm leading-relaxed">
+              <p className="text-white/70 text-base leading-relaxed">
                 {item.desc}
               </p>
             </div>
@@ -934,9 +960,9 @@ function Schedule() {
   const sessionDaysW2 = [13, 15, 17];
 
   return (
-    <section className="bg-gradient-to-b from-[#161616] to-[#1a0a0a] py-20 px-6">
+    <section className="bg-gradient-to-b from-[#161616] to-[#1a0a0a] py-24 sm:py-32 px-6">
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-center font-manrope font-bold text-2xl sm:text-3xl text-white mb-3">
+        <h2 className="text-center font-manrope font-bold text-3xl sm:text-4xl text-white mb-3">
           Claude Cowork Bootcamp Kicks Off
           <br />
           Monday, April 6th!
@@ -1050,35 +1076,35 @@ function Schedule() {
 /* ──────────────────── PRICING ──────────────────────────── */
 function Pricing() {
   return (
-    <section id="pricing" className="bg-[#0f1319] py-20 px-6">
-      <div className="max-w-lg mx-auto">
-        <div className="animate-on-scroll bg-[#1a2030] border border-[#D4714E]/20 rounded-2xl p-10 text-center">
+    <section id="pricing" className="bg-[#0f1319] py-24 sm:py-32 px-6">
+      <div className="max-w-xl mx-auto">
+        <div className="animate-on-scroll bg-[#1a2030] border border-[#D4714E]/20 rounded-2xl p-12 sm:p-14 text-center">
           <p className="text-white/55 text-xs tracking-[0.2em] uppercase font-inter mb-2">
             Total Value
           </p>
-          <p className="text-[#D4714E]/70 text-2xl font-manrope line-through mb-6">
+          <p className="text-[#D4714E]/70 text-3xl font-manrope line-through mb-6">
             $3,800+
           </p>
-          <p className="text-[#D4714E] text-sm font-inter mb-1">Your Price</p>
-          <p className="text-white font-anton text-6xl sm:text-7xl mb-8">
+          <p className="text-[#D4714E] text-base font-inter mb-1">Your Price</p>
+          <p className="text-white font-anton text-7xl sm:text-8xl mb-10">
             $800
           </p>
           <a
             href="#"
-            className="block w-full bg-yellow-cta text-[#0a1628] font-bold font-inter text-base tracking-wider py-4 hover:bg-yellow-400 transition-colors rounded-lg"
+            className="block w-full bg-yellow-cta text-[#0a1628] font-bold font-inter text-lg tracking-wider py-5 hover:bg-yellow-400 transition-colors rounded-lg"
           >
             JOIN CLAUDE COWORK BOOTCAMP
           </a>
-          <p className="text-white/45 text-sm mt-4 font-inter">
+          <p className="text-white/45 text-sm mt-5 font-inter">
             Starts April 6, 2026 &middot; Limited seats
           </p>
-          <div className="flex justify-center mt-6">
+          <div className="flex justify-center mt-8">
             <Image
               src="/images/img-27.png"
               alt="Cowork Bootcamp"
-              width={120}
-              height={40}
-              className="opacity-50"
+              width={160}
+              height={53}
+              className="opacity-60"
             />
           </div>
         </div>
@@ -1090,17 +1116,17 @@ function Pricing() {
 /* ──────────────────── GUARANTEE + FINAL CTA ───────────── */
 function GuaranteeCta() {
   return (
-    <section className="bg-[#0f1319] py-20 px-6">
-      <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+    <section className="bg-[#0f1319] py-24 sm:py-32 px-6">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
         {/* Guarantee */}
-        <div className="space-y-4">
-          <h3 className="font-manrope font-bold text-xl text-white">
+        <div className="space-y-5">
+          <h3 className="font-manrope font-bold text-2xl text-white">
             <span className="border-b-2 border-[#D4714E]/50 pb-1">7-DAY MONEY-BACK GUARANTEE</span>
           </h3>
-          <h4 className="font-manrope font-semibold text-white/80 text-lg">
+          <h4 className="font-manrope font-semibold text-white/80 text-xl">
             First-Week Guarantee
           </h4>
-          <p className="text-white/70 text-sm leading-relaxed">
+          <p className="text-white/70 text-base leading-relaxed">
             If in the first week of the cohort you&rsquo;ve completed the
             assignments and still decide these aren&rsquo;t skills you want to
             build, just let us know and we&rsquo;ll give you a full
@@ -1110,7 +1136,7 @@ function GuaranteeCta() {
 
         {/* Final CTA */}
         <div className="space-y-6 text-center md:text-left">
-          <h3 className="font-manrope font-bold text-2xl text-white">
+          <h3 className="font-manrope font-bold text-3xl text-white">
             Ready to Build Your First .skills?
           </h3>
           <a
@@ -1160,13 +1186,13 @@ function FAQ() {
   const [openIdx, setOpenIdx] = useState<number | null>(0);
 
   return (
-    <section className="bg-gradient-to-b from-[#161616] to-[#1a0a0a] py-20 px-6">
+    <section className="bg-gradient-to-b from-[#161616] to-[#1a0a0a] py-24 sm:py-32 px-6">
       <div className="max-w-3xl mx-auto">
-        <h2 className="text-center font-manrope font-bold text-2xl sm:text-3xl text-white mb-12">
+        <h2 className="text-center font-manrope font-bold text-3xl sm:text-4xl text-white mb-14">
           Frequently Asked Questions
         </h2>
 
-        <div className="space-y-3">
+        <div className="space-y-4">
           {FAQ_ITEMS.map((item, i) => (
             <div
               key={i}
@@ -1174,7 +1200,7 @@ function FAQ() {
             >
               <button
                 onClick={() => setOpenIdx(openIdx === i ? null : i)}
-                className="w-full flex items-center justify-between px-6 py-5 text-left"
+                className="w-full flex items-center justify-between px-7 py-6 text-left"
               >
                 <span className="font-manrope font-semibold text-white text-base">
                   {item.q}
@@ -1184,8 +1210,8 @@ function FAQ() {
                 </span>
               </button>
               {openIdx === i && (
-                <div className="px-6 pb-5">
-                  <p className="text-white/70 text-sm leading-relaxed">
+                <div className="px-7 pb-6">
+                  <p className="text-white/70 text-base leading-relaxed">
                     {item.a}
                   </p>
                 </div>
