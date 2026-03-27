@@ -506,10 +506,10 @@ function BigTypeStatement() {
         <h2 className="font-anton text-5xl sm:text-7xl lg:text-[90px] text-white uppercase leading-[0.95] tracking-tight">
           Learning How To Use &
         </h2>
-        <h2 className="font-anton text-5xl sm:text-7xl lg:text-[90px] text-cream uppercase leading-[0.95] tracking-tight">
+        <h2 className="font-anton text-5xl sm:text-7xl lg:text-[90px] uppercase leading-[0.95] tracking-tight text-stroke-red">
           Create .skills Is The Future
         </h2>
-        <h2 className="font-anton text-5xl sm:text-7xl lg:text-[90px] text-white uppercase leading-[0.95] tracking-tight">
+        <h2 className="font-anton text-5xl sm:text-7xl lg:text-[90px] text-cream uppercase leading-[0.95] tracking-tight">
           Of No-Code Work.
         </h2>
 
