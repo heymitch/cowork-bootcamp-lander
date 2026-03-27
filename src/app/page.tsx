@@ -531,53 +531,53 @@ function BigTypeStatement() {
 const SESSIONS = [
   {
     num: 1,
-    name: "File Master",
-    desc: "Set up your agent workspace, install your first .skill, and build an automated file organization system that keeps your machine clean forever.",
-    skill: "A working agent workspace and a file organization skill running on your machine.",
+    name: "Build Your Agent Brain in 60 Minutes",
+    desc: "From empty folder to working AI employee. Set up your agent workspace, install File Master, and watch Claude organize your entire machine\u2014downloads, documents, desktop\u2014in minutes.",
+    skill: "A working agent workspace with File Master running on your machine.",
     img: "/images/session-1.png",
   },
   {
     num: 2,
-    name: "Newsletter Skill",
-    desc: "Use our category newsletter creation process and write in-depth thought leadership or curation newsletters in minutes.",
-    skill: "A newsletter .skill trained on your voice that drafts publication-ready issues.",
-    img: "/images/img-08.png",
+    name: "Stop Prompting, Start Shipping",
+    desc: "How Skills 3x your speed and quality. Learn why .skills crush copy-paste prompting, build Content Creator from scratch, and publish your first AI-assisted piece before the session ends.",
+    skill: "A Content Creator .skill trained on your voice that ships real content.",
+    img: "/images/session-2.png",
   },
   {
     num: 3,
-    name: "Meeting Prep Skill",
-    desc: "Sales calls, presentations, board meetings, webinars\u2014prepare your mind and materials for any meeting on your calendar.",
-    skill: "A meeting prep .skill that pulls context and builds briefs automatically.",
-    img: "/images/img-10.png",
+    name: "Calendar Ninja",
+    desc: "Connecting Claude to where the real work lives. Plug your agent into your calendar, email, and docs\u2014then build a meeting prep skill that makes you the most prepared person in every room.",
+    skill: "A Calendar Ninja .skill that auto-preps briefs for every meeting on your calendar.",
+    img: "/images/session-3.png",
   },
   {
     num: 4,
-    name: "Chaining Workflows",
-    desc: "Move from single skills to multi-step pipelines. Chain .skills together so one output feeds the next\u2014proposals, slide decks, brand materials in one shot.",
-    skill: "A chained workflow that produces a complete deliverable from a single prompt.",
-    img: "/images/img-12.png",
+    name: "Build Your First Custom Skill",
+    desc: "Watch Claude do your job. Take a task you repeat every week, turn it into a custom .skill using Skill Maker, and watch your agent execute it end-to-end\u2014your way, every time.",
+    skill: "A custom .skill built for your specific workflow, running autonomously.",
+    img: "/images/session-4.png",
   },
   {
     num: 5,
-    name: "Templates & Browser Automation",
-    desc: "Build reusable templates and connect your agent to the browser. Automate research, form fills, and data extraction without writing code.",
-    skill: "A browser automation skill and a reusable template library.",
-    img: "/images/img-14.png",
+    name: "Claude Everywhere: Dispatch + Browser",
+    desc: "Deploy skills from your phone and connect Claude to the browser. Automate research, form fills, data extraction\u2014and trigger any skill remotely with Claude Dispatch.",
+    skill: "Claude Dispatch on your phone and a browser automation skill.",
+    img: "/images/session-5.png",
   },
   {
     num: 6,
-    name: "Customizing Your .skills",
-    desc: "The secret sauce\u2014learn to customize, refine, and make your skills bombproof. Train your voice, tune outputs, and build skills that get better over time.",
-    skill: "A fully customized skill stack tailored to your specific workflow.",
-    img: "/images/img-16.png",
+    name: "Claude Cascade: Chain Skills Together",
+    desc: "One task triggers the next. Chain .skills into multi-step pipelines where the output of one feeds the input of the next\u2014proposals, reports, and deliverables in a single command.",
+    skill: "A fully chained skill cascade that produces complete deliverables from one prompt.",
+    img: "/images/session-6.png",
   },
 ];
 
 function SessionOutline() {
   return (
-    <section className="bg-[#BD3131] py-24 sm:py-32 px-6">
+    <section className="bg-gradient-to-b from-[#BD3131] via-[#1a2847] to-[#0d2847] py-24 sm:py-32 px-6">
       <div className="max-w-4xl mx-auto">
-        <span className="block text-xs font-bold text-white/60 uppercase tracking-[0.15em] mb-3 font-inter">
+        <span className="block text-xs font-bold text-[#D4714E] uppercase tracking-[0.15em] mb-3 font-inter">
           The 6 Sessions
         </span>
         <h2 className="font-manrope font-bold text-3xl sm:text-5xl text-white mb-3">
@@ -587,9 +587,12 @@ function SessionOutline() {
           All sessions are 60 minutes &middot; Kickoff: Monday, April 6 &middot; 3:00 PM ET
         </p>
 
-        <div className="space-y-0 divide-y divide-white/15">
+        <div className="space-y-6">
           {SESSIONS.map((s) => (
-            <div key={s.num} className="animate-on-scroll py-8 flex flex-col md:flex-row gap-6 md:gap-10">
+            <div
+              key={s.num}
+              className="animate-on-scroll py-8 px-6 sm:px-8 flex flex-col md:flex-row gap-6 md:gap-10 rounded-2xl border border-green-400/20 bg-white/5 backdrop-blur-sm shadow-[0_0_30px_rgba(74,222,128,0.06)]"
+            >
               <div className="md:w-[180px] flex-shrink-0">
                 <Image
                   src={s.img}
@@ -600,7 +603,7 @@ function SessionOutline() {
                 />
               </div>
               <div className="flex-1">
-                <span className="text-xs font-bold text-cream/70 uppercase tracking-wider font-inter">
+                <span className="text-xs font-bold text-[#D4714E] uppercase tracking-wider font-inter">
                   Session {s.num}
                 </span>
                 <h3 className="font-manrope font-bold text-white text-xl sm:text-2xl leading-tight mb-2">
@@ -610,7 +613,7 @@ function SessionOutline() {
                   {s.desc}
                 </p>
                 <p className="text-white/60 text-sm">
-                  <span className="text-yellow-cta font-semibold">&rarr; You leave with:</span>{" "}
+                  <span className="text-green-400 font-semibold">&rarr; You leave with:</span>{" "}
                   {s.skill}
                 </p>
               </div>
@@ -624,8 +627,8 @@ function SessionOutline() {
           </h2>
           <div className="w-40 h-px bg-white/20 mx-auto mb-6" />
           <p className="text-white/90 text-lg font-bold font-manrope">
-            We build <span className="text-cream">together</span>. You show up.
-            <br />You leave with <span className="text-cream">a system</span>.
+            We build <span className="text-[#D4714E]">together</span>. You show up.
+            <br />You leave with <span className="text-green-400">a system</span>.
           </p>
         </div>
       </div>
@@ -1077,10 +1080,10 @@ function Schedule() {
               {[
                 [
                   "Mon 6",
-                  "Session 1: Setup & First .skill, organizing your files",
+                  "Session 1: Build Your Agent Brain",
                 ],
-                ["Wed 8", "Session 2: Newsletter .skill"],
-                ["Fri 10", "Session 3: Meeting Prep .skill"],
+                ["Wed 8", "Session 2: Stop Prompting, Start Shipping"],
+                ["Fri 10", "Session 3: Calendar Ninja"],
               ].map(([day, session]) => (
                 <div key={day} className="flex gap-4">
                   <span className="text-[#D4714E] text-sm font-bold font-inter w-16 shrink-0">
@@ -1097,9 +1100,9 @@ function Schedule() {
             </h3>
             <div className="space-y-3">
               {[
-                ["Mon 13", "Session 4: Chaining Workflows .skills"],
-                ["Wed 15", "Session 5: Templates and Browser Automation"],
-                ["Fri 17", "Session 6: Customizing Your .skills"],
+                ["Mon 13", "Session 4: Build Your First Custom Skill"],
+                ["Wed 15", "Session 5: Claude Everywhere (Dispatch + Browser)"],
+                ["Fri 17", "Session 6: Claude Cascade"],
               ].map(([day, session]) => (
                 <div key={day} className="flex gap-4">
                   <span className="text-[#D4714E] text-sm font-bold font-inter w-16 shrink-0">
