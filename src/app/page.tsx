@@ -63,7 +63,7 @@ function Hero() {
     <section className="relative min-h-screen bg-gradient-to-b from-[#0a1628] via-[#0c1018] to-[#0f1319] overflow-hidden">
       {/* Top banner pill */}
       <div className="flex justify-center pt-6 relative z-10">
-        <div className="inline-flex items-center gap-2 border border-[#D4714E]/30 rounded-full px-5 py-2 text-sm font-inter">
+        <div className="inline-flex items-center gap-2 border border-red-500/50 rounded-full px-5 py-2 text-sm font-inter">
           <span className="w-2.5 h-2.5 rounded-full bg-green-400 shadow-[0_0_8px_rgba(74,222,128,0.6)]" />
           <span className="text-white/90 tracking-wide text-xs sm:text-sm">
             2-WEEK BOOTCAMP KICKS OFF MONDAY, APRIL 6
