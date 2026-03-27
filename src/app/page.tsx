@@ -692,7 +692,7 @@ const BONUSES = [
     name: "Design Secrets for Cowork",
     desc: "Create your personal design aesthetic (colors, fonts, layout preferences) that Cowork references every time you use a design skill. Your brand, baked into the agent. Build once, every visual output matches your look.",
     value: "$149",
-    img: null,
+    img: "/images/bonus-design-secrets.png",
   },
   {
     num: 9,
