@@ -1337,7 +1337,7 @@ export default function Home() {
       <AreSkillsRight />
 
       {/* After "Are Skills Right" — skeptic-turned-believer */}
-      <section className="bg-gradient-to-b from-[#D4714E] to-[#0f2847] py-2">
+      <section className="bg-[#0f2847] py-2">
         <InlineTestimonial
           size="large"
           quote="I hesitated before signing up for the bootcamp but am extremely glad I did. The skills I learned took my understanding and practical use of AI to a completely different level."
