@@ -504,21 +504,21 @@ function BigTypeStatement() {
     <section className="bg-[#D4714E] py-24 sm:py-36 px-6">
       <div className="max-w-6xl mx-auto px-6 sm:px-12">
         {/* Block 1 — slides in from left */}
-        <p className="slide-from-left font-anton text-5xl sm:text-7xl lg:text-[85px] uppercase leading-[0.95] tracking-tight italic text-left">
+        <p className="slide-from-left font-anton text-6xl sm:text-8xl lg:text-[110px] uppercase leading-[0.9] tracking-tight text-left">
           <span className="text-white">Learning How To Use &</span>
           <br />
           <span className="text-cream">Create .skills Is The Future</span>
           <br />
-          <span className="text-white/90 ml-4 sm:ml-8">Of No-Code Work.</span>
+          <span className="text-white/90">Of No-Code Work.</span>
         </p>
 
-        <div className="pt-10 sm:pt-14" />
+        <div className="pt-12 sm:pt-16" />
 
         {/* Block 2 — slides in from right */}
-        <p className="slide-from-right font-anton text-5xl sm:text-7xl lg:text-[85px] uppercase leading-[0.95] tracking-tight italic text-left pl-8 sm:pl-24">
+        <p className="slide-from-right font-anton text-6xl sm:text-8xl lg:text-[110px] uppercase leading-[0.9] tracking-tight text-left">
           <span className="text-white">If Staying Relevant In Your</span>
           <br />
-          <span className="text-cream ml-8 sm:ml-16">Industry Is A Priority,</span>
+          <span className="text-cream">Industry Is A Priority,</span>
           <br />
           <span className="text-white">Then .skills Are Right For You.</span>
         </p>
