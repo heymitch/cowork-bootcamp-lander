@@ -60,7 +60,7 @@ function InlineTestimonial({
 /* ───────────────────────── HERO ───────────────────────── */
 function Hero() {
   return (
-    <section className="relative min-h-screen bg-gradient-to-b from-[#0d2847] via-[#0a1628] to-[#0f1319] overflow-hidden">
+    <section className="relative min-h-screen bg-gradient-to-b from-[#0a1628] via-[#0c1018] to-[#0f1319] overflow-hidden">
       {/* Top banner pill */}
       <div className="flex justify-center pt-6 relative z-10">
         <div className="inline-flex items-center gap-2 border border-[#D4714E]/30 rounded-full px-5 py-2 text-sm font-inter">
@@ -98,18 +98,18 @@ function Hero() {
             className="w-full max-w-[600px]"
             priority
           />
-          <h2 className="text-white font-manrope font-bold text-2xl sm:text-3xl leading-snug">
+          <h2 className="text-white/90 font-manrope font-bold text-2xl sm:text-3xl leading-snug">
             Turn Claude Into Your Highest Performing Employee By Building .skills
           </h2>
-          <p className="text-white/70 text-lg leading-relaxed max-w-lg">
+          <p className="text-white/55 text-lg leading-relaxed max-w-lg">
             Any task you do more than once should be saved as a .skill.{" "}
-            <em className="text-white font-semibold">
+            <em className="text-white/80 font-semibold">
               This is how you build leverage forever.
             </em>
           </p>
-          <p className="text-white/70 text-lg leading-relaxed max-w-lg">
+          <p className="text-white/55 text-lg leading-relaxed max-w-lg">
             Join us live for beginner-friendly training on{" "}
-            <strong className="text-white">No-Code AI</strong> and the future of
+            <strong className="text-white/80">No-Code AI</strong> and the future of
             work.
           </p>
           <a
