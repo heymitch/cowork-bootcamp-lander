@@ -1259,9 +1259,9 @@ function FAQ() {
   const [openIdx, setOpenIdx] = useState<number | null>(0);
 
   return (
-    <section className="bg-gradient-to-b from-[#0f2847] to-[#0c2040] py-24 sm:py-32 px-6">
+    <section className="bg-[#F5F0E8] py-24 sm:py-32 px-6">
       <div className="max-w-3xl mx-auto">
-        <h2 className="text-center font-manrope font-bold text-3xl sm:text-4xl text-white mb-14">
+        <h2 className="text-center font-manrope font-bold text-3xl sm:text-4xl text-[#2D2A26] mb-14">
           Frequently Asked Questions
         </h2>
 
@@ -1269,13 +1269,13 @@ function FAQ() {
           {FAQ_ITEMS.map((item, i) => (
             <div
               key={i}
-              className="border border-white/15 rounded-xl overflow-hidden"
+              className="border border-[#2D2A26]/10 rounded-xl overflow-hidden"
             >
               <button
                 onClick={() => setOpenIdx(openIdx === i ? null : i)}
                 className="w-full flex items-center justify-between px-7 py-6 text-left"
               >
-                <span className="font-manrope font-semibold text-white text-base">
+                <span className="font-manrope font-semibold text-[#2D2A26] text-base">
                   {item.q}
                 </span>
                 <span className="text-[#D4714E] text-2xl leading-none ml-4">
@@ -1284,7 +1284,7 @@ function FAQ() {
               </button>
               {openIdx === i && (
                 <div className="px-7 pb-6">
-                  <p className="text-white/70 text-base leading-relaxed">
+                  <p className="text-[#2D2A26]/70 text-base leading-relaxed">
                     {item.a}
                   </p>
                 </div>
