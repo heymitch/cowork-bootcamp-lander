@@ -599,7 +599,7 @@ function SessionOutline() {
                   alt={`Session ${s.num}: ${s.name}`}
                   width={180}
                   height={180}
-                  className="w-36 h-36 md:w-44 md:h-44 rounded-lg object-cover"
+                  className="w-36 h-36 md:w-44 md:h-44 rounded-lg object-cover shadow-xl shadow-black/20 hover:scale-105 hover:-rotate-2 transition-transform duration-300"
                 />
               </div>
               <div className="flex-1">
