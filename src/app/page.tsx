@@ -723,14 +723,14 @@ function FreeBonuses() {
                   <Image
                     src={bonus.img}
                     alt={bonus.name}
-                    width={300}
-                    height={200}
-                    className="w-56 h-auto object-contain"
+                    width={400}
+                    height={266}
+                    className="w-full max-w-[320px] h-auto object-contain"
                   />
                 </div>
               ) : (
                 <div className="mb-6">
-                  <div className="w-56 h-36 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center">
+                  <div className="w-full max-w-[320px] h-48 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center">
                     <span className="text-white/20 text-xs font-inter uppercase tracking-wider">Coming Soon</span>
                   </div>
                 </div>
