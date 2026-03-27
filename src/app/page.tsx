@@ -694,6 +694,13 @@ const BONUSES = [
     value: "$149",
     img: null,
   },
+  {
+    num: 9,
+    name: "Free Trial to AI Writing (Skool Community)",
+    desc: "Get access to the AI Writing community where thousands of writers share prompts, skills, and strategies for writing with AI. Connect with other bootcamp alumni and keep leveling up after the cohort ends.",
+    value: "$97",
+    img: null,
+  },
 ];
 
 function FreeBonuses() {
