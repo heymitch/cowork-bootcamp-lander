@@ -1236,7 +1236,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Does this work on Windows?",
-    a: "Yes! Claude Cowork runs in the browser, so it works on Mac, Windows, Linux\u2014any modern computer with an internet connection.",
+    a: "Yes! Claude Cowork is available as a desktop app on both Mac and Windows. It does not run in the browser or on Linux\u2014you\u2019ll need the desktop app installed on either a Mac or Windows machine.",
   },
   {
     q: "Is this self-paced or live?",
