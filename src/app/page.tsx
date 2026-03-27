@@ -706,39 +706,39 @@ function FreeBonuses() {
           Free Bonuses Included
         </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-16 stagger-children">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 divide-x divide-white/10 mt-16 stagger-children">
           {BONUSES.map((bonus) => (
             <div
               key={bonus.num}
-              className="animate-on-scroll bg-[#132640] border border-white/15 rounded-2xl p-6 flex flex-col"
+              className="animate-on-scroll px-8 py-8 flex flex-col"
             >
-              <span className="text-xs text-[#D4714E]/80 tracking-widest uppercase font-inter mb-3">
+              <span className="text-sm text-[#D4714E] tracking-widest uppercase font-inter font-bold mb-4">
                 Bonus #{bonus.num}
               </span>
+              <h3 className="font-manrope font-bold text-white text-xl sm:text-2xl mb-6 leading-tight">
+                {bonus.name}
+              </h3>
               {bonus.img ? (
-                <div className="flex justify-center mb-4">
+                <div className="mb-6">
                   <Image
                     src={bonus.img}
                     alt={bonus.name}
-                    width={200}
-                    height={133}
-                    className="w-44 h-auto rounded-lg object-contain"
+                    width={300}
+                    height={200}
+                    className="w-56 h-auto object-contain"
                   />
                 </div>
               ) : (
-                <div className="flex justify-center mb-4">
-                  <div className="w-44 h-28 rounded-lg bg-[#0f2847] border border-white/10 flex items-center justify-center">
+                <div className="mb-6">
+                  <div className="w-56 h-36 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center">
                     <span className="text-white/20 text-xs font-inter uppercase tracking-wider">Coming Soon</span>
                   </div>
                 </div>
               )}
-              <h3 className="font-manrope font-bold text-white text-base mb-2">
-                {bonus.name}
-              </h3>
-              <p className="text-white/70 text-sm leading-relaxed flex-1">
+              <p className="text-white/60 text-base leading-relaxed flex-1">
                 {bonus.desc}
               </p>
-              <p className="mt-4 font-inter font-bold text-sm">
+              <p className="mt-6 font-inter font-bold text-lg">
                 <span className="text-[#D4714E]">{bonus.value}</span>{" "}
                 <span className="text-white/55">value</span>
               </p>
