@@ -89,13 +89,13 @@ function Hero() {
 
       <div className="max-w-7xl mx-auto px-6 pt-24 pb-32 relative z-10">
         {/* Left column */}
-        <div className="max-w-[540px] space-y-7">
+        <div className="max-w-[700px] space-y-7">
           <Image
             src="/images/img-00.png"
             alt="Claude Cowork Bootcamp"
-            width={600}
-            height={324}
-            className="w-full max-w-[600px]"
+            width={950}
+            height={500}
+            className="w-full max-w-[750px]"
             priority
           />
           <h2 className="text-[#f3eccb] font-manrope font-bold text-2xl sm:text-3xl leading-snug">
