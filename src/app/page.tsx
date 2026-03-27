@@ -1169,16 +1169,13 @@ function Pricing() {
             JOIN CLAUDE COWORK BOOTCAMP
           </a>
           <p className="text-white/45 text-sm mt-5 font-inter">
-            Starts April 6, 2026 &middot; Limited seats
+            Starts April 6, 2026 &middot; <span className="text-[#D4714E]">Limited seats</span>
           </p>
           <div className="flex justify-center mt-8">
-            <Image
-              src="/images/img-27.png"
-              alt="Cowork Bootcamp"
-              width={160}
-              height={53}
-              className="opacity-60"
-            />
+            <span className="inline-flex items-center gap-2 border border-[#D4714E]/40 rounded-full px-5 py-2 text-xs tracking-wider uppercase font-inter text-white/70">
+              <span className="w-2 h-2 rounded-full bg-[#D4714E]" />
+              7-Day Money-Back Guarantee
+            </span>
           </div>
         </div>
       </div>
@@ -1192,14 +1189,11 @@ function GuaranteeCta() {
     <section className="bg-[#0f2847] py-24 sm:py-32 px-6">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
         {/* Guarantee */}
-        <div className="space-y-5">
-          <h3 className="font-manrope font-bold text-2xl text-white">
-            <span className="border-b-2 border-[#D4714E]/50 pb-1">7-DAY MONEY-BACK GUARANTEE</span>
-          </h3>
-          <h4 className="font-manrope font-semibold text-white/80 text-xl">
+        <div className="space-y-5 flex flex-col justify-center">
+          <h3 className="font-manrope font-bold text-2xl sm:text-3xl text-cream">
             First-Week Guarantee
-          </h4>
-          <p className="text-white/70 text-base leading-relaxed">
+          </h3>
+          <p className="text-white/55 text-base leading-relaxed">
             If in the first week of the cohort you&rsquo;ve completed the
             assignments and still decide these aren&rsquo;t skills you want to
             build, just let us know and we&rsquo;ll give you a full
@@ -1208,13 +1202,13 @@ function GuaranteeCta() {
         </div>
 
         {/* Final CTA */}
-        <div className="space-y-6 text-center md:text-left">
-          <h3 className="font-manrope font-bold text-3xl text-white">
-            Ready to Build Your First .skills?
+        <div className="space-y-6">
+          <h3 className="font-manrope font-bold text-3xl sm:text-4xl text-white leading-tight">
+            Ready to Build Your<br />First .skills?
           </h3>
           <a
             href="#"
-            className="inline-block bg-yellow-cta text-[#0a1628] font-bold font-inter text-sm tracking-wider px-8 py-4 rounded-sm hover:bg-[#fc6714] transition-colors"
+            className="inline-block bg-yellow-cta text-[#0a1628] font-bold font-inter text-base tracking-wider px-10 py-5 rounded-full hover:bg-[#fc6714] transition-colors"
           >
             JOIN THE BOOTCAMP — $800
           </a>
