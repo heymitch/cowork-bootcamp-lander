@@ -360,7 +360,7 @@ function SkillsTicker() {
           {[...SKILL_CATEGORIES, ...SKILL_CATEGORIES].map((cat, i) => (
             <div
               key={i}
-              className="flex-shrink-0 w-72 mx-3 bg-[#132640] border border-white/15 rounded-xl p-7 hover:border-[#D4714E]/40 hover:shadow-[0_0_20px_rgba(212,113,78,0.1)] transition-all"
+              className="flex-shrink-0 w-72 mx-3 bg-[#132640] border border-[#1e4a7a] rounded-xl p-7 hover:border-[#2a6cb0] hover:shadow-[0_0_20px_rgba(30,74,122,0.3)] transition-all"
             >
               <h4 className="text-white font-manrope font-semibold text-base mb-1.5">
                 {cat.name}
@@ -458,7 +458,7 @@ function InstallSkills() {
 /* ──────────────────── ARE SKILLS RIGHT ─────────────────── */
 function AreSkillsRight() {
   return (
-    <section className="relative py-28 sm:py-36 px-6 bg-gradient-to-b from-[#0f2847] via-[#0c2040] to-[#D4714E]">
+    <section className="relative py-28 sm:py-36 px-6 bg-gradient-to-b from-[#0f2847] via-[#0c2040] to-[#102a4a]">
       <div className="max-w-7xl mx-auto text-center mb-16">
         <h2 className="animate-on-scroll font-manrope font-bold text-4xl sm:text-5xl text-white">
           Are <span className="font-bold">.skills</span> Right For You?
