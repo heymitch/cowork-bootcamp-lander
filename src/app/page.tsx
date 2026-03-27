@@ -61,8 +61,6 @@ function InlineTestimonial({
 function Hero() {
   return (
     <section className="relative min-h-screen bg-[#0f2847] overflow-hidden">
-      {/* Teal glow from bottom-left corner, fading into navy */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_#0c3d3d_0%,_#0f2847_60%)]" />
       {/* Top banner pill */}
       <div className="flex justify-center pt-6 relative z-10">
         <div className="inline-flex items-center gap-2 border border-red-500/50 rounded-full px-5 py-2 text-sm font-inter">
