@@ -6,13 +6,13 @@ import { motion } from "framer-motion";
 // ─── Design Tokens ─────────────────────────────────────────────────────────────
 
 const C = {
-  pageBg: "#0d1116",
-  cream: "#f3eccb",
-  creamSoft: "rgba(243, 236, 203, 0.7)",
-  creamDim: "rgba(243, 236, 203, 0.5)",
-  creamFaint: "rgba(243, 236, 203, 0.3)",
-  yellow: "#facc15",
-  yellowSoft: "rgba(250, 204, 21, 0.6)",
+  pageBg: "#F5F0E8",
+  cream: "#2D2A26",
+  creamSoft: "rgba(45, 42, 38, 0.7)",
+  creamDim: "rgba(45, 42, 38, 0.5)",
+  creamFaint: "rgba(45, 42, 38, 0.3)",
+  yellow: "#D4714E",
+  yellowSoft: "rgba(212, 113, 78, 0.6)",
 };
 
 const DK = {
@@ -532,7 +532,7 @@ export default function ScrollytellingCompact({
 
         {/* CTA */}
         <div style={{ textAlign: "center", marginTop: compact ? 48 : 64 }}>
-          <a href={ctaUrl} style={{ display: "inline-block", background: C.yellow, color: C.pageBg, fontFamily: "Manrope, sans-serif", fontWeight: 700, fontSize: compact ? 16 : 18, textTransform: "uppercase", letterSpacing: "0.04em", padding: "16px 36px", borderRadius: 8, textDecoration: "none" }}>{ctaText}</a>
+          <a href={ctaUrl} style={{ display: "inline-block", background: C.yellow, color: "#fff", fontFamily: "Manrope, sans-serif", fontWeight: 700, fontSize: compact ? 16 : 18, textTransform: "uppercase", letterSpacing: "0.04em", padding: "16px 36px", borderRadius: 8, textDecoration: "none" }}>{ctaText}</a>
           <p style={{ fontSize: 16, color: C.creamFaint, fontStyle: "italic", margin: 0, marginTop: 16 }}>{ctaSubtext}</p>
         </div>
       </div>

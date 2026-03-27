@@ -458,7 +458,7 @@ function InstallSkills() {
 /* ──────────────────── ARE SKILLS RIGHT ─────────────────── */
 function AreSkillsRight() {
   return (
-    <section className="relative py-28 sm:py-36 px-6 bg-gradient-to-b from-[#0f2847] via-[#3a1a0a] to-[#D4714E]">
+    <section className="relative py-28 sm:py-36 px-6 bg-gradient-to-b from-[#0f2847] via-[#0c2040] to-[#D4714E]">
       <div className="max-w-7xl mx-auto text-center mb-16">
         <h2 className="animate-on-scroll font-manrope font-bold text-4xl sm:text-5xl text-white">
           Are <span className="font-bold">.skills</span> Right For You?
@@ -1036,7 +1036,7 @@ function Schedule() {
   const sessionDaysW2 = [13, 15, 17];
 
   return (
-    <section className="bg-gradient-to-b from-[#161616] to-[#1a1208] py-24 sm:py-32 px-6">
+    <section className="bg-gradient-to-b from-[#0f2847] to-[#0c2040] py-24 sm:py-32 px-6">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-center font-manrope font-bold text-3xl sm:text-4xl text-white mb-3">
           Claude Cowork Bootcamp Kicks Off
@@ -1262,7 +1262,7 @@ function FAQ() {
   const [openIdx, setOpenIdx] = useState<number | null>(0);
 
   return (
-    <section className="bg-gradient-to-b from-[#161616] to-[#1a1208] py-24 sm:py-32 px-6">
+    <section className="bg-gradient-to-b from-[#0f2847] to-[#0c2040] py-24 sm:py-32 px-6">
       <div className="max-w-3xl mx-auto">
         <h2 className="text-center font-manrope font-bold text-3xl sm:text-4xl text-white mb-14">
           Frequently Asked Questions
