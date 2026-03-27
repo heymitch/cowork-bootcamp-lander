@@ -502,7 +502,7 @@ function AreSkillsRight() {
 function BigTypeStatement() {
   return (
     <section className="bg-[#BD3131] py-24 sm:py-36 px-6">
-      <div className="max-w-6xl mx-auto text-center space-y-2">
+      <div className="max-w-6xl mx-auto text-left space-y-0 pl-6 sm:pl-12">
         <h2 className="font-anton text-5xl sm:text-7xl lg:text-[90px] text-white uppercase leading-[0.95] tracking-tight">
           Learning How To Use &
         </h2>
