@@ -501,10 +501,10 @@ function AreSkillsRight() {
 /* ──────────────────── BIG TYPE STATEMENT ───────────────── */
 function BigTypeStatement() {
   return (
-    <section className="bg-[#D4714E] py-24 sm:py-36 px-6">
-      <div className="max-w-6xl mx-auto px-6 sm:px-12">
+    <section className="bg-[#D4714E] py-24 sm:py-36 px-8 sm:px-16 lg:px-24">
+      <div className="max-w-7xl mx-auto">
         {/* Block 1 — slides in from left */}
-        <p className="slide-from-left font-anton text-6xl sm:text-8xl lg:text-[110px] uppercase leading-[0.9] tracking-tight text-left">
+        <p className="slide-from-left font-anton text-5xl sm:text-7xl lg:text-[90px] xl:text-[100px] uppercase leading-[0.9] tracking-tight text-left">
           <span className="text-white">Learning How To Use &</span>
           <br />
           <span className="text-cream">Create .skills Is The Future</span>
@@ -515,7 +515,7 @@ function BigTypeStatement() {
         <div className="pt-12 sm:pt-16" />
 
         {/* Block 2 — slides in from right */}
-        <p className="slide-from-right font-anton text-6xl sm:text-8xl lg:text-[110px] uppercase leading-[0.9] tracking-tight text-left">
+        <p className="slide-from-right font-anton text-5xl sm:text-7xl lg:text-[90px] xl:text-[100px] uppercase leading-[0.9] tracking-tight text-left">
           <span className="text-white">If Staying Relevant In Your</span>
           <br />
           <span className="text-cream">Industry Is A Priority,</span>
