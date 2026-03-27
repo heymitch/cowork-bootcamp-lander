@@ -518,7 +518,7 @@ function BigTypeStatement() {
         <p className="font-anton text-5xl sm:text-7xl lg:text-[85px] uppercase leading-[0.95] tracking-tight italic text-left pl-8 sm:pl-24">
           <span className="text-white">If Staying Relevant In Your</span>
           <br />
-          <span className="text-stroke-red ml-8 sm:ml-16">Industry Is A Priority,</span>
+          <span className="text-cream ml-8 sm:ml-16">Industry Is A Priority,</span>
           <br />
           <span className="text-white">Then .skills Are Right For You.</span>
         </p>
