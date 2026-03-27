@@ -502,28 +502,26 @@ function AreSkillsRight() {
 function BigTypeStatement() {
   return (
     <section className="bg-[#BD3131] py-24 sm:py-36 px-6">
-      <div className="max-w-6xl mx-auto text-left space-y-0 pl-6 sm:pl-12">
-        <h2 className="font-anton text-5xl sm:text-7xl lg:text-[90px] text-white uppercase leading-[0.95] tracking-tight">
-          Learning How To Use &
-        </h2>
-        <h2 className="font-anton text-5xl sm:text-7xl lg:text-[90px] uppercase leading-[0.95] tracking-tight text-stroke-red">
-          Create .skills Is The Future
-        </h2>
-        <h2 className="font-anton text-5xl sm:text-7xl lg:text-[90px] text-cream uppercase leading-[0.95] tracking-tight">
-          Of No-Code Work.
-        </h2>
+      <div className="max-w-6xl mx-auto px-6 sm:px-12">
+        {/* Block 1 — left aligned, italic lean */}
+        <p className="font-anton text-5xl sm:text-7xl lg:text-[85px] uppercase leading-[0.95] tracking-tight italic text-left">
+          <span className="text-white">Learning How To Use &</span>
+          <br />
+          <span className="text-stroke-red">Create .skills Is The Future</span>
+          <br />
+          <span className="text-white/90 ml-4 sm:ml-8">Of No-Code Work.</span>
+        </p>
 
-        <div className="pt-10" />
+        <div className="pt-10 sm:pt-14" />
 
-        <h2 className="font-anton text-5xl sm:text-7xl lg:text-[90px] text-white uppercase leading-[0.95] tracking-tight">
-          If Staying Relevant In Your
-        </h2>
-        <h2 className="font-anton text-5xl sm:text-7xl lg:text-[90px] uppercase leading-[0.95] tracking-tight text-stroke-red">
-          Industry Is A Priority,
-        </h2>
-        <h2 className="font-anton text-5xl sm:text-7xl lg:text-[90px] text-white uppercase leading-[0.95] tracking-tight">
-          Then .skills Are Right For You.
-        </h2>
+        {/* Block 2 — indented right, same italic lean */}
+        <p className="font-anton text-5xl sm:text-7xl lg:text-[85px] uppercase leading-[0.95] tracking-tight italic text-left pl-8 sm:pl-24">
+          <span className="text-white">If Staying Relevant In Your</span>
+          <br />
+          <span className="text-stroke-red ml-8 sm:ml-16">Industry Is A Priority,</span>
+          <br />
+          <span className="text-white">Then .skills Are Right For You.</span>
+        </p>
       </div>
     </section>
   );
