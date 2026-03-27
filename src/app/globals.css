@@ -55,3 +55,25 @@ body {
 .stagger-children > .animate-on-scroll:nth-child(4) { transition-delay: 450ms; }
 .stagger-children > .animate-on-scroll:nth-child(5) { transition-delay: 600ms; }
 .stagger-children > .animate-on-scroll:nth-child(6) { transition-delay: 750ms; }
+
+/* Slide from left */
+.slide-from-left {
+  opacity: 0;
+  transform: translateX(-120px);
+  transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+}
+.slide-from-left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Slide from right */
+.slide-from-right {
+  opacity: 0;
+  transform: translateX(120px);
+  transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+}
+.slide-from-right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}

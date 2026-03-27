@@ -114,7 +114,7 @@ function Hero() {
           </p>
           <a
             href="#how-it-works"
-            className="inline-block bg-yellow-cta text-[#0a1628] font-bold font-inter text-sm tracking-[0.2em] px-8 py-4 rounded-sm hover:bg-yellow-400 transition-colors"
+            className="inline-block bg-yellow-cta text-[#0a1628] font-bold font-inter text-sm tracking-[0.2em] px-8 py-4 rounded-sm hover:bg-[#fc6714] transition-colors"
           >
             HOW IT WORKS
           </a>
@@ -441,7 +441,7 @@ function InstallSkills() {
 
         <a
           href="#pricing"
-          className="inline-block bg-yellow-cta text-[#0a1628] font-bold font-inter text-sm tracking-wider px-8 py-4 hover:bg-yellow-400 transition-colors"
+          className="inline-block bg-yellow-cta text-[#0a1628] font-bold font-inter text-sm tracking-wider px-8 py-4 hover:bg-[#fc6714] transition-colors"
         >
           JOIN THE BOOTCAMP
         </a>
@@ -503,8 +503,8 @@ function BigTypeStatement() {
   return (
     <section className="bg-[#BD3131] py-24 sm:py-36 px-6">
       <div className="max-w-6xl mx-auto px-6 sm:px-12">
-        {/* Block 1 — left aligned, italic lean */}
-        <p className="font-anton text-5xl sm:text-7xl lg:text-[85px] uppercase leading-[0.95] tracking-tight italic text-left">
+        {/* Block 1 — slides in from left */}
+        <p className="slide-from-left font-anton text-5xl sm:text-7xl lg:text-[85px] uppercase leading-[0.95] tracking-tight italic text-left">
           <span className="text-white">Learning How To Use &</span>
           <br />
           <span className="text-cream">Create .skills Is The Future</span>
@@ -514,8 +514,8 @@ function BigTypeStatement() {
 
         <div className="pt-10 sm:pt-14" />
 
-        {/* Block 2 — indented right, same italic lean */}
-        <p className="font-anton text-5xl sm:text-7xl lg:text-[85px] uppercase leading-[0.95] tracking-tight italic text-left pl-8 sm:pl-24">
+        {/* Block 2 — slides in from right */}
+        <p className="slide-from-right font-anton text-5xl sm:text-7xl lg:text-[85px] uppercase leading-[0.95] tracking-tight italic text-left pl-8 sm:pl-24">
           <span className="text-white">If Staying Relevant In Your</span>
           <br />
           <span className="text-cream ml-8 sm:ml-16">Industry Is A Priority,</span>
@@ -591,7 +591,7 @@ function SessionOutline() {
           {SESSIONS.map((s) => (
             <div
               key={s.num}
-              className="animate-on-scroll py-8 px-6 sm:px-8 flex flex-col md:flex-row gap-6 md:gap-10 rounded-2xl border border-green-400/20 bg-white/5 backdrop-blur-sm shadow-[0_0_30px_rgba(74,222,128,0.06)]"
+              className="animate-on-scroll py-8 px-6 sm:px-8 flex flex-col md:flex-row gap-6 md:gap-10 rounded-2xl border border-[#D4714E]/20 bg-white/5 backdrop-blur-sm shadow-[0_0_30px_rgba(212,113,78,0.06)]"
             >
               <div className="md:w-[180px] flex-shrink-0">
                 <Image
@@ -613,7 +613,7 @@ function SessionOutline() {
                   {s.desc}
                 </p>
                 <p className="text-white/60 text-sm">
-                  <span className="text-green-400 font-semibold">&rarr; You leave with:</span>{" "}
+                  <span className="text-[#D4714E] font-semibold">&rarr; You leave with:</span>{" "}
                   {s.skill}
                 </p>
               </div>
@@ -628,7 +628,7 @@ function SessionOutline() {
           <div className="w-40 h-px bg-white/20 mx-auto mb-6" />
           <p className="text-white/90 text-lg font-bold font-manrope">
             We build <span className="text-[#D4714E]">together</span>. You show up.
-            <br />You leave with <span className="text-green-400">a system</span>.
+            <br />You leave with <span className="text-[#D4714E]">a system</span>.
           </p>
         </div>
       </div>
@@ -1165,7 +1165,7 @@ function Pricing() {
           </p>
           <a
             href="#"
-            className="block w-full bg-yellow-cta text-[#0a1628] font-bold font-inter text-lg tracking-wider py-5 hover:bg-yellow-400 transition-colors rounded-lg"
+            className="block w-full bg-yellow-cta text-[#0a1628] font-bold font-inter text-lg tracking-wider py-5 hover:bg-[#fc6714] transition-colors rounded-lg"
           >
             JOIN CLAUDE COWORK BOOTCAMP
           </a>
@@ -1215,7 +1215,7 @@ function GuaranteeCta() {
           </h3>
           <a
             href="#"
-            className="inline-block bg-yellow-cta text-[#0a1628] font-bold font-inter text-sm tracking-wider px-8 py-4 rounded-sm hover:bg-yellow-400 transition-colors"
+            className="inline-block bg-yellow-cta text-[#0a1628] font-bold font-inter text-sm tracking-wider px-8 py-4 rounded-sm hover:bg-[#fc6714] transition-colors"
           >
             JOIN THE BOOTCAMP — $800
           </a>
@@ -1312,7 +1312,7 @@ export default function Home() {
       { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
     );
 
-    document.querySelectorAll('.animate-on-scroll').forEach((el) => {
+    document.querySelectorAll('.animate-on-scroll, .slide-from-left, .slide-from-right').forEach((el) => {
       observer.observe(el);
     });
 
