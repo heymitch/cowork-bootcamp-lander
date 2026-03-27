@@ -575,23 +575,23 @@ const SESSIONS = [
 
 function SessionOutline() {
   return (
-    <section className="bg-gradient-to-b from-[#D4714E] via-[#1a2847] to-[#0d2847] py-24 sm:py-32 px-6">
+    <section className="bg-[#F5F0E8] py-24 sm:py-32 px-6">
       <div className="max-w-4xl mx-auto">
         <span className="block text-xs font-bold text-[#D4714E] uppercase tracking-[0.15em] mb-3 font-inter">
           The 6 Sessions
         </span>
-        <h2 className="font-manrope font-bold text-3xl sm:text-5xl text-white mb-3">
+        <h2 className="font-manrope font-bold text-3xl sm:text-5xl text-[#2D2A26] mb-3">
           Here&rsquo;s what you&rsquo;ll build.
         </h2>
-        <p className="text-white/60 text-sm font-inter mb-10">
+        <p className="text-[#2D2A26]/50 text-sm font-inter mb-10">
           All sessions are 60 minutes &middot; Kickoff: Monday, April 6 &middot; 3:00 PM ET
         </p>
 
-        <div className="space-y-6">
+        <div className="space-y-0 divide-y divide-[#2D2A26]/10">
           {SESSIONS.map((s) => (
             <div
               key={s.num}
-              className="animate-on-scroll py-8 px-6 sm:px-8 flex flex-col md:flex-row gap-6 md:gap-10 rounded-2xl border border-[#D4714E]/20 bg-white/5 backdrop-blur-sm shadow-[0_0_30px_rgba(212,113,78,0.06)]"
+              className="animate-on-scroll py-8 flex flex-col md:flex-row gap-6 md:gap-10"
             >
               <div className="md:w-[180px] flex-shrink-0">
                 <Image
@@ -606,13 +606,13 @@ function SessionOutline() {
                 <span className="text-xs font-bold text-[#D4714E] uppercase tracking-wider font-inter">
                   Session {s.num}
                 </span>
-                <h3 className="font-manrope font-bold text-white text-xl sm:text-2xl leading-tight mb-2">
+                <h3 className="font-manrope font-bold text-[#2D2A26] text-xl sm:text-2xl leading-tight mb-2">
                   {s.name}
                 </h3>
-                <p className="text-white/80 text-base leading-relaxed mb-3">
+                <p className="text-[#2D2A26]/70 text-base leading-relaxed mb-3">
                   {s.desc}
                 </p>
-                <p className="text-white/60 text-sm">
+                <p className="text-[#2D2A26]/50 text-sm">
                   <span className="text-[#D4714E] font-semibold">&rarr; You leave with:</span>{" "}
                   {s.skill}
                 </p>
@@ -622,11 +622,11 @@ function SessionOutline() {
         </div>
 
         <div className="mt-16 text-center">
-          <h2 className="font-manrope font-bold text-2xl sm:text-4xl text-white mb-6">
+          <h2 className="font-manrope font-bold text-2xl sm:text-4xl text-[#2D2A26] mb-6">
             This isn&rsquo;t self-paced content<br />you buy and forget.
           </h2>
-          <div className="w-40 h-px bg-white/20 mx-auto mb-6" />
-          <p className="text-white/90 text-lg font-bold font-manrope">
+          <div className="w-40 h-px bg-[#2D2A26]/20 mx-auto mb-6" />
+          <p className="text-[#2D2A26]/90 text-lg font-bold font-manrope">
             We build <span className="text-[#D4714E]">together</span>. You show up.
             <br />You leave with <span className="text-[#D4714E]">a system</span>.
           </p>
@@ -823,7 +823,6 @@ function Instructors() {
         </div>
 
         <p className="animate-on-scroll text-center text-white/80 text-xl sm:text-2xl mt-16 font-manrope max-w-3xl mx-auto leading-relaxed">
-          Three practitioners. Zero theorists.{" "}
           <strong className="text-white">Everything</strong> we teach, we use ourselves to run our{" "}
           <strong className="text-white">$8,000,000/yr business.</strong>
         </p>
