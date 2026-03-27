@@ -4,6 +4,59 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import ScrollytellingCompact from "@/components/ScrollytellingCompact";
 
+/* ─────────── INLINE TESTIMONIAL (reusable) ────────────── */
+function InlineTestimonial({
+  quote,
+  name,
+  role,
+  size = "normal",
+}: {
+  quote: string;
+  name: string;
+  role?: string;
+  size?: "normal" | "large" | "featured";
+}) {
+  const isLarge = size === "large" || size === "featured";
+  const isFeatured = size === "featured";
+  return (
+    <div
+      className={`animate-on-scroll mx-auto ${
+        isFeatured
+          ? "max-w-4xl py-16 px-6 text-center"
+          : isLarge
+          ? "max-w-3xl py-10 px-6"
+          : "max-w-2xl py-8 px-6"
+      }`}
+    >
+      {isFeatured ? (
+        <>
+          <p className="text-white/90 text-xl sm:text-2xl font-manrope italic leading-relaxed">
+            &ldquo;{quote}&rdquo;
+          </p>
+          <p className="text-[#D4714E] font-semibold text-sm mt-4 font-inter">
+            {name}
+            {role && <span className="text-white/55 font-normal"> &mdash; {role}</span>}
+          </p>
+        </>
+      ) : (
+        <blockquote className={`border-l-3 border-[#D4714E]/60 pl-5 ${isLarge ? "pl-6" : ""}`}>
+          <p
+            className={`text-white/80 italic leading-relaxed font-manrope ${
+              isLarge ? "text-lg sm:text-xl" : "text-base"
+            }`}
+          >
+            &ldquo;{quote}&rdquo;
+          </p>
+          <footer className="text-white/55 text-sm mt-2 font-inter">
+            &mdash; {name}
+            {role && <span className="text-white/45"> &middot; {role}</span>}
+          </footer>
+        </blockquote>
+      )}
+    </div>
+  );
+}
+
 /* ───────────────────────── HERO ───────────────────────── */
 function Hero() {
   return (
@@ -707,44 +760,64 @@ function Instructors() {
 /* ──────────────────── TESTIMONIALS ─────────────────────── */
 const TESTIMONIALS = [
   {
-    name: "Tad",
+    name: "Brendon",
+    role: "Marketing Director",
+    quote: "This course really helped me get comfortable thinking about and working with agentic AI. I still have so many ideas I want to bring to life.",
+  },
+  {
+    name: "Yahnny",
+    role: "Travel Executive",
+    quote: "I lacked the skills to maximize the power of Claude Cowork to literally take over repetitive tasks. Mitch was a fantastic teacher.",
+  },
+  {
+    name: "Susheel K.",
+    role: "IT Professional",
+    quote: "The best thing I learned was how to leverage Claude Cowork and turn it into a potential assistant that works round the clock.",
+  },
+  {
+    name: "Hassan",
     role: "Ghostwriter",
-    quote: "This got me so much further down the road of using Claude Cowork than I could have done on my own. I\u2019ve already used it to get more organized on each of my ghostwriting clients and sped up the process of delivering their content each week.",
+    quote: "Signing up to the Cowork bootcamp provided clarity right from the basics to the most advanced with skill building. Exactly what I needed.",
   },
   {
-    name: "Morgan Johnson",
+    name: "Inka B.",
+    role: "MD & Coach",
+    quote: "I was genuinely blown away by how applicable the sessions were. I\u2019ve been able to streamline and automate parts of my workflow already.",
+  },
+  {
+    name: "Renee B.",
     role: "",
-    quote: "Without doubt, the highlight was creating and deploying a landing page and e-book lead magnet in less than an hour. Definitely finished the bootcamp wanting more.",
+    quote: "I didn\u2019t yet understand Claude Cowork, or the full depth of what skills could achieve. It opens up a huge amount of possibilities now and into the future.",
   },
   {
-    name: "Jane",
-    role: "",
-    quote: "Before the bootcamp, I used Claude conversationally but had no idea how to use it as a builder. It\u2019s already made my workflow noticeably smoother with fewer bottlenecks, more momentum.",
+    name: "Josh W.",
+    role: "Regulatory Compliance",
+    quote: "I\u2019m looking forward to implementing the skills from this bootcamp to eliminate repetitive tasks and bring our audit risk to close to zero.",
   },
   {
-    name: "Jessica Li",
-    role: "",
-    quote: "This bootcamp helped me understand how Claude Cowork can create compound effects in my every day work to multiply productivity. The hands-on format made it easy to learn a lot in a short time.",
+    name: "Vijay",
+    role: "Developer & Ghostwriter",
+    quote: "This cohort gave me a very constructive way to understand and work on the core features of Claude Cowork. Even the recordings are very well structured.",
   },
   {
-    name: "Roshan Gupta",
-    role: "Business Owner",
-    quote: "I\u2019ve been using AI extensively to manage my business\u2014but this bootcamp on Claude Cowork opened up my eyes to a whole new way of working with AI. The tools we were using were literally changing day-by-day.",
+    name: "Samanee M.",
+    role: "Marketing Manager",
+    quote: "Before this bootcamp, the most I ever used AI for was ChatGPT brainstorming. Now I feel like I have superpowers. Can\u2019t recommend this more.",
   },
   {
-    name: "Oscar A. Orta",
-    role: "GrowthWrite Founder",
-    quote: "I\u2019ve used ChatGPT since it first came out on a daily basis. However, I had no idea about Cowork and how much it could do, without coding.",
+    name: "Todd",
+    role: "Nonprofit Founder",
+    quote: "My big moment was learning how to chain skills and create new ones. After training my voice, it\u2019s helped me free up time in writing to meet with more people one-on-one.",
   },
   {
-    name: "Eva M.",
-    role: "",
-    quote: "I hesitated before signing up for the bootcamp but am extremely glad I did. The skills I built here changed how I approach AI entirely.",
-  },
-  {
-    name: "Gannon Nordberg",
+    name: "Gannon N.",
     role: "",
     quote: "With the tools and frameworks in this bootcamp, I can comfortably say I\u2019ve reached a whole new level!",
+  },
+  {
+    name: "Oscar O.",
+    role: "GrowthWrite Founder",
+    quote: "I\u2019ve used ChatGPT since it first came out on a daily basis. However, I had no idea about Cowork and how much it could do, without coding.",
   },
 ];
 
@@ -753,13 +826,13 @@ function Testimonials() {
     <section className="bg-[#0f1319] py-20 px-6">
       <div className="max-w-6xl mx-auto">
         <h2 className="animate-on-scroll text-center font-manrope font-bold text-2xl sm:text-4xl text-white mb-3">
-          What Bootcamp Students Say
+          100+ Students Built Skills in Cohort 1
         </h2>
-        <p className="text-center text-white/70 text-base mb-14">
-          Real reviews from Cohort 1
+        <p className="text-center text-white/70 text-base mb-14 max-w-xl mx-auto">
+          Here&rsquo;s what they had to say.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 stagger-children">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 stagger-children">
           {TESTIMONIALS.map((t, i) => (
             <div
               key={i}
@@ -1149,16 +1222,70 @@ export default function Home() {
   return (
     <main>
       <Hero />
+
+      {/* Featured quote — social proof right after hero */}
+      <section className="bg-[#0f1319]">
+        <InlineTestimonial
+          size="featured"
+          quote="Truly took my AI usage to the next level. This was the biggest shift in how I use AI to get things done since the beginning of the AI hype a few years ago."
+          name="Sean S."
+        />
+      </section>
+
       <WhatsNew />
       <ScrollytellingCompact />
       <AreSkillsRight />
+
+      {/* After "Are Skills Right" — skeptic-turned-believer */}
+      <section className="bg-gradient-to-b from-[#BD3131] to-[#0f1319] py-2">
+        <InlineTestimonial
+          size="large"
+          quote="I hesitated before signing up for the bootcamp but am extremely glad I did. The skills I learned took my understanding and practical use of AI to a completely different level."
+          name="Eva M."
+        />
+      </section>
+
       <BigTypeStatement />
       <SkillsGrid />
+
+      {/* After skills grid — someone who built real things */}
+      <section className="bg-[#0f1319]">
+        <InlineTestimonial
+          size="large"
+          quote="Now I have pipelines that generate brand-compliant presentation decks and meeting prep kits from structured content. One skill replaced an entire workflow."
+          name="G."
+          role="Design Lead, NYC"
+        />
+      </section>
+
       <FreeBonuses />
       <Instructors />
-      <Testimonials />
+
+      {/* After instructors — teaching quality */}
+      <section className="bg-[#0f1319]">
+        <InlineTestimonial
+          size="large"
+          quote="My overriding takeaway was how effective Mitch was as a teacher. Without doubt, the highlight was creating and deploying a landing page and e-book lead magnet in less than an hour."
+          name="Morgan J."
+        />
+      </section>
+
       <Schedule />
+
+      {/* Before pricing — ROI / transformation */}
+      <section className="bg-[#0f1319]">
+        <InlineTestimonial
+          size="featured"
+          quote="What Mitch built doesn't just save you time, it multiplies your output. Seeing how many ways these skills could be applied overwhelmed me (in the best way) and unleashed a flood of ideas."
+          name="Alexander"
+        />
+      </section>
+
       <Pricing />
+
+      {/* Big grid — all the rest */}
+      <Testimonials />
+
       <GuaranteeCta />
       <FAQ />
     </main>
