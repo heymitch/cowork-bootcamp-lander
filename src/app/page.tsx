@@ -527,80 +527,106 @@ function BigTypeStatement() {
   );
 }
 
-/* ──────────────────── 5 SKILLS GRID ───────────────────── */
-const SKILLS = [
+/* ──────────────────── SESSION OUTLINE ──────────────────── */
+const SESSIONS = [
   {
     num: 1,
-    name: "Computer Organizer Skill",
-    desc: 'clean up your downloads, organize your documents, and get back to "desktop zero"',
-    img: "/images/img-06.png",
+    name: "File Master",
+    desc: "Set up your agent workspace, install your first .skill, and build an automated file organization system that keeps your machine clean forever.",
+    skill: "A working agent workspace and a file organization skill running on your machine.",
+    img: "/images/session-1.png",
   },
   {
     num: 2,
     name: "Newsletter Skill",
-    desc: "Use our category newsletter creation process and write in-depth thought leadership or curation newsletters in minutes",
+    desc: "Use our category newsletter creation process and write in-depth thought leadership or curation newsletters in minutes.",
+    skill: "A newsletter .skill trained on your voice that drafts publication-ready issues.",
     img: "/images/img-08.png",
   },
   {
     num: 3,
     name: "Meeting Prep Skill",
-    desc: "Sales calls, presentations, board meetings, webinars\u2014prepare your mind and materials for any meeting on your calendar",
+    desc: "Sales calls, presentations, board meetings, webinars\u2014prepare your mind and materials for any meeting on your calendar.",
+    skill: "A meeting prep .skill that pulls context and builds briefs automatically.",
     img: "/images/img-10.png",
   },
   {
     num: 4,
-    name: "Project Kit Skill",
-    desc: "Move from creating single assets to full proposals, slide decks, or brand materials in an automatic process",
+    name: "Chaining Workflows",
+    desc: "Move from single skills to multi-step pipelines. Chain .skills together so one output feeds the next\u2014proposals, slide decks, brand materials in one shot.",
+    skill: "A chained workflow that produces a complete deliverable from a single prompt.",
     img: "/images/img-12.png",
   },
   {
     num: 5,
-    name: "Digital Product Skill",
-    desc: "Leverage our product creation process directly in Cowork, and go from idea to selling your digital product in no time flat",
+    name: "Templates & Browser Automation",
+    desc: "Build reusable templates and connect your agent to the browser. Automate research, form fills, and data extraction without writing code.",
+    skill: "A browser automation skill and a reusable template library.",
     img: "/images/img-14.png",
   },
   {
     num: 6,
-    name: "Skill Maker",
-    desc: "The secret sauce process even the creators of Cowork don\u2019t know about to make your custom skills bombproof",
+    name: "Customizing Your .skills",
+    desc: "The secret sauce\u2014learn to customize, refine, and make your skills bombproof. Train your voice, tune outputs, and build skills that get better over time.",
+    skill: "A fully customized skill stack tailored to your specific workflow.",
     img: "/images/img-16.png",
   },
 ];
 
-function SkillsGrid() {
+function SessionOutline() {
   return (
     <section className="bg-[#BD3131] py-24 sm:py-32 px-6">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-center font-manrope font-bold text-3xl sm:text-5xl text-white mb-16">
-          5 .skills to get you started:
+      <div className="max-w-4xl mx-auto">
+        <span className="block text-xs font-bold text-white/60 uppercase tracking-[0.15em] mb-3 font-inter">
+          The 6 Sessions
+        </span>
+        <h2 className="font-manrope font-bold text-3xl sm:text-5xl text-white mb-3">
+          Here&rsquo;s what you&rsquo;ll build.
         </h2>
+        <p className="text-white/60 text-sm font-inter mb-10">
+          All sessions are 60 minutes &middot; Kickoff: Monday, April 6 &middot; 3:00 PM ET
+        </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7 stagger-children">
-          {SKILLS.map((skill) => (
-            <div
-              key={skill.num}
-              className="animate-on-scroll bg-[#1a0a0a]/80 border border-red-brand/30 rounded-2xl p-8 text-center backdrop-blur-sm shadow-[inset_0_0_40px_rgba(0,0,0,0.3)]"
-            >
-              <span className="text-xs text-white/55 tracking-widest uppercase font-inter">
-                Skill #{skill.num}
-              </span>
-              <div className="flex justify-center my-5">
+        <div className="space-y-0 divide-y divide-white/15">
+          {SESSIONS.map((s) => (
+            <div key={s.num} className="animate-on-scroll py-8 flex flex-col md:flex-row gap-6 md:gap-10">
+              <div className="md:w-[180px] flex-shrink-0">
                 <Image
-                  src={skill.img}
-                  alt={skill.name}
-                  width={260}
-                  height={260}
-                  className="w-52 sm:w-60 h-auto"
+                  src={s.img}
+                  alt={`Session ${s.num}: ${s.name}`}
+                  width={180}
+                  height={180}
+                  className="w-36 h-36 md:w-44 md:h-44 rounded-lg object-cover"
                 />
               </div>
-              <h3 className="font-manrope font-bold text-white text-lg mb-2">
-                {skill.name}
-              </h3>
-              <p className="text-white/70 text-sm leading-relaxed">
-                {skill.desc}
-              </p>
+              <div className="flex-1">
+                <span className="text-xs font-bold text-cream/70 uppercase tracking-wider font-inter">
+                  Session {s.num}
+                </span>
+                <h3 className="font-manrope font-bold text-white text-xl sm:text-2xl leading-tight mb-2">
+                  {s.name}
+                </h3>
+                <p className="text-white/80 text-base leading-relaxed mb-3">
+                  {s.desc}
+                </p>
+                <p className="text-white/60 text-sm">
+                  <span className="text-yellow-cta font-semibold">&rarr; You leave with:</span>{" "}
+                  {s.skill}
+                </p>
+              </div>
             </div>
           ))}
+        </div>
+
+        <div className="mt-16 text-center">
+          <h2 className="font-manrope font-bold text-2xl sm:text-4xl text-white mb-6">
+            This isn&rsquo;t self-paced content<br />you buy and forget.
+          </h2>
+          <div className="w-40 h-px bg-white/20 mx-auto mb-6" />
+          <p className="text-white/90 text-lg font-bold font-manrope">
+            We build <span className="text-cream">together</span>. You show up.
+            <br />You leave with <span className="text-cream">a system</span>.
+          </p>
         </div>
       </div>
     </section>
@@ -1295,7 +1321,7 @@ export default function Home() {
       </section>
 
       <BigTypeStatement />
-      <SkillsGrid />
+      <SessionOutline />
 
       {/* After skills grid — someone who built real things */}
       <section className="bg-[#0f1319]">
