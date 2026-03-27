@@ -98,18 +98,18 @@ function Hero() {
             className="w-full max-w-[600px]"
             priority
           />
-          <h2 className="text-white/90 font-manrope font-bold text-2xl sm:text-3xl leading-snug">
+          <h2 className="text-[#f3eccb] font-manrope font-bold text-2xl sm:text-3xl leading-snug">
             Turn Claude Into Your Highest Performing Employee By Building .skills
           </h2>
-          <p className="text-white/55 text-lg leading-relaxed max-w-lg">
+          <p className="text-[#f3eccb]/60 text-lg leading-relaxed max-w-lg">
             Any task you do more than once should be saved as a .skill.{" "}
-            <em className="text-white/80 font-semibold">
+            <em className="text-[#f3eccb] font-semibold">
               This is how you build leverage forever.
             </em>
           </p>
-          <p className="text-white/55 text-lg leading-relaxed max-w-lg">
+          <p className="text-[#f3eccb]/60 text-lg leading-relaxed max-w-lg">
             Join us live for beginner-friendly training on{" "}
-            <strong className="text-white/80">No-Code AI</strong> and the future of
+            <strong className="text-[#f3eccb]">No-Code AI</strong> and the future of
             work.
           </p>
           <a
