@@ -650,7 +650,7 @@ const BONUSES = [
     name: "CLAUDE.md Template + Setup Guide",
     desc: "The exact CLAUDE.md template we use for our own businesses. This is the file that tells Claude who you are, how you work, and what rules to follow. Once it\u2019s set up, Claude stops forgetting or requiring constant hand-holding. Set it up in under an hour.",
     value: "$197",
-    img: null,
+    img: "/images/bonus-claudemd.png",
   },
   {
     num: 3,
