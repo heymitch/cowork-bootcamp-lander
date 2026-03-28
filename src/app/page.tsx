@@ -503,24 +503,24 @@ function AreSkillsRight() {
 /* ──────────────────── BIG TYPE STATEMENT ───────────────── */
 function BigTypeStatement() {
   return (
-    <section className="bg-[#BD3131] py-24 sm:py-36 px-6">
-      <div className="max-w-6xl mx-auto px-6 sm:px-12">
+    <section className="bg-[#BD3131] py-24 sm:py-36 px-8 sm:px-16 lg:px-24">
+      <div className="max-w-7xl mx-auto">
         {/* Block 1 — slides in from left */}
-        <p className="slide-from-left font-anton text-5xl sm:text-7xl lg:text-[85px] uppercase leading-[0.95] tracking-tight italic text-left">
+        <p className="slide-from-left font-anton text-5xl sm:text-7xl lg:text-[90px] xl:text-[100px] uppercase leading-[0.9] tracking-tight text-left">
           <span className="text-white">Learning How To Use &</span>
           <br />
           <span className="text-cream">Create .skills Is The Future</span>
           <br />
-          <span className="text-white/90 ml-4 sm:ml-8">Of No-Code Work.</span>
+          <span className="text-white/90">Of No-Code Work.</span>
         </p>
 
-        <div className="pt-10 sm:pt-14" />
+        <div className="pt-12 sm:pt-16" />
 
         {/* Block 2 — slides in from right */}
-        <p className="slide-from-right font-anton text-5xl sm:text-7xl lg:text-[85px] uppercase leading-[0.95] tracking-tight italic text-left pl-8 sm:pl-24">
+        <p className="slide-from-right font-anton text-5xl sm:text-7xl lg:text-[90px] xl:text-[100px] uppercase leading-[0.9] tracking-tight text-left">
           <span className="text-white">If Staying Relevant In Your</span>
           <br />
-          <span className="text-cream ml-8 sm:ml-16">Industry Is A Priority,</span>
+          <span className="text-cream">Industry Is A Priority,</span>
           <br />
           <span className="text-white">Then .skills Are Right For You.</span>
         </p>
@@ -601,7 +601,7 @@ function SessionOutline() {
                   alt={`Session ${s.num}: ${s.name}`}
                   width={180}
                   height={180}
-                  className="w-36 h-36 md:w-44 md:h-44 rounded-lg object-cover"
+                  className="w-36 h-36 md:w-44 md:h-44 rounded-lg object-cover shadow-xl shadow-black/20 hover:scale-105 hover:-rotate-2 transition-transform duration-300"
                 />
               </div>
               <div className="flex-1">
@@ -645,14 +645,14 @@ const BONUSES = [
     name: "Coworker: Your Pre-Built AI Workspace",
     desc: "Most people spend their first week just figuring out how to set up. You won\u2019t. Coworker is a ready-to-run workspace with your folder structure and memory already initialized. Drop it in, open Cowork, and you\u2019re already running before Session 1 starts.",
     value: "$497",
-    img: null,
+    img: "/images/bonus-coworker.png",
   },
   {
     num: 2,
     name: "CLAUDE.md Template + Setup Guide",
     desc: "The exact CLAUDE.md template we use for our own businesses. This is the file that tells Claude who you are, how you work, and what rules to follow. Once it\u2019s set up, Claude stops forgetting or requiring constant hand-holding. Set it up in under an hour.",
     value: "$197",
-    img: null,
+    img: "/images/bonus-claudemd.png",
   },
   {
     num: 3,
@@ -694,6 +694,13 @@ const BONUSES = [
     name: "Design Secrets for Cowork",
     desc: "Create your personal design aesthetic (colors, fonts, layout preferences) that Cowork references every time you use a design skill. Your brand, baked into the agent. Build once, every visual output matches your look.",
     value: "$149",
+    img: "/images/bonus-design-secrets.png",
+  },
+  {
+    num: 9,
+    name: "Free Trial to AI Writing (Skool Community)",
+    desc: "Get access to the AI Writing community where thousands of writers share prompts, skills, and strategies for writing with AI. Connect with other bootcamp alumni and keep leveling up after the cohort ends.",
+    value: "$10,000",
     img: null,
   },
 ];
@@ -706,39 +713,39 @@ function FreeBonuses() {
           Free Bonuses Included
         </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-16 stagger-children">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 divide-x divide-white/10 mt-16 stagger-children">
           {BONUSES.map((bonus) => (
             <div
               key={bonus.num}
-              className="animate-on-scroll bg-[#132640] border border-white/15 rounded-2xl p-6 flex flex-col"
+              className="animate-on-scroll px-8 py-8 flex flex-col"
             >
-              <span className="text-xs text-[#D4714E]/80 tracking-widest uppercase font-inter mb-3">
+              <span className="text-sm text-[#D4714E] tracking-widest uppercase font-inter font-bold mb-4">
                 Bonus #{bonus.num}
               </span>
+              <h3 className="font-manrope font-bold text-white text-xl sm:text-2xl mb-6 leading-tight">
+                {bonus.name}
+              </h3>
               {bonus.img ? (
-                <div className="flex justify-center mb-4">
+                <div className="mb-6">
                   <Image
                     src={bonus.img}
                     alt={bonus.name}
-                    width={200}
-                    height={133}
-                    className="w-44 h-auto rounded-lg object-contain"
+                    width={400}
+                    height={266}
+                    className="w-full max-w-[320px] h-auto object-contain"
                   />
                 </div>
               ) : (
-                <div className="flex justify-center mb-4">
-                  <div className="w-44 h-28 rounded-lg bg-[#0f2847] border border-white/10 flex items-center justify-center">
+                <div className="mb-6">
+                  <div className="w-full max-w-[320px] h-48 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center">
                     <span className="text-white/20 text-xs font-inter uppercase tracking-wider">Coming Soon</span>
                   </div>
                 </div>
               )}
-              <h3 className="font-manrope font-bold text-white text-base mb-2">
-                {bonus.name}
-              </h3>
-              <p className="text-white/70 text-sm leading-relaxed flex-1">
+              <p className="text-white/60 text-base leading-relaxed flex-1">
                 {bonus.desc}
               </p>
-              <p className="mt-4 font-inter font-bold text-sm">
+              <p className="mt-6 font-inter font-bold text-lg">
                 <span className="text-[#D4714E]">{bonus.value}</span>{" "}
                 <span className="text-white/55">value</span>
               </p>
@@ -825,7 +832,6 @@ function Instructors() {
         </div>
 
         <p className="animate-on-scroll text-center text-white/80 text-xl sm:text-2xl mt-16 font-manrope max-w-3xl mx-auto leading-relaxed">
-          Three practitioners. Zero theorists.{" "}
           <strong className="text-white">Everything</strong> we teach, we use ourselves to run our{" "}
           <strong className="text-white">$8,000,000/yr business.</strong>
         </p>
@@ -1172,16 +1178,13 @@ function Pricing() {
             JOIN CLAUDE COWORK BOOTCAMP
           </a>
           <p className="text-white/45 text-sm mt-5 font-inter">
-            Starts April 6, 2026 &middot; Limited seats
+            Starts April 6, 2026 &middot; <span className="text-[#D4714E]">Limited seats</span>
           </p>
           <div className="flex justify-center mt-8">
-            <Image
-              src="/images/img-27.png"
-              alt="Cowork Bootcamp"
-              width={160}
-              height={53}
-              className="opacity-60"
-            />
+            <span className="inline-flex items-center gap-2 border border-[#D4714E]/40 rounded-full px-5 py-2 text-xs tracking-wider uppercase font-inter text-white/70">
+              <span className="w-2 h-2 rounded-full bg-[#D4714E]" />
+              7-Day Money-Back Guarantee
+            </span>
           </div>
         </div>
       </div>
@@ -1195,14 +1198,11 @@ function GuaranteeCta() {
     <section className="bg-[#0f2847] py-24 sm:py-32 px-6">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
         {/* Guarantee */}
-        <div className="space-y-5">
-          <h3 className="font-manrope font-bold text-2xl text-white">
-            <span className="border-b-2 border-[#D4714E]/50 pb-1">7-DAY MONEY-BACK GUARANTEE</span>
-          </h3>
-          <h4 className="font-manrope font-semibold text-white/80 text-xl">
+        <div className="space-y-5 flex flex-col justify-center">
+          <h3 className="font-manrope font-bold text-2xl sm:text-3xl text-white">
             First-Week Guarantee
-          </h4>
-          <p className="text-white/70 text-base leading-relaxed">
+          </h3>
+          <p className="text-white/55 text-base leading-relaxed">
             If in the first week of the cohort you&rsquo;ve completed the
             assignments and still decide these aren&rsquo;t skills you want to
             build, just let us know and we&rsquo;ll give you a full
@@ -1211,13 +1211,13 @@ function GuaranteeCta() {
         </div>
 
         {/* Final CTA */}
-        <div className="space-y-6 text-center md:text-left">
-          <h3 className="font-manrope font-bold text-3xl text-white">
-            Ready to Build Your First .skills?
+        <div className="space-y-6">
+          <h3 className="font-manrope font-bold text-3xl sm:text-4xl text-white leading-tight">
+            Ready to Build Your<br />First .skills?
           </h3>
           <a
             href="#"
-            className="inline-block bg-yellow-cta text-[#0a1628] font-bold font-inter text-sm tracking-wider px-8 py-4 rounded-sm hover:bg-[#fc6714] transition-colors"
+            className="inline-block bg-yellow-cta text-[#0a1628] font-bold font-inter text-base tracking-wider px-10 py-5 rounded-full hover:bg-[#fc6714] transition-colors"
           >
             JOIN THE BOOTCAMP — $800
           </a>
