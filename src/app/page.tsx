@@ -643,7 +643,7 @@ const BONUSES = [
     name: "Coworker: Your Pre-Built AI Workspace",
     desc: "Most people spend their first week just figuring out how to set up. You won\u2019t. Coworker is a ready-to-run workspace with your folder structure and memory already initialized. Drop it in, open Cowork, and you\u2019re already running before Session 1 starts.",
     value: "$497",
-    img: null,
+    img: "/images/bonus-coworker.png",
   },
   {
     num: 2,
