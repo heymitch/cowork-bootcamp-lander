@@ -657,7 +657,7 @@ const BONUSES = [
     name: "Skill Library Starter Pack",
     desc: "Pre-built skills, ready to install. Workflows for content, operations, research, and communication. Drop them in Cowork and they run immediately. The shortcut to a full skill library without building every one from scratch.",
     value: "$197",
-    img: null,
+    img: "/images/bonus-skill-library.png",
   },
   {
     num: 4,
