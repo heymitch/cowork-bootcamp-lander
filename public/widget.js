@@ -112,9 +112,16 @@
 
     /* Mobile */
     '@media (max-width:768px) {',
-    '  .bc-widget__bubble { width:56px; height:56px; }',
-    '  .bc-widget__panel--open { position:fixed; top:0; left:0; right:0; bottom:0; width:100%; height:100%; max-height:100%; max-width:100%; border-radius:0; z-index:99999; }',
+    '  .bc-widget { bottom:16px; right:16px; }',
+    '  .bc-widget__bubble { width:52px; height:52px; }',
+    '  .bc-widget__panel--open { position:fixed; top:0; left:0; right:0; bottom:0; width:100vw; height:100vh; height:100dvh; max-height:100vh; max-height:100dvh; max-width:100vw; border-radius:0; z-index:100000; }',
     '  .bc-widget__panel { bottom:0; right:0; }',
+    '  .bc-widget__header { padding:16px; padding-top:max(16px, env(safe-area-inset-top)); }',
+    '  .bc-widget__header-close { width:36px; height:36px; opacity:1; }',
+    '  .bc-widget__input-area { padding:10px 12px; padding-bottom:max(10px, env(safe-area-inset-bottom)); }',
+    '  .bc-widget__input { font-size:16px; }',
+    '  .bc-widget__messages { padding:12px; }',
+    '  .bc-widget__msg { max-width:88%; }',
     '}',
   ].join('\n');
   document.head.appendChild(style);
