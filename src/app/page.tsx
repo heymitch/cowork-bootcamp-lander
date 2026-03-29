@@ -728,9 +728,9 @@ function FreeBonuses() {
                   <Image
                     src={bonus.img}
                     alt={bonus.name}
-                    width={400}
-                    height={266}
-                    className="w-full max-w-[320px] h-auto object-contain"
+                    width={600}
+                    height={624}
+                    className="w-full max-w-[280px] h-auto object-contain mx-auto"
                   />
                 </div>
               ) : (
