@@ -14,7 +14,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="antialiased">
-      <body>{children}</body>
+      <body>
+        {children}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.BOOTCAMP_WIDGET_CONFIG = {
+                apiUrl: 'https://dquuimhmbofdhdsbdbly.supabase.co/functions/v1/bootcamp-chat',
+                brandColor: '#f35a1f',
+                widgetTitle: 'Bootcamp Concierge',
+                greeting: "Got questions about the Cowork Bootcamp? Ask away."
+              };
+            `,
+          }}
+        />
+        <script src="/widget.js" defer />
+      </body>
     </html>
   );
 }
