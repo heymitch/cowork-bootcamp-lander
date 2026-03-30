@@ -8,24 +8,24 @@ const config: Config = {
     extend: {
       colors: {
         dark: {
-          DEFAULT: "#0f1319",
-          light: "#111820",
-          card: "#1a2030",
-          graphite: "#0c1018",
+          DEFAULT: "#0D1116",
+          light: "#0F151C",
+          card: "#0F151C",
+          graphite: "#0D1116",
         },
         red: {
-          brand: "#D4352E",
-          section: "#BD3131",
+          brand: "#DC2625",
+          section: "#DC2625",
           deep: "#9E2A2A",
           darkest: "#6B1A1A",
-          hot: "#E63B2E",
+          hot: "#DC2625",
         },
         cream: {
           DEFAULT: "#FFF5E1",
           warm: "#f5efe0",
         },
         yellow: {
-          cta: "#F5C518",
+          cta: "#FACC15",
           warm: "#E8B30E",
           gold: "#D4A005",
         },

@@ -1,8 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import ScrollytellingCompact from "@/components/ScrollytellingCompact";
+import { FadeUp, FadeIn, ScaleOnHover, StaggerContainer, StaggerItem, SlideInLeft, SlideInRight } from "@/components/motion";
+import { CountdownTimer } from "@/components/CountdownTimer";
 
 /* ─────────── INLINE TESTIMONIAL (reusable) ────────────── */
 function InlineTestimonial({
@@ -19,8 +21,8 @@ function InlineTestimonial({
   const isLarge = size === "large" || size === "featured";
   const isFeatured = size === "featured";
   return (
-    <div
-      className={`animate-on-scroll mx-auto ${
+    <FadeUp
+      className={`mx-auto ${
         isFeatured
           ? "max-w-4xl py-16 px-6 text-center"
           : isLarge
@@ -30,66 +32,72 @@ function InlineTestimonial({
     >
       {isFeatured ? (
         <>
-          <p className="text-white/90 text-xl sm:text-2xl font-manrope italic leading-relaxed">
+          <p className="text-[#f3eccb]/90 text-xl sm:text-2xl font-manrope italic leading-relaxed">
             &ldquo;{quote}&rdquo;
           </p>
-          <p className="text-[#D4714E] font-semibold text-sm mt-4 font-inter">
+          <p className="text-[#DC2625] font-semibold text-sm mt-4 font-inter">
             {name}
-            {role && <span className="text-white/55 font-normal"> &mdash; {role}</span>}
+            {role && <span className="text-[#f3eccb]/55 font-normal"> &mdash; {role}</span>}
           </p>
         </>
       ) : (
-        <blockquote className={`border-l-3 border-[#D4714E]/60 pl-5 ${isLarge ? "pl-6" : ""}`}>
+        <blockquote className={`border-l-3 border-[#DC2625]/60 pl-5 ${isLarge ? "pl-6" : ""}`}>
           <p
-            className={`text-white/80 italic leading-relaxed font-manrope ${
+            className={`text-[#f3eccb]/80 italic leading-relaxed font-manrope ${
               isLarge ? "text-lg sm:text-xl" : "text-base"
             }`}
           >
             &ldquo;{quote}&rdquo;
           </p>
-          <footer className="text-white/55 text-sm mt-2 font-inter">
+          <footer className="text-[#f3eccb]/55 text-sm mt-2 font-inter">
             &mdash; {name}
-            {role && <span className="text-white/45"> &middot; {role}</span>}
+            {role && <span className="text-[#f3eccb]/45"> &middot; {role}</span>}
           </footer>
         </blockquote>
       )}
-    </div>
+    </FadeUp>
   );
+}
+
+/* ─────────── scrollToSection helper ────────────── */
+function scrollToSection(id: string) {
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: "smooth" });
 }
 
 /* ───────────────────────── HERO ───────────────────────── */
 function Hero() {
   return (
-    <section className="relative min-h-screen bg-[#0a1628] overflow-hidden">
-      {/* Teal-to-navy gradient from bottom-left corner */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_#0c3d3d_0%,_#0a1628_50%,_#0f2847_100%)]" />
+    <section className="relative min-h-[75vh] overflow-hidden" style={{ background: "linear-gradient(58deg, rgb(57,75,96) -10%, rgb(15,18,23) 53%)" }}>
+      {/* Bottom fade to main bg */}
+      <div className="absolute bottom-0 left-0 right-0 h-[88px] pointer-events-none" style={{ background: "linear-gradient(to bottom, transparent, #0E1116)" }} />
       {/* Top banner pill */}
       <div className="flex justify-center pt-6 relative z-10">
         <div className="inline-flex items-center gap-2 border border-red-500/50 rounded-full px-5 py-2 text-sm font-inter">
           <span className="w-2.5 h-2.5 rounded-full bg-green-400 shadow-[0_0_8px_rgba(74,222,128,0.6)]" />
-          <span className="text-white/90 tracking-wide text-xs sm:text-sm">
+          <span className="text-[#f3eccb]/90 tracking-wide text-xs sm:text-sm">
             2-WEEK BOOTCAMP KICKS OFF MONDAY, APRIL 6
           </span>
         </div>
       </div>
 
-      {/* Instructor photo — spans full right side top to bottom */}
-      <div className="hidden lg:block absolute right-0 top-0 h-full w-[55%]">
-        {/* Teal glow behind photo */}
+      {/* Instructor photo — right side, vertically centered */}
+      <div className="hidden lg:flex absolute right-0 top-0 h-full w-[55%] items-center justify-center">
+        {/* Glow behind photo */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div className="w-[600px] h-[600px] rounded-full bg-[#D4714E]/10 blur-3xl" />
+          <div className="w-[500px] h-[500px] rounded-full bg-[#DC2625]/10 blur-3xl" />
         </div>
         <Image
           src="/images/img-01.png"
           alt="Bootcamp instructors"
-          width={720}
-          height={908}
-          className="absolute right-0 top-0 h-full w-full object-cover object-top"
+          width={1797}
+          height={1091}
+          className="relative w-full max-w-[650px] h-auto object-contain"
           priority
         />
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 pt-24 pb-32 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 pt-20 pb-16 relative z-10">
         {/* Left column */}
         <div className="max-w-[540px] space-y-7">
           <Image
@@ -100,26 +108,28 @@ function Hero() {
             className="w-full max-w-[600px]"
             priority
           />
-          <h2 className="text-[#f3eccb] font-manrope font-bold text-2xl sm:text-3xl leading-snug">
+          <h2 className="text-[#F3ECCB] font-manrope font-bold text-2xl sm:text-3xl leading-snug">
             Turn Claude Into Your Highest Performing Employee By Building .skills
           </h2>
-          <p className="text-[#f3eccb]/60 text-lg leading-relaxed max-w-lg">
+          <p className="text-[#F3ECCB]/50 text-lg leading-relaxed max-w-lg">
             Any task you do more than once should be saved as a .skill.{" "}
-            <em className="text-[#f3eccb] font-semibold">
+            <em className="text-[#F3ECCB] font-semibold">
               This is how you build leverage forever.
             </em>
           </p>
-          <p className="text-[#f3eccb]/60 text-lg leading-relaxed max-w-lg">
+          <p className="text-[#F3ECCB]/50 text-lg leading-relaxed max-w-lg">
             Join us live for beginner-friendly training on{" "}
-            <strong className="text-[#f3eccb]">No-Code AI</strong> and the future of
+            <strong className="text-[#F3ECCB]">No-Code AI</strong> and the future of
             work.
           </p>
-          <a
-            href="#how-it-works"
-            className="inline-block bg-yellow-cta text-[#0a1628] font-bold font-inter text-sm tracking-[0.2em] px-8 py-4 rounded-sm hover:bg-[#fc6714] transition-colors"
-          >
-            HOW IT WORKS
-          </a>
+          <ScaleOnHover className="inline-block">
+            <button
+              onClick={() => scrollToSection("how-it-works")}
+              className="inline-block bg-[#FACC15] text-[#0D1116] font-bold font-inter text-sm tracking-[0.2em] px-8 py-4 rounded-sm hover:bg-[#DC2625] hover:text-[#f3eccb]transition-colors"
+            >
+              HOW IT WORKS
+            </button>
+          </ScaleOnHover>
         </div>
 
         {/* Mobile-only instructor photo */}
@@ -127,12 +137,17 @@ function Hero() {
           <Image
             src="/images/img-01.png"
             alt="Bootcamp instructors"
-            width={720}
-            height={908}
-            className="w-full max-w-[500px] h-auto"
+            width={1797}
+            height={1091}
+            className="w-full max-w-[480px] h-auto"
             priority
           />
         </div>
+
+        {/* Countdown timer */}
+        <FadeUp delay={0.3} className="mt-8 flex justify-center lg:justify-start">
+          <CountdownTimer size="xl" />
+        </FadeUp>
       </div>
     </section>
   );
@@ -141,62 +156,62 @@ function Hero() {
 /* ───────────────────── WHAT IS COWORK ─────────────────── */
 function WhatIsCowork() {
   return (
-    <section id="how-it-works" className="bg-[#0f2847] py-24 sm:py-32 px-6">
+    <section className="bg-[#0D1116] py-20 sm:py-24 px-6">
       <div className="max-w-7xl mx-auto">
         {/* Section heading */}
-        <div className="text-center mb-16 space-y-2">
-          <h2 className="font-manrope font-bold text-3xl sm:text-5xl text-white leading-tight">
+        <FadeUp className="text-center mb-16 space-y-2">
+          <h2 className="font-manrope font-bold text-3xl sm:text-5xl text-[#f3eccb]leading-tight">
             What is Claude Cowork?
           </h2>
-          <h2 className="font-manrope font-bold text-3xl sm:text-5xl text-white leading-tight">
+          <h2 className="font-manrope font-bold text-3xl sm:text-5xl text-[#f3eccb]leading-tight">
             What are .skills?
           </h2>
-          <p className="text-white/70 text-lg font-manrope">
+          <p className="text-[#f3eccb]/70 text-lg font-manrope">
             (and why should you care?)
           </p>
-        </div>
+        </FadeUp>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* Left text */}
-          <div className="space-y-5">
-            <span className="text-xs tracking-[0.2em] text-[#D4714E]/80 font-inter uppercase">
+          <FadeUp className="space-y-5">
+            <span className="text-xs tracking-[0.2em] text-[#DC2625]/80 font-inter uppercase">
               Beyond the Chat
             </span>
-            <h3 className="font-anton text-4xl sm:text-5xl lg:text-6xl text-white leading-[1.1]">
+            <h3 className="font-anton text-4xl sm:text-5xl lg:text-6xl text-[#f3eccb]leading-[1.1]">
               What if
               <br />
               AI could do
               <br />
               your job
               <br />
-              <em className="not-italic text-[#D4714E]">with</em> you?
+              <em className="not-italic text-[#DC2625]">with</em> you?
             </h3>
-            <p className="text-white/80 text-base leading-relaxed">
+            <p className="text-[#f3eccb]/80 text-base leading-relaxed">
               Claude Cowork takes AI beyond the chat window. It&rsquo;s a
               no-code AI agent that executes real work. Watch it build a plan,
               run your day-to-day workflows (in your style), and deliver finished
               output—only after you approve it.
             </p>
-            <p className="text-white/80 text-base leading-relaxed">
+            <p className="text-[#f3eccb]/80 text-base leading-relaxed">
               This is the future of knowledge work. And it&rsquo;s available
               right now.
             </p>
-          </div>
+          </FadeUp>
 
           {/* Right — Mock Cowork UI in laptop frame */}
-          <div className="animate-on-scroll rounded-2xl border-[3px] border-white/20 overflow-hidden shadow-2xl shadow-black/60 bg-[#132640]">
+          <FadeUp className="rounded-2xl border-[3px] border-white/[0.08] overflow-hidden shadow-2xl shadow-black/60 bg-[#0F151C]">
             {/* Top bar — Connected apps */}
             <div className="px-5 pt-5 pb-3">
               <div className="flex items-center gap-2 mb-3">
-                <span className="text-[10px] text-white/45 tracking-widest uppercase font-inter">
+                <span className="text-[10px] text-[#f3eccb]/45 tracking-widest uppercase font-inter">
                   Connected
                 </span>
               </div>
               <div className="flex gap-3">
                 {[
-                  { app: "Gmail", letter: "M", bg: "bg-red-500", text: "text-white" },
-                  { app: "Drive", letter: "▲", bg: "bg-gradient-to-br from-green-500 via-yellow-400 to-blue-500", text: "text-white" },
-                  { app: "Calendar", letter: "C", bg: "bg-blue-500", text: "text-white" },
+                  { app: "Gmail", letter: "M", bg: "bg-red-500", text: "text-[#f3eccb]" },
+                  { app: "Drive", letter: "▲", bg: "bg-gradient-to-br from-green-500 via-yellow-400 to-blue-500", text: "text-[#f3eccb]" },
+                  { app: "Calendar", letter: "C", bg: "bg-blue-500", text: "text-[#f3eccb]" },
                   { app: "Notion", letter: "N", bg: "bg-white", text: "text-black" },
                 ].map(({ app, letter, bg, text }) => (
                   <div
@@ -212,14 +227,14 @@ function WhatIsCowork() {
             </div>
 
             {/* Tabs */}
-            <div className="flex border-b border-white/15">
+            <div className="flex border-b border-white/[0.08]">
               {["Chat", "Cowork", "Code"].map((tab) => (
                 <button
                   key={tab}
                   className={`px-5 py-2.5 text-sm font-inter transition-colors ${
                     tab === "Cowork"
-                      ? "text-white border-b-2 border-[#D4714E]"
-                      : "text-white/55"
+                      ? "text-[#f3eccb]border-b-2 border-[#DC2625]"
+                      : "text-[#f3eccb]/55"
                   }`}
                 >
                   {tab}
@@ -230,18 +245,18 @@ function WhatIsCowork() {
             {/* Chat area */}
             <div className="p-5 space-y-4 relative">
               {/* Opus badge */}
-              <div className="absolute top-3 right-5 bg-[#D4714E]/10 border border-[#D4714E]/30 rounded-full px-3 py-1">
-                <span className="text-[10px] text-[#D4714E] font-inter font-medium">Opus 4.6</span>
+              <div className="absolute top-3 right-5 bg-[#DC2625]/10 border border-[#DC2625]/30 rounded-full px-3 py-1">
+                <span className="text-[10px] text-[#DC2625] font-inter font-medium">Opus 4.6</span>
               </div>
-              <div className="bg-[#1e2636] rounded-xl px-4 py-3">
-                <p className="text-white/90 text-sm">
+              <div className="bg-[#1a2030] rounded-xl px-4 py-3">
+                <p className="text-[#f3eccb]/90 text-sm">
                   Summarize weekly meetings
                 </p>
               </div>
 
               {/* Progress steps */}
               <div className="space-y-1">
-                <p className="text-white/55 text-xs font-inter tracking-wider uppercase mb-2">
+                <p className="text-[#f3eccb]/55 text-xs font-inter tracking-wider uppercase mb-2">
                   Progress
                 </p>
                 {[
@@ -253,48 +268,48 @@ function WhatIsCowork() {
                   "Update CRM with tasks",
                 ].map((step, i) => (
                   <div key={i} className="flex items-center gap-3 py-1">
-                    <span className="w-5 h-5 rounded-full bg-[#D4714E]/20 text-[#D4714E] text-xs flex items-center justify-center font-inter">
+                    <span className="w-5 h-5 rounded-full bg-[#DC2625]/20 text-[#DC2625] text-xs flex items-center justify-center font-inter">
                       {i + 1}
                     </span>
-                    <span className="text-white/80 text-sm">{step}</span>
+                    <span className="text-[#f3eccb]/80 text-sm">{step}</span>
                   </div>
                 ))}
               </div>
 
               {/* Working folder */}
-              <div className="border-t border-white/15 pt-4 mt-4">
-                <p className="text-white/55 text-xs font-inter tracking-wider uppercase mb-2">
+              <div className="border-t border-white/[0.08] pt-4 mt-4">
+                <p className="text-[#f3eccb]/55 text-xs font-inter tracking-wider uppercase mb-2">
                   Working folder
                 </p>
                 <div className="flex items-center gap-2">
                   <div className="w-5 h-5 rounded bg-blue-500/20 flex items-center justify-center">
                     <span className="text-blue-400 text-xs font-bold">G</span>
                   </div>
-                  <span className="text-white/80 text-sm">Google Drive</span>
+                  <span className="text-[#f3eccb]/80 text-sm">Google Drive</span>
                 </div>
               </div>
             </div>
 
             {/* Connectors */}
             <div className="px-5 pb-3">
-              <div className="border-t border-white/15 pt-3">
-                <p className="text-white/45 text-[10px] tracking-widest uppercase font-inter mb-2">Connectors</p>
+              <div className="border-t border-white/[0.08] pt-3">
+                <p className="text-[#f3eccb]/45 text-[10px] tracking-widest uppercase font-inter mb-2">Connectors</p>
                 <div className="flex items-center gap-2">
-                  <div className="w-6 h-6 rounded bg-[#D4714E]/20 flex items-center justify-center">
-                    <span className="text-[#D4714E] text-[9px] font-bold">D</span>
+                  <div className="w-6 h-6 rounded bg-[#DC2625]/20 flex items-center justify-center">
+                    <span className="text-[#DC2625] text-[9px] font-bold">D</span>
                   </div>
-                  <span className="text-white/70 text-xs">Google Drive</span>
+                  <span className="text-[#f3eccb]/70 text-xs">Google Drive</span>
                 </div>
               </div>
             </div>
 
             {/* Input bar */}
             <div className="px-5 pb-5">
-              <div className="flex items-center gap-2 bg-[#1e2636] rounded-xl px-4 py-3">
-                <span className="text-white/45 text-sm flex-1">Reply...</span>
+              <div className="flex items-center gap-2 bg-[#1a2030] rounded-xl px-4 py-3">
+                <span className="text-[#f3eccb]/45 text-sm flex-1">Reply...</span>
               </div>
             </div>
-          </div>
+          </FadeUp>
         </div>
       </div>
     </section>
@@ -339,20 +354,20 @@ const SKILL_CATEGORIES = [
 
 function SkillsTicker() {
   return (
-    <section className="bg-[#0f2847] py-24 sm:py-32 px-6">
-      <div className="max-w-7xl mx-auto text-center mb-14">
-        <span className="text-xs tracking-[0.2em] text-[#D4714E]/80 font-inter uppercase">
+    <section className="bg-[#0D1116] py-20 sm:py-24 px-6">
+      <FadeUp className="max-w-7xl mx-auto text-center mb-14">
+        <span className="text-xs tracking-[0.2em] text-[#DC2625]/80 font-inter uppercase">
           The Unlock
         </span>
-        <h2 className="font-manrope font-bold text-3xl sm:text-5xl text-white mt-3">
+        <h2 className="font-manrope font-bold text-3xl sm:text-5xl text-[#f3eccb]mt-3">
           .skills take AI to the{" "}
-          <span className="text-[#D4714E]">next level</span>
+          <span className="text-[#DC2625]">next level</span>
         </h2>
-        <p className="text-white/70 text-lg mt-4 max-w-2xl mx-auto">
+        <p className="text-[#f3eccb]/70 text-lg mt-4 max-w-2xl mx-auto">
           Think of .skills like hiring an expert at any task...instantly. They
           connect to the tools you already use and get stuff done.
         </p>
-      </div>
+      </FadeUp>
 
       {/* Ticker row */}
       <div className="overflow-hidden relative">
@@ -360,12 +375,12 @@ function SkillsTicker() {
           {[...SKILL_CATEGORIES, ...SKILL_CATEGORIES].map((cat, i) => (
             <div
               key={i}
-              className="flex-shrink-0 w-72 mx-3 bg-[#132640] border border-white/15 rounded-xl p-7 hover:border-[#D4714E]/40 hover:shadow-[0_0_20px_rgba(212,113,78,0.1)] transition-all"
+              className="flex-shrink-0 w-72 mx-3 bg-[#0F151C] border border-white/[0.08] rounded-xl p-7 hover:border-white/[0.15] hover:shadow-[0_0_20px_rgba(220,38,37,0.08)] transition-all"
             >
-              <h4 className="text-white font-manrope font-semibold text-base mb-1.5">
+              <h4 className="text-[#f3eccb]font-manrope font-semibold text-base mb-1.5">
                 {cat.name}
               </h4>
-              <p className="text-white/55 text-sm leading-relaxed">
+              <p className="text-[#f3eccb]/55 text-sm leading-relaxed">
                 {cat.desc}
               </p>
             </div>
@@ -379,27 +394,29 @@ function SkillsTicker() {
 /* ──────────────────── INSTALL SKILLS ──────────────────── */
 function InstallSkills() {
   return (
-    <section className="bg-[#0f2847] py-24 sm:py-32 px-6">
+    <section className="bg-[#0D1116] py-20 sm:py-24 px-6">
       <div className="max-w-7xl mx-auto text-center">
-        <span className="text-xs tracking-[0.2em] text-[#D4714E]/80 font-inter uppercase">
-          Get Started
-        </span>
-        <h2 className="font-manrope font-bold text-3xl sm:text-5xl text-white mt-3">
-          .skills let you install expertise in{" "}
-          <span className="text-[#D4714E]">two clicks</span>
-        </h2>
-        <p className="text-white/70 text-lg mt-4 max-w-2xl mx-auto">
-          Best practices, proven processes, and smart decision-making, all
-          packaged into .skills you install once and use forever (even as your
-          business evolves)
-        </p>
-        <p className="text-white/70 text-lg mt-3 max-w-2xl mx-auto">
-          Or build your own based on your expertise so the AI writes like you,
-          acts like you, and thinks like you.
-        </p>
+        <FadeUp>
+          <span className="text-xs tracking-[0.2em] text-[#DC2625]/80 font-inter uppercase">
+            Get Started
+          </span>
+          <h2 className="font-manrope font-bold text-3xl sm:text-5xl text-[#f3eccb]mt-3">
+            .skills let you install expertise in{" "}
+            <span className="text-[#DC2625]">two clicks</span>
+          </h2>
+          <p className="text-[#f3eccb]/70 text-lg mt-4 max-w-2xl mx-auto">
+            Best practices, proven processes, and smart decision-making, all
+            packaged into .skills you install once and use forever (even as your
+            business evolves)
+          </p>
+          <p className="text-[#f3eccb]/70 text-lg mt-3 max-w-2xl mx-auto">
+            Or build your own based on your expertise so the AI writes like you,
+            acts like you, and thinks like you.
+          </p>
+        </FadeUp>
 
         {/* Floppy disks — diamond/staggered arrangement */}
-        <div className="relative my-20 stagger-children max-w-3xl mx-auto">
+        <div className="relative my-20 max-w-3xl mx-auto">
           {/* Warm glow behind — larger and warmer */}
           <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
             <Image
@@ -410,8 +427,8 @@ function InstallSkills() {
               className="opacity-60 scale-125"
             />
           </div>
-          <div className="flex justify-center items-end gap-6 sm:gap-10">
-            <div className="animate-on-scroll relative z-10 translate-y-6">
+          <StaggerContainer className="flex justify-center items-end gap-6 sm:gap-10">
+            <StaggerItem className="relative z-10 translate-y-6">
               <Image
                 src="/images/img-06.png"
                 alt="Skill floppy disk"
@@ -419,8 +436,8 @@ function InstallSkills() {
                 height={291}
                 className="w-56 sm:w-[270px] h-auto"
               />
-            </div>
-            <div className="animate-on-scroll relative z-10 -translate-y-6">
+            </StaggerItem>
+            <StaggerItem className="relative z-10 -translate-y-6">
               <Image
                 src="/images/img-08.png"
                 alt="Skill floppy disk"
@@ -428,8 +445,8 @@ function InstallSkills() {
                 height={291}
                 className="w-56 sm:w-[270px] h-auto"
               />
-            </div>
-            <div className="animate-on-scroll relative z-10 translate-y-6">
+            </StaggerItem>
+            <StaggerItem className="relative z-10 translate-y-6">
               <Image
                 src="/images/img-10.png"
                 alt="Skill floppy disk"
@@ -437,19 +454,24 @@ function InstallSkills() {
                 height={291}
                 className="w-56 sm:w-[270px] h-auto"
               />
-            </div>
-          </div>
+            </StaggerItem>
+          </StaggerContainer>
         </div>
 
-        <a
-          href="#pricing"
-          className="inline-block bg-yellow-cta text-[#0a1628] font-bold font-inter text-sm tracking-wider px-8 py-4 hover:bg-[#fc6714] transition-colors"
-        >
-          JOIN THE BOOTCAMP
-        </a>
-        <p className="text-white/45 text-sm mt-4 font-inter">
+        <ScaleOnHover className="inline-block">
+          <a
+            href="#pricing"
+            className="inline-block bg-[#FACC15] text-[#0D1116] font-bold font-inter text-sm tracking-wider px-8 py-4 hover:bg-[#DC2625] hover:text-[#f3eccb]transition-colors"
+          >
+            JOIN THE BOOTCAMP
+          </a>
+        </ScaleOnHover>
+        <p className="text-[#f3eccb]/45 text-sm mt-4 font-inter">
           No code. No terminal. Just results.
         </p>
+        <div className="mt-4 flex justify-center">
+          <CountdownTimer size="large" />
+        </div>
       </div>
     </section>
   );
@@ -458,17 +480,17 @@ function InstallSkills() {
 /* ──────────────────── ARE SKILLS RIGHT ─────────────────── */
 function AreSkillsRight() {
   return (
-    <section className="relative py-28 sm:py-36 px-6 bg-gradient-to-b from-[#0f2847] via-[#3a0a0a] to-[#BD3131]">
-      <div className="max-w-7xl mx-auto text-center mb-16">
-        <h2 className="animate-on-scroll font-manrope font-bold text-4xl sm:text-5xl text-white">
+    <section className="relative py-20 sm:py-24 px-6" style={{ background: "linear-gradient(0deg, #DC2625 22%, #0D1116 100%)" }}>
+      <FadeUp className="max-w-7xl mx-auto text-center mb-16">
+        <h2 className="font-manrope font-bold text-4xl sm:text-5xl text-[#f3eccb]">
           Are <span className="font-bold">.skills</span> Right For You?
         </h2>
-        <p className="text-white/70 text-lg mt-3 italic">
+        <p className="text-[#f3eccb]/70 text-lg mt-3 italic">
           Hmmm... let&rsquo;s see...
         </p>
-      </div>
+      </FadeUp>
 
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-7 stagger-children">
+      <StaggerContainer className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-7">
         {[
           {
             q: "Do you have a job?",
@@ -483,19 +505,18 @@ function AreSkillsRight() {
             a: "If so, think of Claude .Skills as your first no-code employee. No more prompting & chatting. Just show Claude something you want help with, save the conversation as a .Skill, re-claim hours of your life, and move on to the next task. This is the future of running a highly profitable business.",
           },
         ].map((card, i) => (
-          <div
-            key={i}
-            className="animate-on-scroll bg-cream rounded-2xl p-10 text-left"
-          >
-            <h3 className="font-manrope font-bold text-xl text-[#1a1a1a] mb-5">
-              {card.q}
-            </h3>
-            <p className="text-[#3a3a3a] text-base leading-relaxed">
-              {card.a}
-            </p>
-          </div>
+          <StaggerItem key={i}>
+            <div className="bg-cream rounded-2xl p-8 text-left">
+              <h3 className="font-manrope font-bold text-xl text-[#1a1a1a] mb-5">
+                {card.q}
+              </h3>
+              <p className="text-[#3a3a3a] text-base leading-relaxed">
+                {card.a}
+              </p>
+            </div>
+          </StaggerItem>
         ))}
-      </div>
+      </StaggerContainer>
     </section>
   );
 }
@@ -503,27 +524,31 @@ function AreSkillsRight() {
 /* ──────────────────── BIG TYPE STATEMENT ───────────────── */
 function BigTypeStatement() {
   return (
-    <section className="bg-[#BD3131] py-24 sm:py-36 px-8 sm:px-16 lg:px-24">
+    <section className="bg-[#DC2625] py-24 sm:py-36 px-8 sm:px-16 lg:px-24">
       <div className="max-w-7xl mx-auto">
         {/* Block 1 — slides in from left */}
-        <p className="slide-from-left font-anton text-5xl sm:text-7xl lg:text-[90px] xl:text-[100px] uppercase leading-[0.9] tracking-tight text-left">
-          <span className="text-white">Learning How To Use &</span>
-          <br />
-          <span className="text-cream">Create .skills Is The Future</span>
-          <br />
-          <span className="text-white/90">Of No-Code Work.</span>
-        </p>
+        <SlideInLeft>
+          <p className="font-anton text-5xl sm:text-7xl lg:text-[90px] xl:text-[100px] uppercase leading-[0.9] tracking-tight text-left">
+            <span className="text-[#f3eccb]">Learning How To Use &</span>
+            <br />
+            <span className="text-cream">Create .skills Is The Future</span>
+            <br />
+            <span className="text-[#f3eccb]/90">Of No-Code Work.</span>
+          </p>
+        </SlideInLeft>
 
         <div className="pt-12 sm:pt-16" />
 
         {/* Block 2 — slides in from right */}
-        <p className="slide-from-right font-anton text-5xl sm:text-7xl lg:text-[90px] xl:text-[100px] uppercase leading-[0.9] tracking-tight text-left">
-          <span className="text-white">If Staying Relevant In Your</span>
-          <br />
-          <span className="text-cream">Industry Is A Priority,</span>
-          <br />
-          <span className="text-white">Then .skills Are Right For You.</span>
-        </p>
+        <SlideInRight>
+          <p className="font-anton text-5xl sm:text-7xl lg:text-[90px] xl:text-[100px] uppercase leading-[0.9] tracking-tight text-left">
+            <span className="text-[#f3eccb]">If Staying Relevant In Your</span>
+            <br />
+            <span className="text-cream">Industry Is A Priority,</span>
+            <br />
+            <span className="text-[#f3eccb]">Then .skills Are Right For You.</span>
+          </p>
+        </SlideInRight>
       </div>
     </section>
   );
@@ -577,62 +602,63 @@ const SESSIONS = [
 
 function SessionOutline() {
   return (
-    <section className="bg-gradient-to-b from-[#BD3131] via-[#1a2847] to-[#0d2847] py-24 sm:py-32 px-6">
+    <section className="py-20 sm:py-24 px-6" style={{ background: "linear-gradient(to bottom, #DC2625, #1a1a1a 30%, #0D1116 60%)" }}>
       <div className="max-w-4xl mx-auto">
-        <span className="block text-xs font-bold text-[#D4714E] uppercase tracking-[0.15em] mb-3 font-inter">
-          The 6 Sessions
-        </span>
-        <h2 className="font-manrope font-bold text-3xl sm:text-5xl text-white mb-3">
-          Here&rsquo;s what you&rsquo;ll build.
-        </h2>
-        <p className="text-white/60 text-sm font-inter mb-10">
-          All sessions are 60 minutes &middot; Kickoff: Monday, April 6 &middot; 3:00 PM ET
-        </p>
+        <FadeUp>
+          <span className="block text-xs font-bold text-[#DC2625] uppercase tracking-[0.15em] mb-3 font-inter">
+            The 6 Sessions
+          </span>
+          <h2 className="font-manrope font-bold text-3xl sm:text-5xl text-[#f3eccb]mb-3">
+            Here&rsquo;s what you&rsquo;ll build.
+          </h2>
+          <p className="text-[#f3eccb]/60 text-sm font-inter mb-10">
+            All sessions are 60 minutes &middot; Kickoff: Monday, April 6 &middot; 3:00 PM ET
+          </p>
+        </FadeUp>
 
-        <div className="space-y-6">
+        <StaggerContainer className="space-y-6" staggerDelay={0.12}>
           {SESSIONS.map((s) => (
-            <div
-              key={s.num}
-              className="animate-on-scroll py-8 px-6 sm:px-8 flex flex-col md:flex-row gap-6 md:gap-10 rounded-2xl border border-[#D4714E]/20 bg-white/5 backdrop-blur-sm shadow-[0_0_30px_rgba(212,113,78,0.06)]"
-            >
-              <div className="md:w-[180px] flex-shrink-0">
-                <Image
-                  src={s.img}
-                  alt={`Session ${s.num}: ${s.name}`}
-                  width={180}
-                  height={180}
-                  className="w-36 h-36 md:w-44 md:h-44 rounded-lg object-cover shadow-xl shadow-black/20 hover:scale-105 hover:-rotate-2 transition-transform duration-300"
-                />
+            <StaggerItem key={s.num}>
+              <div className="py-8 px-6 sm:px-8 flex flex-col md:flex-row gap-6 md:gap-10 rounded-2xl border border-[#DC2625]/20 bg-white/5 backdrop-blur-sm shadow-[0_0_30px_rgba(220,38,37,0.06)]">
+                <div className="md:w-[180px] flex-shrink-0">
+                  <Image
+                    src={s.img}
+                    alt={`Session ${s.num}: ${s.name}`}
+                    width={180}
+                    height={180}
+                    className="w-36 h-36 md:w-44 md:h-44 rounded-lg object-cover shadow-xl shadow-black/20 hover:scale-105 hover:-rotate-2 transition-transform duration-300"
+                  />
+                </div>
+                <div className="flex-1">
+                  <span className="text-xs font-bold text-[#DC2625] uppercase tracking-wider font-inter">
+                    Session {s.num}
+                  </span>
+                  <h3 className="font-manrope font-bold text-[#f3eccb]text-xl sm:text-2xl leading-tight mb-2">
+                    {s.name}
+                  </h3>
+                  <p className="text-[#f3eccb]/80 text-base leading-relaxed mb-3">
+                    {s.desc}
+                  </p>
+                  <p className="text-[#f3eccb]/60 text-sm">
+                    <span className="text-[#DC2625] font-semibold">&rarr; You leave with:</span>{" "}
+                    {s.skill}
+                  </p>
+                </div>
               </div>
-              <div className="flex-1">
-                <span className="text-xs font-bold text-[#D4714E] uppercase tracking-wider font-inter">
-                  Session {s.num}
-                </span>
-                <h3 className="font-manrope font-bold text-white text-xl sm:text-2xl leading-tight mb-2">
-                  {s.name}
-                </h3>
-                <p className="text-white/80 text-base leading-relaxed mb-3">
-                  {s.desc}
-                </p>
-                <p className="text-white/60 text-sm">
-                  <span className="text-[#D4714E] font-semibold">&rarr; You leave with:</span>{" "}
-                  {s.skill}
-                </p>
-              </div>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
 
-        <div className="mt-16 text-center">
-          <h2 className="font-manrope font-bold text-2xl sm:text-4xl text-white mb-6">
+        <FadeUp className="mt-16 text-center">
+          <h2 className="font-manrope font-bold text-2xl sm:text-4xl text-[#f3eccb]mb-6">
             This isn&rsquo;t self-paced content<br />you buy and forget.
           </h2>
           <div className="w-40 h-px bg-white/20 mx-auto mb-6" />
-          <p className="text-white/90 text-lg font-bold font-manrope">
-            We build <span className="text-[#D4714E]">together</span>. You show up.
-            <br />You leave with <span className="text-[#D4714E]">a system</span>.
+          <p className="text-[#f3eccb]/90 text-lg font-bold font-manrope">
+            We build <span className="text-[#DC2625]">together</span>. You show up.
+            <br />You leave with <span className="text-[#DC2625]">a system</span>.
           </p>
-        </div>
+        </FadeUp>
       </div>
     </section>
   );
@@ -659,7 +685,7 @@ const BONUSES = [
     name: "Skill Library Starter Pack",
     desc: "Pre-built skills, ready to install. Workflows for content, operations, research, and communication. Drop them in Cowork and they run immediately. The shortcut to a full skill library without building every one from scratch.",
     value: "$197",
-    img: null,
+    img: "/images/bonus-skill-library.png",
   },
   {
     num: 4,
@@ -698,31 +724,30 @@ const BONUSES = [
   },
   {
     num: 9,
-    name: "Free Trial to AI Writing (Skool Community)",
+    name: "Free Trial to AI Writing Skool",
     desc: "Get access to the AI Writing community where thousands of writers share prompts, skills, and strategies for writing with AI. Connect with other bootcamp alumni and keep leveling up after the cohort ends.",
     value: "$10,000",
-    img: null,
+    img: "/images/bonus-aiws.png",
   },
 ];
 
 function FreeBonuses() {
   return (
-    <section className="bg-gradient-to-b from-[#BD3131] via-[#2a0a0a] to-[#0f2847] py-24 sm:py-32 px-6">
+    <section className="py-20 sm:py-24 px-6" style={{ background: "linear-gradient(to bottom, #DC2625, #2a0a0a 40%, #0D1116)" }}>
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-center font-manrope font-bold text-3xl sm:text-5xl text-white mb-4">
-          Free Bonuses Included
-        </h2>
+        <FadeUp className="text-center mb-4">
+          <h2 className="font-manrope font-bold text-3xl sm:text-5xl text-[#f3eccb]">
+            Free Bonuses Included
+          </h2>
+        </FadeUp>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 divide-x divide-white/10 mt-16 stagger-children">
+        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 divide-x divide-white/10 mt-16">
           {BONUSES.map((bonus) => (
-            <div
-              key={bonus.num}
-              className="animate-on-scroll px-8 py-8 flex flex-col"
-            >
-              <span className="text-sm text-[#D4714E] tracking-widest uppercase font-inter font-bold mb-4">
+            <StaggerItem key={bonus.num} className="px-8 py-10 flex flex-col">
+              <span className="text-sm text-[#DC2625] tracking-widest uppercase font-inter font-bold mb-4">
                 Bonus #{bonus.num}
               </span>
-              <h3 className="font-manrope font-bold text-white text-xl sm:text-2xl mb-6 leading-tight">
+              <h3 className="font-manrope font-bold text-[#f3eccb]text-xl sm:text-2xl mb-6 leading-tight">
                 {bonus.name}
               </h3>
               {bonus.img ? (
@@ -738,20 +763,20 @@ function FreeBonuses() {
               ) : (
                 <div className="mb-6">
                   <div className="w-full max-w-[320px] h-48 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center">
-                    <span className="text-white/20 text-xs font-inter uppercase tracking-wider">Coming Soon</span>
+                    <span className="text-[#f3eccb]/20 text-xs font-inter uppercase tracking-wider">Coming Soon</span>
                   </div>
                 </div>
               )}
-              <p className="text-white/60 text-base leading-relaxed flex-1">
+              <p className="text-[#f3eccb]/60 text-base leading-relaxed flex-1">
                 {bonus.desc}
               </p>
               <p className="mt-6 font-inter font-bold text-lg">
-                <span className="text-[#D4714E]">{bonus.value}</span>{" "}
-                <span className="text-white/55">value</span>
+                <span className="text-[#DC2625]">{bonus.value}</span>{" "}
+                <span className="text-[#f3eccb]/55">value</span>
               </p>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
     </section>
   );
@@ -791,50 +816,57 @@ const INSTRUCTORS = [
 
 function Instructors() {
   return (
-    <section className="bg-[#0f2847] py-24 sm:py-32 px-6">
+    <section className="bg-[#0D1116] py-20 sm:py-24 px-6">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-center font-manrope font-bold text-3xl sm:text-5xl text-white mb-3">
-          Meet Your Instructors
-        </h2>
-        <p className="text-center text-white/70 text-lg mb-18">
-          Built by people who actually use this stuff every day
-        </p>
+        <FadeUp className="text-center mb-16">
+          <h2 className="font-manrope font-bold text-3xl sm:text-5xl text-[#f3eccb]mb-3">
+            Meet Your Instructors
+          </h2>
+          <p className="text-[#f3eccb]/70 text-lg">
+            Built by people who actually use this stuff every day
+          </p>
+        </FadeUp>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 stagger-children mt-16">
-          {INSTRUCTORS.map((inst) => (
-            <div key={inst.name} className="animate-on-scroll text-center">
-              <Image
-                src={inst.img}
-                alt={inst.name}
-                width={360}
-                height={360}
-                className="w-40 h-40 sm:w-48 sm:h-48 rounded-full mx-auto mb-6 object-cover"
-              />
-              <h3 className="font-manrope font-bold text-white text-2xl mb-5">
-                {inst.name}
-              </h3>
-              <div className="space-y-4 text-left">
-                {inst.bio.map((p, i) => (
-                  <p key={i} className="text-white/70 text-base leading-relaxed">
-                    {p}
-                  </p>
-                ))}
-              </div>
-              {inst.quote && (
-                <blockquote className="mt-6 text-left border-l-2 border-[#D4714E] pl-4">
-                  <p className="text-white/70 text-base italic leading-relaxed">
-                    {inst.quote}
-                  </p>
-                </blockquote>
-              )}
-            </div>
-          ))}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mt-16">
+          {INSTRUCTORS.map((inst, idx) => {
+            const Wrapper = idx === 0 ? SlideInLeft : idx === 2 ? SlideInRight : FadeUp;
+            return (
+              <Wrapper key={inst.name} className="text-center">
+                <Image
+                  src={inst.img}
+                  alt={inst.name}
+                  width={360}
+                  height={360}
+                  className="w-40 h-40 sm:w-48 sm:h-48 rounded-full mx-auto mb-6 object-cover"
+                />
+                <h3 className="font-manrope font-bold text-[#f3eccb]text-2xl mb-5">
+                  {inst.name}
+                </h3>
+                <div className="space-y-4 text-left">
+                  {inst.bio.map((p, i) => (
+                    <p key={i} className="text-[#f3eccb]/70 text-base leading-relaxed">
+                      {p}
+                    </p>
+                  ))}
+                </div>
+                {inst.quote && (
+                  <blockquote className="mt-6 text-left border-l-2 border-[#DC2625] pl-4">
+                    <p className="text-[#f3eccb]/70 text-base italic leading-relaxed">
+                      {inst.quote}
+                    </p>
+                  </blockquote>
+                )}
+              </Wrapper>
+            );
+          })}
         </div>
 
-        <p className="animate-on-scroll text-center text-white/80 text-xl sm:text-2xl mt-16 font-manrope max-w-3xl mx-auto leading-relaxed">
-          <strong className="text-white">Everything</strong> we teach, we use ourselves to run our{" "}
-          <strong className="text-white">$8,000,000/yr business.</strong>
-        </p>
+        <FadeUp className="text-center mt-16">
+          <p className="text-[#f3eccb]/80 text-xl sm:text-2xl font-manrope max-w-3xl mx-auto leading-relaxed">
+            <strong className="text-[#f3eccb]">Everything</strong> we teach, we use ourselves to run our{" "}
+            <strong className="text-[#f3eccb]">$8,000,000/yr business.</strong>
+          </p>
+        </FadeUp>
       </div>
     </section>
   );
@@ -906,35 +938,36 @@ const TESTIMONIALS = [
 
 function Testimonials() {
   return (
-    <section className="bg-[#0f2847] py-24 sm:py-32 px-6">
+    <section className="bg-[#0D1116] py-20 sm:py-24 px-6">
       <div className="max-w-7xl mx-auto">
-        <h2 className="animate-on-scroll text-center font-manrope font-bold text-3xl sm:text-5xl text-white mb-3">
-          250+ Students Built Skills in Cohort 1
-        </h2>
-        <p className="text-center text-white/70 text-base mb-14 max-w-xl mx-auto">
-          Here&rsquo;s what they had to say.
-        </p>
+        <FadeUp className="text-center mb-14">
+          <h2 className="font-manrope font-bold text-3xl sm:text-5xl text-[#f3eccb]mb-3">
+            250+ Students Built Skills in Cohort 1
+          </h2>
+          <p className="text-[#f3eccb]/70 text-base max-w-xl mx-auto">
+            Here&rsquo;s what they had to say.
+          </p>
+        </FadeUp>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 stagger-children">
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {TESTIMONIALS.map((t, i) => (
-            <div
-              key={i}
-              className="animate-on-scroll bg-[#132640] border border-white/15 rounded-2xl p-8 flex flex-col justify-between"
-            >
-              <p className="text-white/80 text-sm leading-relaxed italic mb-4">
-                &ldquo;{t.quote}&rdquo;
-              </p>
-              <div>
-                <p className="text-white font-semibold text-sm font-manrope">
-                  {t.name}
+            <StaggerItem key={i}>
+              <div className="bg-[#0F151C] border border-white/[0.08] rounded-2xl p-8 flex flex-col justify-between h-full">
+                <p className="text-[#f3eccb]/80 text-sm leading-relaxed italic mb-4">
+                  &ldquo;{t.quote}&rdquo;
                 </p>
-                {t.role && (
-                  <p className="text-white/55 text-xs font-inter">{t.role}</p>
-                )}
+                <div>
+                  <p className="text-[#f3eccb]font-semibold text-sm font-manrope">
+                    {t.name}
+                  </p>
+                  {t.role && (
+                    <p className="text-[#f3eccb]/55 text-xs font-inter">{t.role}</p>
+                  )}
+                </div>
               </div>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
     </section>
   );
@@ -943,21 +976,21 @@ function Testimonials() {
 /* ──────────────────── WHAT'S NEW IN 2.0 ───────────────── */
 function WhatsNew() {
   return (
-    <section className="bg-[#0f2847] py-24 sm:py-32 px-6 border-t border-white/10">
+    <section className="bg-[#0D1116] py-20 sm:py-24 px-6 border-t border-white/10">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-14">
-          <span className="text-xs tracking-[0.2em] text-[#D4714E]/80 font-inter uppercase">
+        <FadeUp className="text-center mb-14">
+          <span className="text-xs tracking-[0.2em] text-[#DC2625]/80 font-inter uppercase">
             Version 2.0
           </span>
-          <h2 className="animate-on-scroll font-manrope font-bold text-3xl sm:text-5xl text-white mt-3">
+          <h2 className="font-manrope font-bold text-3xl sm:text-5xl text-[#f3eccb]mt-3">
             What&rsquo;s New in 2.0?
           </h2>
-          <p className="text-white/70 text-lg mt-4 max-w-2xl mx-auto">
+          <p className="text-[#f3eccb]/70 text-lg mt-4 max-w-2xl mx-auto">
             Everything that made v1 great, plus everything we learned from 250+ students.
           </p>
-        </div>
+        </FadeUp>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children">
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {[
             {
               title: "Updated Skill Structure",
@@ -1015,20 +1048,19 @@ function WhatsNew() {
               ),
             },
           ].map((item, i) => (
-            <div
-              key={i}
-              className="animate-on-scroll bg-[#132640] border border-white/15 rounded-2xl p-8"
-            >
-              <div className="text-[#D4714E] mb-4">{item.icon}</div>
-              <h3 className="font-manrope font-bold text-white text-xl mb-3">
-                {item.title}
-              </h3>
-              <p className="text-white/70 text-base leading-relaxed">
-                {item.desc}
-              </p>
-            </div>
+            <StaggerItem key={i}>
+              <div className="bg-[#0F151C] border border-white/[0.08] rounded-2xl p-8 h-full">
+                <div className="text-[#DC2625] mb-4">{item.icon}</div>
+                <h3 className="font-manrope font-bold text-[#f3eccb]text-xl mb-3">
+                  {item.title}
+                </h3>
+                <p className="text-[#f3eccb]/70 text-base leading-relaxed">
+                  {item.desc}
+                </p>
+              </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
     </section>
   );
@@ -1042,68 +1074,72 @@ function Schedule() {
   const sessionDaysW2 = [13, 15, 17];
 
   return (
-    <section className="bg-gradient-to-b from-[#161616] to-[#1a0a0a] py-24 sm:py-32 px-6">
+    <section className="bg-[#0D1116] py-20 sm:py-24 px-6">
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-center font-manrope font-bold text-3xl sm:text-4xl text-white mb-3">
-          Claude Cowork Bootcamp Kicks Off
-          <br />
-          Monday, April 6th!
-        </h2>
-        <p className="text-center text-white/70 text-base mb-10">
-          Here&rsquo;s the schedule:
-        </p>
-        <p className="text-center text-white/55 text-sm mb-8 font-inter">
-          All sessions held at 3:00 PM Eastern Time
-        </p>
+        <FadeUp className="text-center mb-10">
+          <h2 className="font-manrope font-bold text-3xl sm:text-4xl text-[#f3eccb]mb-3">
+            Claude Cowork Bootcamp Kicks Off
+            <br />
+            Monday, April 6th!
+          </h2>
+          <p className="text-[#f3eccb]/70 text-base mb-3">
+            Here&rsquo;s the schedule:
+          </p>
+          <p className="text-[#f3eccb]/55 text-sm font-inter">
+            All sessions held at 3:00 PM Eastern Time
+          </p>
+        </FadeUp>
 
-        {/* Calendar header */}
-        <div className="grid grid-cols-7 text-center text-xs text-white/45 font-inter mb-2">
-          {["M", "T", "W", "T", "F", "S", "U"].map((d) => (
-            <span key={d}>{d}</span>
-          ))}
-        </div>
-
-        {/* Week 1 row */}
-        <div className="mb-1">
-          <p className="text-xs text-white/55 font-inter mb-1">APRIL</p>
-          <div className="grid grid-cols-7 gap-2">
-            {week1Days.map((d) => (
-              <div
-                key={d}
-                className={`aspect-square flex items-center justify-center rounded-lg text-sm font-inter ${
-                  sessionDaysW1.includes(d)
-                    ? "bg-[#D4714E]/20 text-[#D4714E] font-bold border border-[#D4714E]/30"
-                    : "bg-white/5 text-white/55"
-                }`}
-              >
-                {d}
-              </div>
+        <FadeUp>
+          {/* Calendar header */}
+          <div className="grid grid-cols-7 text-center text-xs text-[#f3eccb]/45 font-inter mb-2">
+            {["M", "T", "W", "T", "F", "S", "U"].map((d) => (
+              <span key={d}>{d}</span>
             ))}
           </div>
-        </div>
 
-        {/* Week 2 row */}
-        <div className="mb-10">
-          <div className="grid grid-cols-7 gap-2 mt-2">
-            {week2Days.map((d) => (
-              <div
-                key={d}
-                className={`aspect-square flex items-center justify-center rounded-lg text-sm font-inter ${
-                  sessionDaysW2.includes(d)
-                    ? "bg-[#D4714E]/20 text-[#D4714E] font-bold border border-[#D4714E]/30"
-                    : "bg-white/5 text-white/55"
-                }`}
-              >
-                {d}
-              </div>
-            ))}
+          {/* Week 1 row */}
+          <div className="mb-1">
+            <p className="text-xs text-[#f3eccb]/55 font-inter mb-1">APRIL</p>
+            <div className="grid grid-cols-7 gap-2">
+              {week1Days.map((d) => (
+                <div
+                  key={d}
+                  className={`aspect-square flex items-center justify-center rounded-lg text-sm font-inter ${
+                    sessionDaysW1.includes(d)
+                      ? "bg-green-500/15 text-green-400 font-bold border-2 border-green-500/60 shadow-[0_0_12px_rgba(34,197,94,0.3)]"
+                      : "bg-white/5 text-[#f3eccb]/55"
+                  }`}
+                >
+                  {d}
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
+
+          {/* Week 2 row */}
+          <div className="mb-10">
+            <div className="grid grid-cols-7 gap-2 mt-2">
+              {week2Days.map((d) => (
+                <div
+                  key={d}
+                  className={`aspect-square flex items-center justify-center rounded-lg text-sm font-inter ${
+                    sessionDaysW2.includes(d)
+                      ? "bg-green-500/15 text-green-400 font-bold border-2 border-green-500/60 shadow-[0_0_12px_rgba(34,197,94,0.3)]"
+                      : "bg-white/5 text-[#f3eccb]/55"
+                  }`}
+                >
+                  {d}
+                </div>
+              ))}
+            </div>
+          </div>
+        </FadeUp>
 
         {/* Session list */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
-          <div>
-            <h3 className="font-manrope font-bold text-white text-lg mb-4">
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
+          <StaggerItem>
+            <h3 className="font-manrope font-bold text-[#f3eccb]text-lg mb-4">
               WEEK 1 — APRIL
             </h3>
             <div className="space-y-3">
@@ -1116,16 +1152,16 @@ function Schedule() {
                 ["Fri 10", "Session 3: Calendar Ninja"],
               ].map(([day, session]) => (
                 <div key={day} className="flex gap-4">
-                  <span className="text-[#D4714E] text-sm font-bold font-inter w-16 shrink-0">
+                  <span className="text-green-500 text-sm font-bold font-inter w-16 shrink-0">
                     {day}
                   </span>
-                  <span className="text-white/80 text-sm">{session}</span>
+                  <span className="text-[#f3eccb]/80 text-sm">{session}</span>
                 </div>
               ))}
             </div>
-          </div>
-          <div>
-            <h3 className="font-manrope font-bold text-white text-lg mb-4">
+          </StaggerItem>
+          <StaggerItem>
+            <h3 className="font-manrope font-bold text-[#f3eccb]text-lg mb-4">
               WEEK 2 — APRIL
             </h3>
             <div className="space-y-3">
@@ -1135,21 +1171,23 @@ function Schedule() {
                 ["Fri 17", "Session 6: Claude Cascade"],
               ].map(([day, session]) => (
                 <div key={day} className="flex gap-4">
-                  <span className="text-[#D4714E] text-sm font-bold font-inter w-16 shrink-0">
+                  <span className="text-green-500 text-sm font-bold font-inter w-16 shrink-0">
                     {day}
                   </span>
-                  <span className="text-white/80 text-sm">{session}</span>
+                  <span className="text-[#f3eccb]/80 text-sm">{session}</span>
                 </div>
               ))}
             </div>
-          </div>
-        </div>
+          </StaggerItem>
+        </StaggerContainer>
 
-        <p className="text-center text-white/70 text-sm mt-12 max-w-xl mx-auto leading-relaxed">
-          6 live sessions over 2 weeks. This isn&rsquo;t self-paced content you
-          buy and forget. We build together. You show up, you do the work, you
-          leave with a system—and the replay recordings forever.
-        </p>
+        <FadeUp className="text-center mt-12">
+          <p className="text-[#f3eccb]/70 text-sm max-w-xl mx-auto leading-relaxed">
+            6 live sessions over 2 weeks. This isn&rsquo;t self-paced content you
+            buy and forget. We build together. You show up, you do the work, you
+            leave with a system—and the replay recordings forever.
+          </p>
+        </FadeUp>
       </div>
     </section>
   );
@@ -1158,35 +1196,42 @@ function Schedule() {
 /* ──────────────────── PRICING ──────────────────────────── */
 function Pricing() {
   return (
-    <section id="pricing" className="bg-[#0f2847] py-24 sm:py-32 px-6">
+    <section id="pricing" className="py-20 sm:py-24 px-6" style={{ background: "linear-gradient(0deg, #DC2625 -62%, #0D1116 90%)" }}>
       <div className="max-w-xl mx-auto">
-        <div className="animate-on-scroll bg-[#132640] border border-[#D4714E]/20 rounded-2xl p-12 sm:p-14 text-center">
-          <p className="text-white/55 text-xs tracking-[0.2em] uppercase font-inter mb-2">
-            Total Value
-          </p>
-          <p className="text-[#D4714E]/70 text-3xl font-manrope line-through mb-6">
-            $3,800+
-          </p>
-          <p className="text-[#D4714E] text-base font-inter mb-1">Your Price</p>
-          <p className="text-white font-anton text-7xl sm:text-8xl mb-10">
-            $800
-          </p>
-          <a
-            href="#"
-            className="block w-full bg-yellow-cta text-[#0a1628] font-bold font-inter text-lg tracking-wider py-5 hover:bg-[#fc6714] transition-colors rounded-lg"
-          >
-            JOIN CLAUDE COWORK BOOTCAMP
-          </a>
-          <p className="text-white/45 text-sm mt-5 font-inter">
-            Starts April 6, 2026 &middot; <span className="text-[#D4714E]">Limited seats</span>
-          </p>
-          <div className="flex justify-center mt-8">
-            <span className="inline-flex items-center gap-2 border border-[#D4714E]/40 rounded-full px-5 py-2 text-xs tracking-wider uppercase font-inter text-white/70">
-              <span className="w-2 h-2 rounded-full bg-[#D4714E]" />
-              7-Day Money-Back Guarantee
-            </span>
+        <FadeUp>
+          <div className="bg-[#0F151C] border border-[#DC2625]/20 rounded-2xl p-12 sm:p-14 text-center">
+            <p className="text-[#f3eccb]/55 text-xs tracking-[0.2em] uppercase font-inter mb-2">
+              Total Value
+            </p>
+            <p className="text-[#DC2625]/70 text-3xl font-manrope line-through mb-6">
+              $3,800+
+            </p>
+            <p className="text-[#DC2625] text-base font-inter mb-1">Your Price</p>
+            <p className="text-[#f3eccb]font-anton text-7xl sm:text-8xl mb-10">
+              $800
+            </p>
+            <ScaleOnHover>
+              <a
+                href="https://ship.samcart.com/products/claude-co-work-bootcamp"
+                className="block w-full bg-[#FACC15] text-[#0D1116] font-bold font-inter text-lg tracking-wider py-5 hover:bg-[#DC2625] hover:text-[#f3eccb]transition-colors rounded-lg"
+              >
+                JOIN CLAUDE COWORK BOOTCAMP
+              </a>
+            </ScaleOnHover>
+            <p className="text-[#f3eccb]/45 text-sm mt-5 font-inter">
+              Starts April 6, 2026 &middot; <span className="text-[#DC2625]">Limited seats</span>
+            </p>
+            <div className="mt-4 flex justify-center">
+              <CountdownTimer size="large" />
+            </div>
+            <div className="flex justify-center mt-8">
+              <span className="inline-flex items-center gap-2 border border-[#DC2625]/40 rounded-full px-5 py-2 text-xs tracking-wider uppercase font-inter text-[#f3eccb]/70">
+                <span className="w-2 h-2 rounded-full bg-[#DC2625]" />
+                7-Day Money-Back Guarantee
+              </span>
+            </div>
           </div>
-        </div>
+        </FadeUp>
       </div>
     </section>
   );
@@ -1195,36 +1240,41 @@ function Pricing() {
 /* ──────────────────── GUARANTEE + FINAL CTA ───────────── */
 function GuaranteeCta() {
   return (
-    <section className="bg-[#0f2847] py-24 sm:py-32 px-6">
+    <section className="bg-[#0D1116] py-20 sm:py-24 px-6">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
         {/* Guarantee */}
-        <div className="space-y-5 flex flex-col justify-center">
-          <h3 className="font-manrope font-bold text-2xl sm:text-3xl text-white">
+        <FadeUp className="space-y-5 flex flex-col justify-center">
+          <h3 className="font-manrope font-bold text-2xl sm:text-3xl text-[#f3eccb]">
             First-Week Guarantee
           </h3>
-          <p className="text-white/55 text-base leading-relaxed">
+          <p className="text-[#f3eccb]/55 text-base leading-relaxed">
             If in the first week of the cohort you&rsquo;ve completed the
             assignments and still decide these aren&rsquo;t skills you want to
             build, just let us know and we&rsquo;ll give you a full
             refund—no questions asked.
           </p>
-        </div>
+        </FadeUp>
 
         {/* Final CTA */}
-        <div className="space-y-6">
-          <h3 className="font-manrope font-bold text-3xl sm:text-4xl text-white leading-tight">
+        <FadeUp delay={0.15} className="space-y-6">
+          <h3 className="font-manrope font-bold text-3xl sm:text-4xl text-[#f3eccb]leading-tight">
             Ready to Build Your<br />First .skills?
           </h3>
-          <a
-            href="#"
-            className="inline-block bg-yellow-cta text-[#0a1628] font-bold font-inter text-base tracking-wider px-10 py-5 rounded-full hover:bg-[#fc6714] transition-colors"
-          >
-            JOIN THE BOOTCAMP — $800
-          </a>
-          <p className="text-white/45 text-sm font-inter">
+          <ScaleOnHover className="inline-block">
+            <a
+              href="https://ship.samcart.com/products/claude-co-work-bootcamp"
+              className="inline-block bg-[#FACC15] text-[#0D1116] font-bold font-inter text-base tracking-wider px-10 py-5 rounded-full hover:bg-[#DC2625] hover:text-[#f3eccb]transition-colors"
+            >
+              JOIN THE BOOTCAMP — $800
+            </a>
+          </ScaleOnHover>
+          <p className="text-[#f3eccb]/45 text-sm font-inter">
             April 6 – April 17, 2026 &middot; Limited seats
           </p>
-        </div>
+          <div className="mt-4">
+            <CountdownTimer size="large" />
+          </div>
+        </FadeUp>
       </div>
     </section>
   );
@@ -1262,37 +1312,38 @@ function FAQ() {
   const [openIdx, setOpenIdx] = useState<number | null>(0);
 
   return (
-    <section className="bg-gradient-to-b from-[#161616] to-[#1a0a0a] py-24 sm:py-32 px-6">
+    <section className="bg-[#0D1116] py-20 sm:py-24 px-6">
       <div className="max-w-3xl mx-auto">
-        <h2 className="text-center font-manrope font-bold text-3xl sm:text-4xl text-white mb-14">
-          Frequently Asked Questions
-        </h2>
+        <FadeUp className="text-center mb-14">
+          <h2 className="font-manrope font-bold text-3xl sm:text-4xl text-[#f3eccb]">
+            Frequently Asked Questions
+          </h2>
+        </FadeUp>
 
         <div className="space-y-4">
           {FAQ_ITEMS.map((item, i) => (
-            <div
-              key={i}
-              className="border border-white/15 rounded-xl overflow-hidden"
-            >
-              <button
-                onClick={() => setOpenIdx(openIdx === i ? null : i)}
-                className="w-full flex items-center justify-between px-7 py-6 text-left"
-              >
-                <span className="font-manrope font-semibold text-white text-base">
-                  {item.q}
-                </span>
-                <span className="text-[#D4714E] text-2xl leading-none ml-4">
-                  {openIdx === i ? "\u2212" : "+"}
-                </span>
-              </button>
-              {openIdx === i && (
-                <div className="px-7 pb-6">
-                  <p className="text-white/70 text-base leading-relaxed">
-                    {item.a}
-                  </p>
-                </div>
-              )}
-            </div>
+            <FadeUp key={i} delay={i * 0.05}>
+              <div className="bg-[#0F151C] border border-white/[0.08] rounded-xl overflow-hidden">
+                <button
+                  onClick={() => setOpenIdx(openIdx === i ? null : i)}
+                  className="w-full flex items-center justify-between px-7 py-6 text-left"
+                >
+                  <span className="font-manrope font-semibold text-[#f3eccb]text-base">
+                    {item.q}
+                  </span>
+                  <span className="text-[#DC2625] text-2xl leading-none ml-4">
+                    {openIdx === i ? "\u2212" : "+"}
+                  </span>
+                </button>
+                {openIdx === i && (
+                  <div className="px-7 pb-6">
+                    <p className="text-[#f3eccb]/70 text-base leading-relaxed">
+                      {item.a}
+                    </p>
+                  </div>
+                )}
+              </div>
+            </FadeUp>
           ))}
         </div>
       </div>
@@ -1302,31 +1353,12 @@ function FAQ() {
 
 /* ──────────────────── PAGE ─────────────────────────────── */
 export default function Home() {
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-          }
-        });
-      },
-      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
-    );
-
-    document.querySelectorAll('.animate-on-scroll, .slide-from-left, .slide-from-right').forEach((el) => {
-      observer.observe(el);
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <main>
       <Hero />
 
       {/* Featured quote — social proof right after hero */}
-      <section className="bg-[#0f2847]">
+      <section className="bg-[#0D1116]">
         <InlineTestimonial
           size="featured"
           quote="Truly took my AI usage to the next level. This was the biggest shift in how I use AI to get things done since the beginning of the AI hype a few years ago."
@@ -1335,11 +1367,12 @@ export default function Home() {
       </section>
 
       <WhatsNew />
+      <div id="how-it-works" className="scroll-mt-4" />
       <ScrollytellingCompact />
       <AreSkillsRight />
 
       {/* After "Are Skills Right" — skeptic-turned-believer */}
-      <section className="bg-gradient-to-b from-[#BD3131] to-[#0f2847] py-2">
+      <section className="py-2" style={{ background: "linear-gradient(to bottom, #DC2625, #0D1116)" }}>
         <InlineTestimonial
           size="large"
           quote="I hesitated before signing up for the bootcamp but am extremely glad I did. The skills I learned took my understanding and practical use of AI to a completely different level."
@@ -1351,7 +1384,7 @@ export default function Home() {
       <SessionOutline />
 
       {/* After skills grid — someone who built real things */}
-      <section className="bg-[#0f2847]">
+      <section className="bg-[#0D1116]">
         <InlineTestimonial
           size="large"
           quote="Now I have pipelines that generate brand-compliant presentation decks and meeting prep kits from structured content. One skill replaced an entire workflow."
@@ -1364,7 +1397,7 @@ export default function Home() {
       <Instructors />
 
       {/* After instructors — teaching quality */}
-      <section className="bg-[#0f2847]">
+      <section className="bg-[#0D1116]">
         <InlineTestimonial
           size="large"
           quote="My overriding takeaway was how effective Mitch was as a teacher. Without doubt, the highlight was creating and deploying a landing page and e-book lead magnet in less than an hour."
@@ -1375,7 +1408,7 @@ export default function Home() {
       <Schedule />
 
       {/* Before pricing — ROI / transformation */}
-      <section className="bg-[#0f2847]">
+      <section className="bg-[#0D1116]">
         <InlineTestimonial
           size="featured"
           quote="What Mitch built doesn't just save you time, it multiplies your output. Seeing how many ways these skills could be applied overwhelmed me (in the best way) and unleashed a flood of ideas."
